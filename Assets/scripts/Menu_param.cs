@@ -8,17 +8,26 @@ using TMPro;
 public class Menu_param : MonoBehaviour
 {
     public TMP_Text Playername;
-    public CanvasGroup menucanvas, nickcanvas;
+    public CanvasGroup menucanvas, nickcanvas, quizcanvas;
     public static bool nick_zadany = false;
     void Start()
     {
     }
+
     public void NewGame()
     {
         menucanvas.alpha = 1 - menucanvas.alpha;
         menucanvas.interactable = false;
         nickcanvas.alpha = 1 + nickcanvas.alpha;
         nickcanvas.interactable = true;
+    }
+
+    public void CanvasQuiz_load()
+    {
+        menucanvas.alpha = 1 - menucanvas.alpha;
+        menucanvas.interactable = false;
+        quizcanvas.alpha = 1 + quizcanvas.alpha;
+        quizcanvas.interactable = true;
     }
 
     public void ContinueGame()
@@ -29,6 +38,7 @@ public class Menu_param : MonoBehaviour
     public void LoadLevelGame()
     {
         Debug.Log("Load level Game");
+        CanvasQuiz_load();
     }
 
     public void ShowScoreTable()
