@@ -52,15 +52,43 @@ public class PlayerController : MonoBehaviour
             Player.GetComponent<SpriteRenderer>().sprite = player_front;
         }
 
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        
         if (vprekazke == false)
         {
             pozicia = body2D.position;
         }
-        Vector3 tempVect = new Vector3(h, v, 0);
+        /*Vector3 tempVect = new Vector3(h, v, 0);
         tempVect = tempVect.normalized * runSpeed * Time.deltaTime;
-        body2D.MovePosition(body2D.transform.position + tempVect);
+        body2D.MovePosition(body2D.transform.position + tempVect);*/
+
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+
+        if (h < 0f)
+        {
+            body2D.velocity = new Vector2(h * runSpeed, body2D.velocity.y);
+            //transform.localScale = new Vector2(GetComponent<Transform>().localScale.x, GetComponent<Transform>().localScale.y);
+        }
+        if (h > 0f)
+        {
+            body2D.velocity = new Vector2(h * runSpeed, body2D.velocity.y);
+            //transform.localScale = new Vector2(-(GetComponent<Transform>().localScale.x), GetComponent<Transform>().localScale.y);
+        }
+        if (v < 0f)
+        {
+            body2D.velocity = new Vector2(body2D.velocity.x, v * runSpeed);
+            //transform.localScale = new Vector2(GetComponent<Transform>().localScale.x, GetComponent<Transform>().localScale.y);
+        }
+        if (v > 0f)
+        {
+            body2D.velocity = new Vector2(body2D.velocity.x, v * runSpeed);
+            //transform.localScale = new Vector2(-(GetComponent<Transform>().localScale.x), GetComponent<Transform>().localScale.y);
+        }
+
+        //moveX = Input.GetAxis("Horizontal") * Time.deltaTime * runSpeed;
+        //moveY = Input.GetAxis("Vertical") * Time.deltaTime * runSpeed;
+        //jumpY = Input.GetAxis("Jump") * Time.deltaTime * jumpSpeed;
+        //transform.Translate(moveX, moveY, 0f);
         //body2D.MovePosition(wantedPosition);
     }
 
@@ -75,7 +103,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //nic
+        PlayerSpriteChange(); //menime sprite hraca pri pohybe WASD
+        Pohyb(); //pohyb hraca
+        kontrola_hranic(); //kontrola hranic hry
     }
 
     void kontrola_hranic()//kontrola hranic hry
@@ -101,9 +131,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerSpriteChange(); //menime sprite hraca pri pohybe WASD
-        Pohyb(); //pohyb hraca
-        kontrola_hranic(); //kontrola hranic hry
+        
         //Debug.Log(transform.position); //zapnutie pozicii v debugu
     }
 
