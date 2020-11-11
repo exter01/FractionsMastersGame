@@ -31,23 +31,23 @@ public class PlayerController : MonoBehaviour
 
     void PlayerSpriteChange()//zmena srpite pri pohybe hraca
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             Player.GetComponent<SpriteRenderer>().sprite = player_rear;
             //body2D.velocity = new Vector2(-1, body2D.velocity.x) * runSpeed;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             Player.GetComponent<SpriteRenderer>().sprite = player_left;
             //.velocity = new Vector2(-1, body2D.velocity.y) * runSpeed;
             //body2D.velocity = Vector2.left;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             Player.GetComponent<SpriteRenderer>().sprite = player_right;
             //body2D.velocity = new Vector2(1, body2D.velocity.y) * runSpeed;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             Player.GetComponent<SpriteRenderer>().sprite = player_front;
         }
