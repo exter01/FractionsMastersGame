@@ -38,6 +38,9 @@ public class Hra_param : MonoBehaviour
     public Image B_Zadanie, B_Odp1, B_Odp2, B_Odp3;
 
     public VideoPlayer saving_video;
+   
+    
+    public static float timeLeft = 5f;
 
     public void spravne_odpovede()
     {
@@ -250,20 +253,39 @@ public class Hra_param : MonoBehaviour
             listok_enable();
         }
 
-        if(touch_save_diskette == true)
-        {
-            if(tmp_pocet2 == 0)
-            {
-                saving_enable();
-            }
-            if(tmp_pocet2 == 600)
-            {
-                QuitGame();
-            }
-            tmp_pocet2++;
-        }
+         if(touch_save_diskette == true)
+         {
+             if(tmp_pocet2 == 0)
+             {
+                 saving_enable();
+             }
+             if(tmp_pocet2 == 600)
+             {
+                 QuitGame();
+             }
+             tmp_pocet2++;
+         }
 
-        if(show_save_diskette == true)
+
+        /*
+         if(touch_save_diskette == true)
+         {
+             
+                 if(timeLeft > 0)
+                 {
+                    saving_enable();
+                    timeLeft -= Time.deltaTime;
+                 }
+                
+                 if(timeLeft = 0)
+                 {
+                 QuitGame();
+                 }
+             
+         }
+        */
+
+        if (show_save_diskette == true)
         {
             zobraz_save_diskette();
         }
