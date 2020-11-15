@@ -211,6 +211,8 @@ public class Hra_param : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        saving_video.loopPointReached += EndReached;
+
         Playername.text = playernamestr; //meno hraca z menu
         listok1.SetActive(false);
         listok2.SetActive(false);
@@ -220,12 +222,19 @@ public class Hra_param : MonoBehaviour
         Save_Diskette.SetActive(false);
     }
 
+    void EndReached(UnityEngine.Video.VideoPlayer vp)
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
     public void QuitGame() //doriesit vyresetovanie hry NEJDE !
     {
         SceneManager.LoadScene("Menu");
     }
 
-    private int tmp_pocet = 0, tmp_pocet2 = 0, tmp_pocet3 = 0;
+    private int tmp_pocet = 0, /*tmp_pocet2 = 0,*/ tmp_pocet3 = 0;
+
+    public static float saving_screen_time = 50f;
     // Update is called once per frame
     void Update()
     {
@@ -255,15 +264,8 @@ public class Hra_param : MonoBehaviour
 
          if(touch_save_diskette == true)
          {
-             if(tmp_pocet2 == 0)
-             {
-                 saving_enable();
-             }
-             if(tmp_pocet2 == 600)
-             {
-                 QuitGame();
-             }
-             tmp_pocet2++;
+            touch_save_diskette = false;
+            saving_enable();
          }
 
 
