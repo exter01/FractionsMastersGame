@@ -11,6 +11,8 @@ public class Hra_quiz_param : MonoBehaviour
     public TMP_Text Playername; //meno hraca z menu
     public TMP_Text odpoved; // vybrana odpoved
     public TMP_Text score; // zobrazene skore
+    public TMP_Text score_finish; // zobrazene skore na konci v canvasscore
+    public CanvasGroup hernycanvas, scorecanvas;
     public static int vybrana_odpoved = 4;
     public static int spravna_odpoved = 4;
     public static int priklad_cislo = 0;
@@ -108,11 +110,11 @@ public class Hra_quiz_param : MonoBehaviour
         Cas_zostava.cas_uplynul = false;
         priklad_cislo++;
         spravne_odpovede();
-        Cas_zostava.timeLeft = 5f;
+        Cas_zostava.timeLeft = 10f;
         Cas_zostava.timerIsRunning = true;
         if (priklad_cislo == 11) // po prejdeny vsetkych prikladov sa hra vypne, zatial
         {
-            QuitGame();
+            score_vyhodnotenie();
         }
     }
 
@@ -159,6 +161,16 @@ public class Hra_quiz_param : MonoBehaviour
         }
     }
 
+    public void score_vyhodnotenie()
+    {
+        score_zobraz = true;
+        hernycanvas.alpha = 1 - hernycanvas.alpha;
+        hernycanvas.interactable = false;
+        scorecanvas.alpha = 1 + scorecanvas.alpha;
+        scorecanvas.interactable = true;
+        score_finish.text = string.Format("{0} {1}", "Tvoje score je: ", act_score);
+    }
+
     public void QuitGame() //doriesit vyresetovanie hry NEJDE !
     {
         SceneManager.LoadScene("Menu");
@@ -174,12 +186,23 @@ public class Hra_quiz_param : MonoBehaviour
         Cas_zostava.timerIsRunning = true;
     }
 
+    private int tmp_pocet_score = 0;
+    private bool score_zobraz = false;
     // Update is called once per frame
     void Update()
     {
         if (Cas_zostava.cas_uplynul == true)
         {
             listok_enable();
+        }
+
+        if(score_zobraz == true)
+        {
+            if (tmp_pocet_score == 50)
+            {
+                QuitGame();
+            }
+            tmp_pocet_score++;
         }
     }
 }
