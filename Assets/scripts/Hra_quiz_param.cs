@@ -35,7 +35,7 @@ public class Hra_quiz_param : MonoBehaviour
             B_Odp1.sprite = P2_o1;
             B_Odp2.sprite = P2_o2;
             B_Odp3.sprite = P2_o3;
-            spravna_odpoved = 2;
+            spravna_odpoved = 3;
         }
         if (priklad_cislo == 3)
         {
@@ -43,7 +43,63 @@ public class Hra_quiz_param : MonoBehaviour
             B_Odp1.sprite = P3_o1;
             B_Odp2.sprite = P3_o2;
             B_Odp3.sprite = P3_o3;
+            spravna_odpoved = 1;
+        }
+        if (priklad_cislo == 4)
+        {
+            B_Zadanie.sprite = P4_o0;
+            B_Odp1.sprite = P4_o1;
+            B_Odp2.sprite = P4_o2;
+            B_Odp3.sprite = P4_o3;
             spravna_odpoved = 3;
+        }
+        if (priklad_cislo == 5)
+        {
+            B_Zadanie.sprite = P5_o0;
+            B_Odp1.sprite = P5_o1;
+            B_Odp2.sprite = P5_o2;
+            B_Odp3.sprite = P5_o3;
+            spravna_odpoved = 3;
+        }
+        if (priklad_cislo == 6)
+        {
+            B_Zadanie.sprite = P6_o0;
+            B_Odp1.sprite = P6_o1;
+            B_Odp2.sprite = P6_o2;
+            B_Odp3.sprite = P6_o3;
+            spravna_odpoved = 2;
+        }
+        if (priklad_cislo == 7)
+        {
+            B_Zadanie.sprite = P7_o0;
+            B_Odp1.sprite = P7_o1;
+            B_Odp2.sprite = P7_o2;
+            B_Odp3.sprite = P7_o3;
+            spravna_odpoved = 1;
+        }
+        if (priklad_cislo == 8)
+        {
+            B_Zadanie.sprite = P8_o0;
+            B_Odp1.sprite = P8_o1;
+            B_Odp2.sprite = P8_o2;
+            B_Odp3.sprite = P8_o3;
+            spravna_odpoved = 2;
+        }
+        if (priklad_cislo == 9)
+        {
+            B_Zadanie.sprite = P9_o0;
+            B_Odp1.sprite = P9_o1;
+            B_Odp2.sprite = P9_o2;
+            B_Odp3.sprite = P9_o3;
+            spravna_odpoved = 3;
+        }
+        if (priklad_cislo == 10)
+        {
+            B_Zadanie.sprite = P10_o0;
+            B_Odp1.sprite = P10_o1;
+            B_Odp2.sprite = P10_o2;
+            B_Odp3.sprite = P10_o3;
+            spravna_odpoved = 2;
         }
     }
 
