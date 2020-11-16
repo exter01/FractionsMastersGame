@@ -266,7 +266,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 891983682}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2134139243}
         m_MethodName: vyber_odpoved2
         m_Mode: 1
         m_Arguments:
@@ -704,7 +704,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 891983682}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -754,7 +754,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2134139243}
         m_MethodName: vyber_odpoved3
         m_Mode: 1
         m_Arguments:
@@ -978,7 +978,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 891983682}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1289,12 +1289,12 @@ RectTransform:
   - {fileID: 1939909004}
   - {fileID: 1724942583}
   - {fileID: 1836994373}
-  - {fileID: 1445191543}
   - {fileID: 1414370781}
   - {fileID: 1925142469}
   - {fileID: 297177196}
   - {fileID: 418351421}
   - {fileID: 453814031}
+  - {fileID: 1445191543}
   m_Father: {fileID: 519420032}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1709,7 +1709,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 891983682}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1838,11 +1838,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 891983682}
-  m_RootOrder: 6
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.019, y: -125.6}
+  m_AnchoredPosition: {x: 12.693, y: -146}
   m_SizeDelta: {x: 191.94522, y: 36.899155}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1445191544
@@ -1888,7 +1888,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2134139243}
         m_MethodName: Potvrdit_odpoved
         m_Mode: 1
         m_Arguments:
@@ -2349,7 +2349,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2134139243}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -2575,7 +2575,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 891983682}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2625,7 +2625,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2134139243}
         m_MethodName: vyber_odpoved1
         m_Mode: 1
         m_Arguments:
@@ -2899,29 +2899,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c231c380726b0141ac3ff2d9328b737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Playername: {fileID: 0}
-  odpoved: {fileID: 0}
-  score: {fileID: 0}
-  hernycanvas: {fileID: 0}
-  otazkovycanvas: {fileID: 0}
-  vysvetlovaniecanvas: {fileID: 0}
-  savingcanvas: {fileID: 0}
-  Save_Diskette: {fileID: 0}
-  Button_Odp1: {fileID: 0}
-  Button_Odp2: {fileID: 0}
-  Button_Odp3: {fileID: 0}
+  Playername: {fileID: 1939909006}
+  odpoved: {fileID: 453814028}
+  score: {fileID: 1724942585}
   P1_o0: {fileID: 21300000, guid: d24b65f8294ae1c4fb6de04b94df7ca2, type: 3}
   P1_o1: {fileID: 21300000, guid: 9532e022472e6124ea5110cc01d38f78, type: 3}
   P1_o2: {fileID: 21300000, guid: fc46ee5c5b2bb8c4aa71dc6840552c5c, type: 3}
   P1_o3: {fileID: 21300000, guid: 46233e2663f12b54cbe08fc095886bc0, type: 3}
-  P2_o0: {fileID: 0}
-  P2_o1: {fileID: 0}
-  P2_o2: {fileID: 0}
-  P2_o3: {fileID: 0}
-  P3_o0: {fileID: 0}
-  P3_o1: {fileID: 0}
-  P3_o2: {fileID: 0}
-  P3_o3: {fileID: 0}
+  P2_o0: {fileID: 21300000, guid: 0fc2089a015a0554887a1ac61f8d8aca, type: 3}
+  P2_o1: {fileID: 21300000, guid: 26d0cd44ecaea2542a6ee37e692be55b, type: 3}
+  P2_o2: {fileID: 21300000, guid: 541b78cb37d47fa4898583f46a7044ac, type: 3}
+  P2_o3: {fileID: 21300000, guid: bfcf58d4f686f0840abad3e20344c026, type: 3}
+  P3_o0: {fileID: 21300000, guid: 4dfece63ef4aeed4ca20a10d36988ce0, type: 3}
+  P3_o1: {fileID: 21300000, guid: 08ecfee499256e24786a19549cf07869, type: 3}
+  P3_o2: {fileID: 21300000, guid: 6e4b78e7afb1fe24b8b7c0e0503b304b, type: 3}
+  P3_o3: {fileID: 21300000, guid: db3be1c0bae80b24baa25f6a2188337a, type: 3}
   P4_o0: {fileID: 0}
   P4_o1: {fileID: 0}
   P4_o2: {fileID: 0}
@@ -2950,7 +2942,7 @@ MonoBehaviour:
   P10_o1: {fileID: 0}
   P10_o2: {fileID: 0}
   P10_o3: {fileID: 0}
-  B_Zadanie: {fileID: 0}
-  B_Odp1: {fileID: 0}
-  B_Odp2: {fileID: 0}
-  B_Odp3: {fileID: 0}
+  B_Zadanie: {fileID: 1414370783}
+  B_Odp1: {fileID: 1925142471}
+  B_Odp2: {fileID: 297177198}
+  B_Odp3: {fileID: 418351423}

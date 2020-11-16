@@ -6,8 +6,8 @@ using TMPro;
 public class Cas_zostava : MonoBehaviour
 {
     private TextMeshProUGUI text;
-    public static float timeLeft = 30f; //cas v sekundach
-    public static bool timerIsRunning = false;
+    public static float timeLeft = 150f; //cas v sekundach, menime v kazdej hre na custom
+    public static bool timerIsRunning = false, cas_uplynul = false;
 
     void DisplayTime(float timeToDisplay)
     {
@@ -19,8 +19,6 @@ public class Cas_zostava : MonoBehaviour
 
     void Start()
     {
-        //timerIsRunning = true;
-        //DisplayTime(0);
         text = GetComponent<TextMeshProUGUI>();
     }
 
@@ -41,12 +39,12 @@ public class Cas_zostava : MonoBehaviour
                 //DisplayTime(timeLeft);
                 text.text = "00:00";
                 timerIsRunning = false;
-                Hra_param.show_save_diskette = true;
+                cas_uplynul = true;
             }
         }
         else
         {
-            DisplayTime(timeLeft-1);//ak nepresli tutorialom, tak cas neni spsuteny, ale musi byt urceny
+            DisplayTime(timeLeft-1);//ak nepresli tutorialom, tak cas neni spusteny, ale musi byt urceny
         }
     }
 }

@@ -8,9 +8,7 @@ using TMPro;
 
 public class Hra_param : MonoBehaviour
 {
-    public GameObject Player;
-    public GameObject Kral;
-    public GameObject Hojdacka;
+    public GameObject Player, Kral, Hojdacka;
 
     //meno hraca z menu
     public static string playernamestr;
@@ -28,20 +26,13 @@ public class Hra_param : MonoBehaviour
     public static int priklad_cislo = 0;
     public static int act_score = 0;
     public static bool touch_save_diskette = false; // ked sa dotkne postavicka cez collider
-    public static bool show_save_diskette = false; // ci sa ma zobrazit disketa
     public static bool prebehlo_vysvetlovanie = false;
     public CanvasGroup hernycanvas, otazkovycanvas, vysvetlovaniecanvas, savingcanvas;
-    public GameObject listok1, listok2, listok3, listok4; // vyberame objekty listkov
-    public GameObject Save_Diskette;
-    public GameObject Button_Odp1, Button_Odp2, Button_Odp3;
+    public GameObject listok1, listok2, listok3, listok4, Save_Diskette; // vyberame objekty
     public Sprite P1_o0, P1_o1, P1_o2, P1_o3, P2_o0, P2_o1, P2_o2, P2_o3, P3_o0, P3_o1, P3_o2, P3_o3, P4_o0, P4_o1, P4_o2, P4_o3;
     public Image B_Zadanie, B_Odp1, B_Odp2, B_Odp3;
-
     public VideoPlayer saving_video;
    
-    
-    public static float timeLeft = 5f;
-
     public void spravne_odpovede()
     {
         if(priklad_cislo == 1)
@@ -75,7 +66,7 @@ public class Hra_param : MonoBehaviour
             B_Odp2.sprite = P4_o2;
             B_Odp3.sprite = P4_o3;
             spravna_odpoved = 2;
-            show_save_diskette = true; // po poslednom priklade zobrazime disketu
+            Cas_zostava.cas_uplynul = true; // po poslednom priklade zobrazime disketu
         }
     }
 
@@ -104,6 +95,7 @@ public class Hra_param : MonoBehaviour
         listok3.SetActive(true);
         listok4.SetActive(true);
         Cas_zostava.timerIsRunning = true;
+        Cas_zostava.timeLeft = 21f;//ukazuje time - 1
     }
 
     void saving_enable()
@@ -212,7 +204,6 @@ public class Hra_param : MonoBehaviour
     void Start()
     {
         saving_video.loopPointReached += EndReached;
-
         Playername.text = playernamestr; //meno hraca z menu
         listok1.SetActive(false);
         listok2.SetActive(false);
@@ -232,9 +223,8 @@ public class Hra_param : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
-    private int tmp_pocet = 0, /*tmp_pocet2 = 0,*/ tmp_pocet3 = 0;
+    private int tmp_pocet = 0, tmp_pocet3 = 0;
 
-    public static float saving_screen_time = 50f;
     // Update is called once per frame
     void Update()
     {
@@ -262,32 +252,13 @@ public class Hra_param : MonoBehaviour
             listok_enable();
         }
 
-         if(touch_save_diskette == true)
-         {
+        if(touch_save_diskette == true)
+        {
             touch_save_diskette = false;
             saving_enable();
-         }
+        }
 
-
-        /*
-         if(touch_save_diskette == true)
-         {
-             
-                 if(timeLeft > 0)
-                 {
-                    saving_enable();
-                    timeLeft -= Time.deltaTime;
-                 }
-                
-                 if(timeLeft = 0)
-                 {
-                 QuitGame();
-                 }
-             
-         }
-        */
-
-        if (show_save_diskette == true)
+        if (Cas_zostava.cas_uplynul == true)
         {
             zobraz_save_diskette();
         }

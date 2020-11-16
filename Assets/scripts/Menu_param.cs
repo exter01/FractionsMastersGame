@@ -9,17 +9,18 @@ public class Menu_param : MonoBehaviour
 {
     public TMP_Text Playername;
     public CanvasGroup menucanvas, nickcanvas, quizcanvas;
-    public static bool nick_zadany = false;
+    public static string Scena = "nothing";
     void Start()
     {
     }
 
-    public void NewGame()
+    public void NewGame()// po kliknuti na novu hru, zobrazim input na nick
     {
         menucanvas.alpha = 1 - menucanvas.alpha;
         menucanvas.interactable = false;
         nickcanvas.alpha = 1 + nickcanvas.alpha;
         nickcanvas.interactable = true;
+        Scena = "Hra";
     }
 
     public void CanvasQuiz_load()
@@ -28,6 +29,15 @@ public class Menu_param : MonoBehaviour
         menucanvas.interactable = false;
         quizcanvas.alpha = 1 + quizcanvas.alpha;
         quizcanvas.interactable = true;
+    }
+
+    public void NewQuiz1()//scitenie zlomkov
+    {
+        quizcanvas.alpha = 1 - quizcanvas.alpha;
+        quizcanvas.interactable = false;
+        nickcanvas.alpha = 1 + nickcanvas.alpha;
+        nickcanvas.interactable = true;
+        Scena = "Hra-Quiz";
     }
 
     public void ContinueGame()
@@ -46,10 +56,12 @@ public class Menu_param : MonoBehaviour
         Debug.Log("Show score table");
     }
 
-    public void NewGamewithnick()
+    public void NewGamewithnick()//vyplneny nick a ideme hrat
     {
-        nick_zadany = true;
-        SceneManager.LoadScene("Hra");
+        Debug.Log("Player name is: " + Playername.text);
+        Hra_param.playernamestr = Playername.text;
+        Hra_quiz_param.playernamestr = Playername.text;
+        SceneManager.LoadScene(Scena);
     }
 
     public void QuitGame()
@@ -69,10 +81,6 @@ public class Menu_param : MonoBehaviour
 
     void Update()
     {
-        if(nick_zadany == true)
-        {
-            Debug.Log("Player name is: " + Playername.text);
-            Hra_param.playernamestr = Playername.text;
-        }
+        //
     }
 }
