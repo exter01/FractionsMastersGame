@@ -17,6 +17,7 @@ public class Hra_quiz_param : MonoBehaviour
     public static int spravna_odpoved = 4;
     public static int priklad_cislo = 0;
     public static int act_score = 0;
+    public static float cas_dlzka = 2f; //cas na vyber moznosti
     public Sprite P1_o0, P1_o1, P1_o2, P1_o3, P2_o0, P2_o1, P2_o2, P2_o3, P3_o0, P3_o1, P3_o2, P3_o3, P4_o0, P4_o1, P4_o2, P4_o3, P5_o0, P5_o1, P5_o2, P5_o3;
     public Sprite P6_o0, P6_o1, P6_o2, P6_o3, P7_o0, P7_o1, P7_o2, P7_o3, P8_o0, P8_o1, P8_o2, P8_o3, P9_o0, P9_o1, P9_o2, P9_o3, P10_o0, P10_o1, P10_o2, P10_o3;
     public Image B_Zadanie, B_Odp1, B_Odp2, B_Odp3;
@@ -108,9 +109,11 @@ public class Hra_quiz_param : MonoBehaviour
     void listok_enable()
     {
         Cas_zostava.cas_uplynul = false;
+        vybrana_odpoved = 4; //aby sa vynulovala odpoved po potvrdeni //doriesit 
+        odpoved.text = string.Format("{0}", ""); // vynulujeme odpoved //doriesit
         priklad_cislo++;
         spravne_odpovede();
-        Cas_zostava.timeLeft = 10f;
+        Cas_zostava.timeLeft = cas_dlzka;
         Cas_zostava.timerIsRunning = true;
         if (priklad_cislo == 11) // po prejdeny vsetkych prikladov sa hra vypne, zatial
         {
@@ -163,7 +166,6 @@ public class Hra_quiz_param : MonoBehaviour
 
     public void score_vyhodnotenie()
     {
-        score_zobraz = true;
         hernycanvas.alpha = 1 - hernycanvas.alpha;
         hernycanvas.interactable = false;
         scorecanvas.alpha = 1 + scorecanvas.alpha;
@@ -174,6 +176,7 @@ public class Hra_quiz_param : MonoBehaviour
     public void QuitGame() //doriesit vyresetovanie hry NEJDE !
     {
         SceneManager.LoadScene("Menu");
+        Debug.Log("quit game");
     }
 
     // Start is called before the first frame update
@@ -182,27 +185,16 @@ public class Hra_quiz_param : MonoBehaviour
         Playername.text = playernamestr; //meno hraca z menu
         update_score();//aby sa nastavilo score na 0
         listok_enable();//spusti prvu otazku
-        Cas_zostava.timeLeft = 10f;
+        Cas_zostava.timeLeft = cas_dlzka;
         Cas_zostava.timerIsRunning = true;
     }
 
-    private int tmp_pocet_score = 0;
-    private bool score_zobraz = false;
     // Update is called once per frame
     void Update()
     {
         if (Cas_zostava.cas_uplynul == true)
         {
             listok_enable();
-        }
-
-        if(score_zobraz == true)
-        {
-            if (tmp_pocet_score == 50)
-            {
-                QuitGame();
-            }
-            tmp_pocet_score++;
         }
     }
 }
