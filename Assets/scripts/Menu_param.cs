@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-//using UnityEngine.EventSystems; //event
 using TMPro;
 
 public class Menu_param : MonoBehaviour
 {
     public TMP_Text Playername;
     public CanvasGroup menucanvas, nickcanvas, quizcanvas;
-    //public EventSystem menuevent;
     public static string Scena = "nothing";
     void Start()
     {
@@ -19,32 +17,20 @@ public class Menu_param : MonoBehaviour
     public void NewGame()// po kliknuti na novu hru, zobrazim input na nick
     {
         menucanvas.gameObject.SetActive(false);
-        //menucanvas.alpha = 1 - menucanvas.alpha;
-        //menucanvas.interactable = false;
         nickcanvas.gameObject.SetActive(true);
-        //nickcanvas.alpha = 1 + nickcanvas.alpha;
-        //nickcanvas.interactable = true;
         Scena = "Hra";
     }
 
     public void CanvasQuiz_load()
     {
         menucanvas.gameObject.SetActive(false);
-        //menucanvas.alpha = 1 - menucanvas.alpha;
-        //menucanvas.interactable = false;
         quizcanvas.gameObject.SetActive(true);
-        //quizcanvas.alpha = 1 + quizcanvas.alpha;
-        //quizcanvas.interactable = true;
     }
 
     public void NewQuiz1()//scitenie zlomkov
     {
         quizcanvas.gameObject.SetActive(false);
-        //quizcanvas.alpha = 1 - quizcanvas.alpha;
-        //quizcanvas.interactable = false;
         nickcanvas.gameObject.SetActive(true);
-        //nickcanvas.alpha = 1 + nickcanvas.alpha;
-        //nickcanvas.interactable = true;
         Scena = "Hra-Quiz";
     }
 
@@ -53,15 +39,14 @@ public class Menu_param : MonoBehaviour
         Debug.Log("Continue Game");
     }
 
-    public void LoadLevelGame()
+    public void OpenQuizMenu()
     {
-        Debug.Log("Load level Game");
         CanvasQuiz_load();
     }
 
-    public void ShowScoreTable()
+    public void ShowCredits()
     {
-        Debug.Log("Show score table");
+        Debug.Log("Show credits");
     }
 
     public void NewGamewithnick()//vyplneny nick a ideme hrat
@@ -82,11 +67,7 @@ public class Menu_param : MonoBehaviour
     {
         Debug.Log("Back menu");
         nickcanvas.gameObject.SetActive(false);
-        //nickcanvas.alpha = 1 - nickcanvas.alpha;
-        //nickcanvas.interactable = false;
         menucanvas.gameObject.SetActive(true);
-        //menucanvas.alpha = 1 + menucanvas.alpha;
-        //menucanvas.interactable = true;
     }
 
     void Update()

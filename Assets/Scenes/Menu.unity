@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 137062446}
   - component: {fileID: 137062445}
   m_Layer: 5
-  m_Name: Button_Vybrat_level
+  m_Name: Button_Quiz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -277,7 +277,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1377098712}
-        m_MethodName: LoadLevelGame
+        m_MethodName: OpenQuizMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b263225631d108c4b98607a35dc070ca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1342e3c640f744446b189e43c3740caa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -491,7 +491,7 @@ GameObject:
   - component: {fileID: 354493458}
   - component: {fileID: 354493457}
   m_Layer: 5
-  m_Name: Button_Ukoncit
+  m_Name: Button_Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -589,7 +589,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 46efac9ee4ae39d42bb6bfe347afff99, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e18003586657e4c43b7a3a81cb545c1b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1080,7 +1080,7 @@ GameObject:
   - component: {fileID: 568493092}
   - component: {fileID: 568493091}
   m_Layer: 5
-  m_Name: Button_pokracovat
+  m_Name: Button_Continue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1178,7 +1178,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: be8aa6b5d85f0c44fa3c485c4b557ad9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d052e6ec645adb641827c72bd84a6ef8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1476,7 +1476,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d6d7c72de9020994eaa3e109912638ce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bb577f3bdfa1f5146a12cf2da9c01275, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1624,7 +1624,7 @@ GameObject:
   - component: {fileID: 1084407630}
   - component: {fileID: 1084407629}
   m_Layer: 5
-  m_Name: Button_Skore
+  m_Name: Button_Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1693,7 +1693,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1377098712}
-        m_MethodName: ShowScoreTable
+        m_MethodName: ShowCredits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1722,7 +1722,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2331f59b7e1bd954bbab4d9c521a7786, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 12ff6b77b535e5d48a5d3ef37aba4bad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2335,7 +2335,7 @@ GameObject:
   - component: {fileID: 1364076733}
   - component: {fileID: 1364076732}
   m_Layer: 5
-  m_Name: Button_Nova_hra
+  m_Name: Button_New_game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2433,7 +2433,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f93c7949c8ae5314085d27403f21bb8c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9f3336396428ca441821512867c268d2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2613,7 +2613,6 @@ MonoBehaviour:
   menucanvas: {fileID: 984917883}
   nickcanvas: {fileID: 495212530}
   quizcanvas: {fileID: 2001415595}
-  menuevent: {fileID: 0}
 --- !u!4 &1377098713
 Transform:
   m_ObjectHideFlags: 0
