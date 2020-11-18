@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6929748
 RectTransform:
   m_ObjectHideFlags: 0
@@ -170,8 +170,8 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6929747}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
+  m_Alpha: 1
+  m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &6929751
@@ -1993,7 +1993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!225 &891983677
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2002,8 +2002,8 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891983676}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
+  m_Alpha: 1
+  m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &891983679
@@ -3083,7 +3083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1723728784
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3112,8 +3112,8 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723728783}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
+  m_Alpha: 1
+  m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &1723728786
@@ -4119,9 +4119,6 @@ MonoBehaviour:
   listok3: {fileID: 186480539}
   listok4: {fileID: 1090319407}
   Save_Diskette: {fileID: 1358121854}
-  Button_Odp1: {fileID: 1925142468}
-  Button_Odp2: {fileID: 297177195}
-  Button_Odp3: {fileID: 418351420}
   P1_o0: {fileID: 21300000, guid: e8befb9378b42dc49b524f6c832f6f3b, type: 3}
   P1_o1: {fileID: 21300000, guid: d307b531eee617b4c9826c517c73e5f3, type: 3}
   P1_o2: {fileID: 21300000, guid: e0aae5ca6a5dc02459cba8eac6d877f7, type: 3}

@@ -884,7 +884,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &495212526
 RectTransform:
   m_ObjectHideFlags: 0
@@ -976,8 +976,8 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495212525}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
+  m_Alpha: 1
+  m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &519420028
@@ -2034,7 +2034,7 @@ MonoBehaviour:
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_ForceModuleActive: 1
 --- !u!114 &1225095040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2613,6 +2613,7 @@ MonoBehaviour:
   menucanvas: {fileID: 984917883}
   nickcanvas: {fileID: 495212530}
   quizcanvas: {fileID: 2001415595}
+  menuevent: {fileID: 0}
 --- !u!4 &1377098713
 Transform:
   m_ObjectHideFlags: 0
@@ -3476,7 +3477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2001415594
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3515,8 +3516,8 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001415593}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
+  m_Alpha: 1
+  m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &2001415596

@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+//using UnityEngine.EventSystems; //event
 using TMPro;
 
 public class Menu_param : MonoBehaviour
 {
     public TMP_Text Playername;
     public CanvasGroup menucanvas, nickcanvas, quizcanvas;
+    //public EventSystem menuevent;
     public static string Scena = "nothing";
     void Start()
     {
@@ -16,27 +18,33 @@ public class Menu_param : MonoBehaviour
 
     public void NewGame()// po kliknuti na novu hru, zobrazim input na nick
     {
-        menucanvas.alpha = 1 - menucanvas.alpha;
-        menucanvas.interactable = false;
-        nickcanvas.alpha = 1 + nickcanvas.alpha;
-        nickcanvas.interactable = true;
+        menucanvas.gameObject.SetActive(false);
+        //menucanvas.alpha = 1 - menucanvas.alpha;
+        //menucanvas.interactable = false;
+        nickcanvas.gameObject.SetActive(true);
+        //nickcanvas.alpha = 1 + nickcanvas.alpha;
+        //nickcanvas.interactable = true;
         Scena = "Hra";
     }
 
     public void CanvasQuiz_load()
     {
-        menucanvas.alpha = 1 - menucanvas.alpha;
-        menucanvas.interactable = false;
-        quizcanvas.alpha = 1 + quizcanvas.alpha;
-        quizcanvas.interactable = true;
+        menucanvas.gameObject.SetActive(false);
+        //menucanvas.alpha = 1 - menucanvas.alpha;
+        //menucanvas.interactable = false;
+        quizcanvas.gameObject.SetActive(true);
+        //quizcanvas.alpha = 1 + quizcanvas.alpha;
+        //quizcanvas.interactable = true;
     }
 
     public void NewQuiz1()//scitenie zlomkov
     {
-        quizcanvas.alpha = 1 - quizcanvas.alpha;
-        quizcanvas.interactable = false;
-        nickcanvas.alpha = 1 + nickcanvas.alpha;
-        nickcanvas.interactable = true;
+        quizcanvas.gameObject.SetActive(false);
+        //quizcanvas.alpha = 1 - quizcanvas.alpha;
+        //quizcanvas.interactable = false;
+        nickcanvas.gameObject.SetActive(true);
+        //nickcanvas.alpha = 1 + nickcanvas.alpha;
+        //nickcanvas.interactable = true;
         Scena = "Hra-Quiz";
     }
 
@@ -73,10 +81,12 @@ public class Menu_param : MonoBehaviour
     public void BackMenufromnick()
     {
         Debug.Log("Back menu");
-        nickcanvas.alpha = 1 - nickcanvas.alpha;
-        nickcanvas.interactable = false;
-        menucanvas.alpha = 1 + menucanvas.alpha;
-        menucanvas.interactable = true;
+        nickcanvas.gameObject.SetActive(false);
+        //nickcanvas.alpha = 1 - nickcanvas.alpha;
+        //nickcanvas.interactable = false;
+        menucanvas.gameObject.SetActive(true);
+        //menucanvas.alpha = 1 + menucanvas.alpha;
+        //menucanvas.interactable = true;
     }
 
     void Update()
