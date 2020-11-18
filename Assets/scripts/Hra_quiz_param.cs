@@ -166,10 +166,12 @@ public class Hra_quiz_param : MonoBehaviour
 
     public void score_vyhodnotenie()
     {
-        hernycanvas.alpha = 1 - hernycanvas.alpha;
-        hernycanvas.interactable = false;
-        scorecanvas.alpha = 1 + scorecanvas.alpha;
-        scorecanvas.interactable = true;
+        hernycanvas.gameObject.SetActive(false);
+        //hernycanvas.alpha = 1 - hernycanvas.alpha;
+        //hernycanvas.interactable = false;
+        scorecanvas.gameObject.SetActive(true);
+        //scorecanvas.alpha = 1 + scorecanvas.alpha;
+        //scorecanvas.interactable = true;
         score_finish.text = string.Format("{0} {1}", "Tvoje score je: ", act_score);
     }
 

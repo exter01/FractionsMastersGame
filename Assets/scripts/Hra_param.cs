@@ -74,20 +74,24 @@ public class Hra_param : MonoBehaviour
     {
         prebehlo_vysvetlovanie = true;
         vysvetlovanie_show = false;
-        hernycanvas.alpha = 1 - hernycanvas.alpha;
-        hernycanvas.interactable = false;
+        hernycanvas.gameObject.SetActive(false);
+        //hernycanvas.alpha = 1 - hernycanvas.alpha;
+        //hernycanvas.interactable = false;
         Hojdacka.SetActive(false);
         Player.SetActive(false);
-        vysvetlovaniecanvas.alpha = 1 + vysvetlovaniecanvas.alpha;
-        vysvetlovaniecanvas.interactable = true;
+        vysvetlovaniecanvas.gameObject.SetActive(true);
+        //vysvetlovaniecanvas.alpha = 1 + vysvetlovaniecanvas.alpha;
+        //vysvetlovaniecanvas.interactable = true;
     }
 
     public void next_vysvetlovanie()
     {
-        vysvetlovaniecanvas.alpha = 1 - vysvetlovaniecanvas.alpha;
-        vysvetlovaniecanvas.interactable = false;
-        hernycanvas.alpha = 1 + hernycanvas.alpha;
-        hernycanvas.interactable = true;
+        vysvetlovaniecanvas.gameObject.SetActive(false);
+        //vysvetlovaniecanvas.alpha = 1 - vysvetlovaniecanvas.alpha;
+        //vysvetlovaniecanvas.interactable = false;
+        hernycanvas.gameObject.SetActive(true);
+        //hernycanvas.alpha = 1 + hernycanvas.alpha;
+        //hernycanvas.interactable = true;
         Hojdacka.SetActive(true);
         Player.SetActive(true);
         listok1.SetActive(true);
@@ -100,24 +104,28 @@ public class Hra_param : MonoBehaviour
 
     void saving_enable()
     {
-        hernycanvas.alpha = 1 - hernycanvas.alpha;
-        hernycanvas.interactable = false;
+        hernycanvas.gameObject.SetActive(false);
+        //hernycanvas.alpha = 1 - hernycanvas.alpha;
+        //hernycanvas.interactable = false;
         Hojdacka.SetActive(false);
         Player.SetActive(false);
-        savingcanvas.alpha = 1 + savingcanvas.alpha;
-        savingcanvas.interactable = true;
+        savingcanvas.gameObject.SetActive(true);
+        //savingcanvas.alpha = 1 + savingcanvas.alpha;
+        //savingcanvas.interactable = true;
         saving_video.Play();
     }
 
     void listok_enable()
     {
         priklad_cislo++;
-        hernycanvas.alpha = 1 - hernycanvas.alpha;
-        hernycanvas.interactable = false;
+        hernycanvas.gameObject.SetActive(false);
+        //hernycanvas.alpha = 1 - hernycanvas.alpha;
+        //hernycanvas.interactable = false;
         Hojdacka.SetActive(false);
         Player.SetActive(false);
-        otazkovycanvas.alpha = 1 + otazkovycanvas.alpha;
-        otazkovycanvas.interactable = true;
+        otazkovycanvas.gameObject.SetActive(true);
+        //otazkovycanvas.alpha = 1 + otazkovycanvas.alpha;
+        //otazkovycanvas.interactable = true;
         listok++;
         spravne_odpovede();
     }
@@ -125,10 +133,12 @@ public class Hra_param : MonoBehaviour
     void listok_disable()
     {
         Debug.Log(listok);
-        otazkovycanvas.alpha = 1 - otazkovycanvas.alpha;
-        otazkovycanvas.interactable = false;
-        hernycanvas.alpha = 1 + hernycanvas.alpha;
-        hernycanvas.interactable = true;
+        otazkovycanvas.gameObject.SetActive(false);
+        //otazkovycanvas.alpha = 1 - otazkovycanvas.alpha;
+        //otazkovycanvas.interactable = false;
+        hernycanvas.gameObject.SetActive(true);
+        //hernycanvas.alpha = 1 + hernycanvas.alpha;
+        //hernycanvas.interactable = true;
         Hojdacka.SetActive(true);
         Player.SetActive(true);
         listok++;
