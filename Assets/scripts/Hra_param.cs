@@ -27,11 +27,11 @@ public class Hra_param : MonoBehaviour
     public static int act_score = 0;
     public static bool touch_save_diskette = false; // ked sa dotkne postavicka cez collider
     public static bool prebehlo_vysvetlovanie = false;
-    public CanvasGroup hernycanvas, otazkovycanvas, vysvetlovaniecanvas, savingcanvas;
+    public CanvasGroup hernycanvas, otazkovycanvas, vysvetlovaniecanvas, savingcanvas, loadingcanvas;
     public GameObject listok1, listok2, listok3, listok4, Save_Diskette; // vyberame objekty
     public Sprite P1_o0, P1_o1, P1_o2, P1_o3, P2_o0, P2_o1, P2_o2, P2_o3, P3_o0, P3_o1, P3_o2, P3_o3, P4_o0, P4_o1, P4_o2, P4_o3;
     public Image B_Zadanie, B_Odp1, B_Odp2, B_Odp3;
-    public VideoPlayer saving_video;
+    public VideoPlayer saving_video, loading_video;
    
     public void spravne_odpovede()
     {
@@ -214,6 +214,7 @@ public class Hra_param : MonoBehaviour
     void Start()
     {
         saving_video.loopPointReached += EndReached;
+        loading_video.loopPointReached += EndReached2;
         Playername.text = playernamestr; //meno hraca z menu
         listok1.SetActive(false);
         listok2.SetActive(false);
@@ -221,11 +222,20 @@ public class Hra_param : MonoBehaviour
         listok4.SetActive(false);
         update_score();//aby sa nastavilo score na 0
         Save_Diskette.SetActive(false);
+        //loading_video.Play();
     }
 
     void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    void EndReached2(UnityEngine.Video.VideoPlayer vp)
+    {
+        loadingcanvas.gameObject.SetActive(false);
+        hernycanvas.gameObject.SetActive(true);
+        Hojdacka.SetActive(true);
+        Player.SetActive(true);
     }
 
     public void QuitGame() //doriesit vyresetovanie hry NEJDE !
