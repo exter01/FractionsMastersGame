@@ -28,13 +28,15 @@ public class Hra_param : MonoBehaviour
     public static bool prebehlo_vysvetlovanie = false;
     public static bool vysvetlujeme = false;
     public CanvasGroup hernycanvas, otazkovycanvas, vysvetlovaniecanvas, savingcanvas, loadingcanvas;
-    public GameObject listok1, listok2, listok3, listok4, Save_Diskette; // vyberame objekty
+    public GameObject listok1, listok2, listok3, listok4, listok5, listok6, listok7, listok8, listok9, listok10, Save_Diskette; // vyberame objekty
     public Sprite P1_o0, P1_o1, P1_o2, P1_o3, P2_o0, P2_o1, P2_o2, P2_o3, P3_o0, P3_o1, P3_o2, P3_o3, P4_o0, P4_o1, P4_o2, P4_o3, P5_o0, P5_o1, P5_o2, P5_o3;
     public Sprite P6_o0, P6_o1, P6_o2, P6_o3, P7_o0, P7_o1, P7_o2, P7_o3, P8_o0, P8_o1, P8_o2, P8_o3, P9_o0, P9_o1, P9_o2, P9_o3, P10_o0, P10_o1, P10_o2, P10_o3;
     public Image B_Zadanie, B_Odp1, B_Odp2, B_Odp3;
     public VideoPlayer saving_video, loading_video;
     public GameObject Vysv_button_next, Vysv1_1, Vysv1_2, Vysv2_1, Vysv2_2, Vysv3_1, Vysv3_2;
-   
+
+    public static int pocet_zobraz_list = 0;
+
     public void spravne_odpovede()
     {
         if(priklad_cislo == 1)
@@ -199,7 +201,7 @@ public class Hra_param : MonoBehaviour
         listok1.SetActive(true);
         listok2.SetActive(true);
         listok3.SetActive(true);
-        listok4.SetActive(true);
+        //listok4.SetActive(true);
         Cas_zostava.timerIsRunning = true;
         Cas_zostava.timeLeft = 21f;//ukazuje time - 1
     }
@@ -215,6 +217,7 @@ public class Hra_param : MonoBehaviour
 
     void listok_enable()
     {
+        pocet_zobraz_list++;
         priklad_cislo++;
         hernycanvas.gameObject.SetActive(false);
         Hojdacka.SetActive(false);
@@ -222,6 +225,19 @@ public class Hra_param : MonoBehaviour
         otazkovycanvas.gameObject.SetActive(true);
         listok++;
         spravne_odpovede();
+        if(pocet_zobraz_list == 3)
+        {
+            listok4.gameObject.SetActive(true);
+            listok5.gameObject.SetActive(true);
+            listok6.gameObject.SetActive(true);
+            listok7.gameObject.SetActive(true);
+        }
+        if (pocet_zobraz_list == 7)
+        {
+            listok8.gameObject.SetActive(true);
+            listok9.gameObject.SetActive(true);
+            listok10.gameObject.SetActive(true);
+        }
     }
 
     void listok_disable()
@@ -260,11 +276,12 @@ public class Hra_param : MonoBehaviour
     public void zobraz_save_diskette()//doriesit aby sa to nepustalo dokola
     {
         GameObject[] listky;
-        Save_Diskette.SetActive(true);
+        Save_Diskette.gameObject.SetActive(true);
         listky = GameObject.FindGameObjectsWithTag("Listok");
         foreach (GameObject listek in listky)
         {
-            Destroy(listek);//listky prec !
+            //Destroy(listek);//listky prec !
+            listek.gameObject.SetActive(false);
         }
 
         tmp_pocet3++;
@@ -306,12 +323,7 @@ public class Hra_param : MonoBehaviour
         saving_video.loopPointReached += EndReached;
         loading_video.loopPointReached += EndReached2;
         Playername.text = playernamestr; //meno hraca z menu
-        listok1.SetActive(false);
-        listok2.SetActive(false);
-        listok3.SetActive(false);
-        listok4.SetActive(false);
         update_score();//aby sa nastavilo score na 0
-        Save_Diskette.SetActive(false);
         //loading_video.Play();
     }
 
@@ -368,7 +380,7 @@ public class Hra_param : MonoBehaviour
             }
         }
 
-        if (listok == 1 || listok == 4 || listok == 7 || listok == 10)
+        if (listok == 1 || listok == 4 || listok == 7 || listok == 10 || listok == 13 || listok == 16 || listok == 19 || listok == 22 || listok == 25 || listok == 28)
         {
             listok_enable();
         }
