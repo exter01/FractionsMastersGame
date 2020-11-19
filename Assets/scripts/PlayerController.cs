@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public GameObject Player;
     public GameObject Kral;
     public GameObject Hojdacka;
+    public GameObject Fontana;
+    public GameObject Kricok;
     public GameObject Save_Diskette;
     //public GameObject Listok;
     public static float runSpeed;
@@ -137,7 +139,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D obj)
     {
-        if (obj.gameObject == Hojdacka)
+        if (obj.gameObject == Hojdacka || obj.gameObject == Fontana || obj.gameObject == Kricok)
         {
             body2D.position = pozicia;
         }
@@ -145,7 +147,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D obj)
     {
-        if (obj.gameObject == Hojdacka)
+        if (obj.gameObject == Hojdacka || obj.gameObject == Fontana || obj.gameObject == Kricok)
         {
             vprekazke = false;
         }
@@ -160,7 +162,7 @@ public class PlayerController : MonoBehaviour
             Hra_param.vysvetlovanie_show = true;
         }
 
-        if (obj.gameObject == Hojdacka)
+        if (obj.gameObject == Hojdacka || obj.gameObject == Fontana || obj.gameObject == Kricok)
         {
             Debug.Log("The Hojdacka is touched");
             vprekazke = true;
