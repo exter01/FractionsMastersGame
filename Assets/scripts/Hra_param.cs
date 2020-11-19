@@ -203,7 +203,7 @@ public class Hra_param : MonoBehaviour
         listok3.SetActive(true);
         //listok4.SetActive(true);
         Cas_zostava.timerIsRunning = true;
-        Cas_zostava.timeLeft = 21f;//ukazuje time - 1
+        Cas_zostava.timeLeft = 151f;//ukazuje time - 1
     }
 
     void saving_enable()
