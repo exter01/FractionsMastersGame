@@ -627,7 +627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &453814028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -736,7 +736,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 891983682}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -942,8 +942,8 @@ RectTransform:
   - {fileID: 1925142469}
   - {fileID: 297177196}
   - {fileID: 418351421}
-  - {fileID: 453814031}
   - {fileID: 1445191543}
+  - {fileID: 453814031}
   m_Father: {fileID: 519420032}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -964,7 +964,7 @@ GameObject:
   - component: {fileID: 950359841}
   - component: {fileID: 950359840}
   m_Layer: 5
-  m_Name: Background
+  m_Name: Score_bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1039,7 +1039,7 @@ GameObject:
   - component: {fileID: 1176789145}
   - component: {fileID: 1176789144}
   m_Layer: 5
-  m_Name: Button_Pokracovat
+  m_Name: Button_Potvrdit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1061,7 +1061,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -44.3, y: -236.2}
+  m_AnchoredPosition: {x: 44, y: -238}
   m_SizeDelta: {x: 344.96423, y: 83.39383}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1176789144
@@ -1137,7 +1137,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d50620adfb329d547a245b4bc3a25198, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 06c3e861a40cb344395935f2751ea43c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1381,7 +1381,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 891983682}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1461,7 +1461,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d50620adfb329d547a245b4bc3a25198, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 06c3e861a40cb344395935f2751ea43c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1513,7 +1513,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -27.6, y: 66.27}
+  m_AnchoredPosition: {x: 50.246, y: 66.27}
   m_SizeDelta: {x: 357.4559, y: 132.5394}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1595294139
@@ -1624,7 +1624,7 @@ GameObject:
   - component: {fileID: 1626250821}
   - component: {fileID: 1626250820}
   m_Layer: 5
-  m_Name: Background
+  m_Name: Hra_bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2057,7 +2057,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0b57c8d17cd416e45839bbd0e989d8f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 53349f0a1bfaea04db3cf72cea7e62a5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

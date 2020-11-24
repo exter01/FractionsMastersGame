@@ -8,7 +8,7 @@ using TMPro;
 public class Menu_param : MonoBehaviour
 {
     public TMP_Text Playername;
-    public CanvasGroup menucanvas, nickcanvas, quizcanvas;
+    public CanvasGroup menucanvas, nickcanvas, quizcanvas, autoricanvas;
     public static string Scena = "nothing";
     void Start()
     {
@@ -25,6 +25,12 @@ public class Menu_param : MonoBehaviour
     {
         menucanvas.gameObject.SetActive(false);
         quizcanvas.gameObject.SetActive(true);
+    }
+
+    public void CloseQuiz()
+    {
+        quizcanvas.gameObject.SetActive(false);
+        menucanvas.gameObject.SetActive(true);
     }
 
     public void NewQuiz1()//scitenie zlomkov
@@ -46,7 +52,14 @@ public class Menu_param : MonoBehaviour
 
     public void ShowCredits()
     {
-        Debug.Log("Show credits");
+        menucanvas.gameObject.SetActive(false);
+        autoricanvas.gameObject.SetActive(true);
+    }
+
+    public void CloseCredits()
+    {
+        autoricanvas.gameObject.SetActive(false);
+        menucanvas.gameObject.SetActive(true);
     }
 
     public void NewGamewithnick()//vyplneny nick a ideme hrat

@@ -34,6 +34,9 @@ public class Hra_param : MonoBehaviour
     public Image B_Zadanie, B_Odp1, B_Odp2, B_Odp3;
     public VideoPlayer saving_video, loading_video;
     public GameObject Vysv_button_next, Vysv1_1, Vysv1_2, Vysv2_1, Vysv2_2, Vysv3_1, Vysv3_2;
+    public GameObject Xko, Fajka, Xko_1, Xko_2, Xko_3;
+
+    public static int potvrdit_click = 0; //pri odpovedach je dva krat button odpoved
 
     public static int pocet_zobraz_list = 0;
 
@@ -299,22 +302,63 @@ public class Hra_param : MonoBehaviour
 
     public void Potvrdit_odpoved()
     {
-        if (vybrana_odpoved != 4)
+        if(potvrdit_click == 0)
         {
-            if (vybrana_odpoved == 1 && spravna_odpoved == 1 || vybrana_odpoved == 2 && spravna_odpoved == 2 || vybrana_odpoved == 3 && spravna_odpoved == 3)
+            if (vybrana_odpoved != 4)
             {
-                act_score++;
+                potvrdit_click = 1;
+                if (vybrana_odpoved == 1 && spravna_odpoved == 1)
+                {
+                    act_score++;
+                    Fajka.gameObject.SetActive(true);
+                }
+                else if (vybrana_odpoved == 2 && spravna_odpoved == 2)
+                {
+                    act_score++;
+                    Fajka.gameObject.SetActive(true);
+                }
+                else if (vybrana_odpoved == 3 && spravna_odpoved == 3)
+                {
+                    act_score++;
+                    Fajka.gameObject.SetActive(true);
+                }
+                else
+                {
+                    //bomb++;
+                    Xko.gameObject.SetActive(true);
+                }
+
+                if(spravna_odpoved == 1)
+                {
+                    Xko_2.gameObject.SetActive(true);
+                    Xko_3.gameObject.SetActive(true);
+                }else if(spravna_odpoved == 2)
+                {
+                    Xko_1.gameObject.SetActive(true);
+                    Xko_3.gameObject.SetActive(true);
+                }
+                else if(spravna_odpoved == 3)
+                {
+                    Xko_1.gameObject.SetActive(true);
+                    Xko_2.gameObject.SetActive(true);
+                }
             }
-            else
-            {
-                //bomb++;
-            }
+        }
+        else if(potvrdit_click == 1)
+        {
+            potvrdit_click = 0;
+            Xko_1.gameObject.SetActive(false);
+            Xko_2.gameObject.SetActive(false);
+            Xko_3.gameObject.SetActive(false);
+            Fajka.gameObject.SetActive(false);
+            Xko.gameObject.SetActive(false);
             update_score();
             listok_disable();
             //Debug.Log(vybrana_odpoved);
             vybrana_odpoved = 4; //aby sa vynulovala odpoved po potvrdeni
             odpoved.text = string.Format("{0}", ""); // vynulujeme odpoved
         }
+        
     }
 
     // Start is called before the first frame update
