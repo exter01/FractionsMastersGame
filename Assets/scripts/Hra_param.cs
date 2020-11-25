@@ -36,90 +36,78 @@ public class Hra_param : MonoBehaviour
     public GameObject Vysv_button_next, Vysv1_1, Vysv1_2, Vysv2_1, Vysv2_2, Vysv3_1, Vysv3_2;
     public GameObject Xko, Fajka, Xko_1, Xko_2, Xko_3;
 
+    public TMP_Text Zadanie_1, Zadanie_2, Zadanie_3, Zadanie_4, Zadanie_5;
+    public TMP_Text A_1, A_2, B_1, B_2, C_1, C_2;
+
     public static int potvrdit_click = 0; //pri odpovedach je dva krat button odpoved
 
     public static int pocet_zobraz_list = 0;
+
+    public void nastav_priklad(string Z1, string Z2, string Z3, string Z4, string Z5, string A1, string A2, string B1, string B2, string C1, string C2)
+    {
+        Zadanie_1.text = string.Format("{0}", Z1);
+        Zadanie_2.text = string.Format("{0}", Z2);
+        Zadanie_3.text = string.Format("{0}", Z3);
+        Zadanie_4.text = string.Format("{0}", Z4);
+        Zadanie_5.text = string.Format("{0}", Z5);
+        A_1.text = string.Format("{0}", A1);
+        A_2.text = string.Format("{0}", A2);
+        B_1.text = string.Format("{0}", B1);
+        B_2.text = string.Format("{0}", B2);
+        C_1.text = string.Format("{0}", C1);
+        C_2.text = string.Format("{0}", C2);
+    }
 
     public void spravne_odpovede()
     {
         if(priklad_cislo == 1)
         {
-            B_Zadanie.sprite = P1_o0;
-            B_Odp1.sprite = P1_o1;
-            B_Odp2.sprite = P1_o2;
-            B_Odp3.sprite = P1_o3;
-            spravna_odpoved = 1;
+            nastav_priklad("1", "2", "+", "3", "4", "5", "6", "7", "8", "9", "10");
+            spravna_odpoved = 1; //1 je A, 2 je B, 3 je C
         }
         if (priklad_cislo == 2)
         {
-            B_Zadanie.sprite = P2_o0;
-            B_Odp1.sprite = P2_o1;
-            B_Odp2.sprite = P2_o2;
-            B_Odp3.sprite = P2_o3;
+            nastav_priklad("1", "2", "+", "3", "4", "5", "6", "7", "8", "9", "10");
             spravna_odpoved = 2;
         }
         if (priklad_cislo == 3)
         {
-            B_Zadanie.sprite = P3_o0;
-            B_Odp1.sprite = P3_o1;
-            B_Odp2.sprite = P3_o2;
-            B_Odp3.sprite = P3_o3;
+            nastav_priklad("1", "2", "+", "3", "4", "5", "6", "7", "8", "9", "10");
             spravna_odpoved = 3;
         }
         if (priklad_cislo == 4)
         {
-            B_Zadanie.sprite = P4_o0;
-            B_Odp1.sprite = P4_o1;
-            B_Odp2.sprite = P4_o2;
-            B_Odp3.sprite = P4_o3;
+            nastav_priklad("1", "2", "+", "3", "4", "5", "6", "7", "8", "9", "10");
             spravna_odpoved = 2;
         }
         if (priklad_cislo == 5) 
         {
-            B_Zadanie.sprite = P5_o0;
-            B_Odp1.sprite = P5_o1;
-            B_Odp2.sprite = P5_o2;
-            B_Odp3.sprite = P5_o3;
+            nastav_priklad("1", "2", "+", "3", "4", "5", "6", "7", "8", "9", "10");
             spravna_odpoved = 1;
         }
         if (priklad_cislo == 6)
         {
-            B_Zadanie.sprite = P6_o0;
-            B_Odp1.sprite = P6_o1;
-            B_Odp2.sprite = P6_o2;
-            B_Odp3.sprite = P6_o3;
+            nastav_priklad("1", "2", "+", "3", "4", "5", "6", "7", "8", "9", "10");
             spravna_odpoved = 3;
         }
         if (priklad_cislo == 7)
         {
-            B_Zadanie.sprite = P7_o0;
-            B_Odp1.sprite = P7_o1;
-            B_Odp2.sprite = P7_o2;
-            B_Odp3.sprite = P7_o3;
+            nastav_priklad("1", "2", "+", "3", "4", "5", "6", "7", "8", "9", "10");
             spravna_odpoved = 3;
         }
         if (priklad_cislo == 8)
         {
-            B_Zadanie.sprite = P8_o0;
-            B_Odp1.sprite = P8_o1;
-            B_Odp2.sprite = P8_o2;
-            B_Odp3.sprite = P8_o3;
+            nastav_priklad("1", "2", "+", "3", "4", "5", "6", "7", "8", "9", "10");
             spravna_odpoved = 3;
         }
         if (priklad_cislo == 9)
         {
-            B_Zadanie.sprite = P9_o0;
-            B_Odp1.sprite = P9_o1;
-            B_Odp2.sprite = P9_o2;
-            B_Odp3.sprite = P9_o3;
+            nastav_priklad("1", "2", "+", "3", "4", "5", "6", "7", "8", "9", "10");
             spravna_odpoved = 2;
         }
         if (priklad_cislo == 10)
         {
-            B_Zadanie.sprite = P10_o0;
-            B_Odp1.sprite = P10_o1;
-            B_Odp2.sprite = P10_o2;
-            B_Odp3.sprite = P10_o3;
+            nastav_priklad("1", "2", "+", "3", "4", "5", "6", "7", "8", "9", "10");
             spravna_odpoved = 3;
             Cas_zostava.cas_uplynul = true; // po poslednom priklade zobrazime disketu
         }
