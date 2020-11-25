@@ -329,20 +329,20 @@ public class Hra_param : MonoBehaviour
 
                 if(spravna_odpoved == 1)
                 {
-                    X_1Y.gameObject.SetActive(true);
+                    //X_1Y.gameObject.SetActive(true);
                     X_2X.gameObject.SetActive(true);
                     X_3X.gameObject.SetActive(true);
                 }else if(spravna_odpoved == 2)
                 {
                     X_1X.gameObject.SetActive(true);
-                    X_2Y.gameObject.SetActive(true);
+                   // X_2Y.gameObject.SetActive(true);
                     X_3X.gameObject.SetActive(true);
                 }
                 else if(spravna_odpoved == 3)
                 {
                     X_1X.gameObject.SetActive(true);
                     X_2X.gameObject.SetActive(true);
-                    X_3Y.gameObject.SetActive(true);
+                   // X_3Y.gameObject.SetActive(true);
                 }
             }
         }

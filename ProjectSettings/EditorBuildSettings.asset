@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hra.unity
     guid: b6f715e403eead2478fdec73884d53cc
-  - enabled: 0
-    path: Assets/Scenes/Hra2.unity
-    guid: 6f683eb4b3268e648b9d7667a77f6b2f
   - enabled: 1
     path: Assets/Scenes/Hra-Quiz.unity
     guid: 80e3671a190ad6243bbc5103fa7d8a42
