@@ -29,8 +29,8 @@ public class Hra_param : MonoBehaviour
     public static bool vysvetlujeme = false;
     public CanvasGroup hernycanvas, otazkovycanvas, vysvetlovaniecanvas, savingcanvas, loadingcanvas;
     public GameObject listok1, listok2, listok3, listok4, listok5, listok6, listok7, listok8, listok9, listok10, Save_Diskette; // vyberame objekty
-    public Sprite P1_o0, P1_o1, P1_o2, P1_o3, P2_o0, P2_o1, P2_o2, P2_o3, P3_o0, P3_o1, P3_o2, P3_o3, P4_o0, P4_o1, P4_o2, P4_o3, P5_o0, P5_o1, P5_o2, P5_o3;
-    public Sprite P6_o0, P6_o1, P6_o2, P6_o3, P7_o0, P7_o1, P7_o2, P7_o3, P8_o0, P8_o1, P8_o2, P8_o3, P9_o0, P9_o1, P9_o2, P9_o3, P10_o0, P10_o1, P10_o2, P10_o3;
+    //public Sprite P1_o0, P1_o1, P1_o2, P1_o3, P2_o0, P2_o1, P2_o2, P2_o3, P3_o0, P3_o1, P3_o2, P3_o3, P4_o0, P4_o1, P4_o2, P4_o3, P5_o0, P5_o1, P5_o2, P5_o3;
+    //public Sprite P6_o0, P6_o1, P6_o2, P6_o3, P7_o0, P7_o1, P7_o2, P7_o3, P8_o0, P8_o1, P8_o2, P8_o3, P9_o0, P9_o1, P9_o2, P9_o3, P10_o0, P10_o1, P10_o2, P10_o3;
     public Image B_Zadanie, B_Odp1, B_Odp2, B_Odp3;
     public VideoPlayer saving_video, loading_video;
     public GameObject Vysv_button_next, Vysv1_1, Vysv1_2, Vysv2_1, Vysv2_2, Vysv3_1, Vysv3_2;
@@ -38,6 +38,8 @@ public class Hra_param : MonoBehaviour
 
     public TMP_Text Zadanie_1, Zadanie_2, Zadanie_3, Zadanie_4, Zadanie_5;
     public TMP_Text A_1, A_2, B_1, B_2, C_1, C_2;
+
+    public GameObject X_1A, X_2A, X_3A, X_1X, X_2X, X_3X, X_1Y, X_2Y, X_3Y;
 
     public static int potvrdit_click = 0; //pri odpovedach je dva krat button odpoved
 
@@ -245,18 +247,27 @@ public class Hra_param : MonoBehaviour
     {
         vybrana_odpoved = 1;
         odpoved.text = string.Format("{0}", "A");
+        X_1A.gameObject.SetActive(true);
+        X_2A.gameObject.SetActive(false);
+        X_3A.gameObject.SetActive(false);
     }
 
     public void vyber_odpoved2()
     {
         vybrana_odpoved = 2;
         odpoved.text = string.Format("{0}", "B");
+        X_1A.gameObject.SetActive(false);
+        X_2A.gameObject.SetActive(true);
+        X_3A.gameObject.SetActive(false);
     }
 
     public void vyber_odpoved3()
     {
         vybrana_odpoved = 3;
         odpoved.text = string.Format("{0}", "C");
+        X_1A.gameObject.SetActive(false);
+        X_2A.gameObject.SetActive(false);
+        X_3A.gameObject.SetActive(true);
     }
 
     public void update_score()
@@ -318,33 +329,48 @@ public class Hra_param : MonoBehaviour
 
                 if(spravna_odpoved == 1)
                 {
-                    Xko_2.gameObject.SetActive(true);
-                    Xko_3.gameObject.SetActive(true);
+                    X_1Y.gameObject.SetActive(true);
+                    X_2X.gameObject.SetActive(true);
+                    X_3X.gameObject.SetActive(true);
                 }else if(spravna_odpoved == 2)
                 {
-                    Xko_1.gameObject.SetActive(true);
-                    Xko_3.gameObject.SetActive(true);
+                    X_1X.gameObject.SetActive(true);
+                    X_2Y.gameObject.SetActive(true);
+                    X_3X.gameObject.SetActive(true);
                 }
                 else if(spravna_odpoved == 3)
                 {
-                    Xko_1.gameObject.SetActive(true);
-                    Xko_2.gameObject.SetActive(true);
+                    X_1X.gameObject.SetActive(true);
+                    X_2X.gameObject.SetActive(true);
+                    X_3Y.gameObject.SetActive(true);
                 }
             }
         }
         else if(potvrdit_click == 1)
         {
             potvrdit_click = 0;
-            Xko_1.gameObject.SetActive(false);
-            Xko_2.gameObject.SetActive(false);
-            Xko_3.gameObject.SetActive(false);
+            vybrana_odpoved = 4; //aby sa vynulovala odpoved po potvrdeni
+
+            X_1A.gameObject.SetActive(false);
+            X_2A.gameObject.SetActive(false);
+            X_3A.gameObject.SetActive(false);
+
+            X_1X.gameObject.SetActive(false);
+            X_2X.gameObject.SetActive(false);
+            X_3X.gameObject.SetActive(false);
+
+            X_1Y.gameObject.SetActive(false);
+            X_2Y.gameObject.SetActive(false);
+            X_3Y.gameObject.SetActive(false);
+
             Fajka.gameObject.SetActive(false);
             Xko.gameObject.SetActive(false);
             update_score();
             listok_disable();
             //Debug.Log(vybrana_odpoved);
-            vybrana_odpoved = 4; //aby sa vynulovala odpoved po potvrdeni
+            
             odpoved.text = string.Format("{0}", ""); // vynulujeme odpoved
+            
         }
         
     }
