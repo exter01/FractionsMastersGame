@@ -28,21 +28,16 @@ public class Hra_param : MonoBehaviour
     public static bool prebehlo_vysvetlovanie = false;
     public static bool vysvetlujeme = false;
     public CanvasGroup hernycanvas, otazkovycanvas, vysvetlovaniecanvas, savingcanvas, loadingcanvas;
-    public GameObject listok1, listok2, listok3, listok4, listok5, listok6, listok7, listok8, listok9, listok10, Save_Diskette; // vyberame objekty
-    //public Sprite P1_o0, P1_o1, P1_o2, P1_o3, P2_o0, P2_o1, P2_o2, P2_o3, P3_o0, P3_o1, P3_o2, P3_o3, P4_o0, P4_o1, P4_o2, P4_o3, P5_o0, P5_o1, P5_o2, P5_o3;
-    //public Sprite P6_o0, P6_o1, P6_o2, P6_o3, P7_o0, P7_o1, P7_o2, P7_o3, P8_o0, P8_o1, P8_o2, P8_o3, P9_o0, P9_o1, P9_o2, P9_o3, P10_o0, P10_o1, P10_o2, P10_o3;
-    public Image B_Zadanie, B_Odp1, B_Odp2, B_Odp3;
+    public GameObject listok1, listok2, listok3, listok4, listok5, listok6, listok7, listok8, listok9, listok10, Save_Diskette;
+    //public Image B_Zadanie, B_Odp1, B_Odp2, B_Odp3;
     public VideoPlayer saving_video, loading_video;
     public GameObject Vysv_button_next, Vysv1_1, Vysv1_2, Vysv2_1, Vysv2_2, Vysv3_1, Vysv3_2;
     public GameObject Xko, Fajka, Xko_1, Xko_2, Xko_3;
-
     public TMP_Text Zadanie_1, Zadanie_2, Zadanie_3, Zadanie_4, Zadanie_5;
     public TMP_Text A_1, A_2, B_1, B_2, C_1, C_2;
-
     public GameObject X_1A, X_2A, X_3A, X_1X, X_2X, X_3X, X_1Y, X_2Y, X_3Y;
 
     public static int potvrdit_click = 0; //pri odpovedach je dva krat button odpoved
-
     public static int pocet_zobraz_list = 0;
 
     public void nastav_priklad(string Z1, string Z2, string Z3, string Z4, string Z5, string A1, string A2, string B1, string B2, string C1, string C2)
@@ -113,6 +108,11 @@ public class Hra_param : MonoBehaviour
             spravna_odpoved = 3;
             Cas_zostava.cas_uplynul = true; // po poslednom priklade zobrazime disketu
         }
+        /*if (priklad_cislo == 11)
+        {
+            nastav_priklad("4", "8", "+", "7", "9", "93", "72", "23", "18", "11", "17");
+            spravna_odpoved = 2;
+        }*/
     }
 
     void vysvetlovanie_enable()
@@ -124,7 +124,6 @@ public class Hra_param : MonoBehaviour
         Hojdacka.SetActive(false);
         Player.SetActive(false);
         vysvetlovaniecanvas.gameObject.SetActive(true);
-        
         Vysvetlovanie_casovac.timerIsRunning = true;
         Vysvetlovanie_casovac.cas_uplynul = false;
         Vysvetlovanie_casovac.timeLeft = 2f;
@@ -143,7 +142,6 @@ public class Hra_param : MonoBehaviour
         {
             Vysv1_2.gameObject.SetActive(false);
             Vysv2_1.gameObject.SetActive(true);
-
             Vysvetlovanie_casovac.timerIsRunning = true;
             Vysvetlovanie_casovac.cas_uplynul = false;
             Vysvetlovanie_casovac.timeLeft = 2f;
@@ -159,7 +157,6 @@ public class Hra_param : MonoBehaviour
         {
             Vysv2_2.gameObject.SetActive(false);
             Vysv3_1.gameObject.SetActive(true);
-
             Vysvetlovanie_casovac.timerIsRunning = true;
             Vysvetlovanie_casovac.cas_uplynul = false;
             Vysvetlovanie_casovac.timeLeft = 2f;
@@ -194,7 +191,6 @@ public class Hra_param : MonoBehaviour
         listok1.SetActive(true);
         listok2.SetActive(true);
         listok3.SetActive(true);
-        //listok4.SetActive(true);
         Cas_zostava.timerIsRunning = true;
         Cas_zostava.timeLeft = 151f;//ukazuje time - 1
     }
@@ -282,10 +278,8 @@ public class Hra_param : MonoBehaviour
         listky = GameObject.FindGameObjectsWithTag("Listok");
         foreach (GameObject listek in listky)
         {
-            //Destroy(listek);//listky prec !
             listek.gameObject.SetActive(false);
         }
-
         tmp_pocet3++;
         if (tmp_pocet3 == 20)
         {
@@ -368,9 +362,7 @@ public class Hra_param : MonoBehaviour
             update_score();
             listok_disable();
             //Debug.Log(vybrana_odpoved);
-            
             odpoved.text = string.Format("{0}", ""); // vynulujeme odpoved
-            
         }
         
     }
@@ -404,7 +396,6 @@ public class Hra_param : MonoBehaviour
     }
 
     private int tmp_pocet = 0, tmp_pocet3 = 0;
-
     private int vysv_faza = 0;
     // Update is called once per frame
     void Update()

@@ -18,7 +18,8 @@ public class Menu_param : MonoBehaviour
     {
         menucanvas.gameObject.SetActive(false);
         nickcanvas.gameObject.SetActive(true);
-        Scena = "Hra";
+        //Scena = "Hra";
+        Scena = "Hra-loading";
     }
 
     public void CanvasQuiz_load()
