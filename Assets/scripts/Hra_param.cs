@@ -29,7 +29,6 @@ public class Hra_param : MonoBehaviour
     public static bool vysvetlujeme = false;
     public CanvasGroup hernycanvas, otazkovycanvas, vysvetlovaniecanvas, savingcanvas, loadingcanvas;
     public GameObject listok1, listok2, listok3, listok4, listok5, listok6, listok7, listok8, listok9, listok10, Save_Diskette;
-    //public Image B_Zadanie, B_Odp1, B_Odp2, B_Odp3;
     public VideoPlayer saving_video, loading_video;
     public GameObject Vysv_button_next, Vysv1_1, Vysv1_2, Vysv2_1, Vysv2_2, Vysv3_1, Vysv3_2;
     public GameObject Xko, Fajka, Xko_1, Xko_2, Xko_3;

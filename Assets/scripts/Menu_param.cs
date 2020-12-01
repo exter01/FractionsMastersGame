@@ -9,7 +9,8 @@ public class Menu_param : MonoBehaviour
 {
     public TMP_Text Playername;
     public CanvasGroup menucanvas, nickcanvas, quizcanvas, autoricanvas;
-    public static string Scena = "nothing";
+    public static string kam_idem = "nikam";
+
     void Start()
     {
     }
@@ -18,8 +19,50 @@ public class Menu_param : MonoBehaviour
     {
         menucanvas.gameObject.SetActive(false);
         nickcanvas.gameObject.SetActive(true);
-        //Scena = "Hra";
-        Scena = "Hra-loading";
+        kam_idem = "novahra";
+    }
+
+    public void NewGamewithnick()//vyplneny nick a ideme hrat
+    {
+        Debug.Log("Player name is: " + Playername.text);
+
+        if(kam_idem == "novahra")
+        {
+            Hra_param.playernamestr = Playername.text;
+            SceneManager.LoadScene("Hra-loading");
+        }
+
+        if(kam_idem == "quiz1")
+        {
+            Hra_quiz_param.playernamestr = Playername.text;
+            SceneManager.LoadScene("Hra-Quiz");
+            Hra_quiz_param.level_cislo = 1;
+            Debug.Log(Hra_quiz_param.level_cislo);
+        }
+
+        if (kam_idem == "quiz2")
+        {
+            Hra_quiz_param.playernamestr = Playername.text;
+            SceneManager.LoadScene("Hra-Quiz");
+            Hra_quiz_param.level_cislo = 2;
+            Debug.Log(Hra_quiz_param.level_cislo);
+        }
+
+        if (kam_idem == "quiz3")
+        {
+            Hra_quiz_param.playernamestr = Playername.text;
+            SceneManager.LoadScene("Hra-Quiz");
+            Hra_quiz_param.level_cislo = 3;
+            Debug.Log(Hra_quiz_param.level_cislo);
+        }
+
+        if (kam_idem == "quiz4")
+        {
+            Hra_quiz_param.playernamestr = Playername.text;
+            SceneManager.LoadScene("Hra-Quiz");
+            Hra_quiz_param.level_cislo = 4;
+            Debug.Log(Hra_quiz_param.level_cislo);
+        }
     }
 
     public void CanvasQuiz_load()
@@ -38,7 +81,28 @@ public class Menu_param : MonoBehaviour
     {
         quizcanvas.gameObject.SetActive(false);
         nickcanvas.gameObject.SetActive(true);
-        Scena = "Hra-Quiz";
+        kam_idem = "quiz1";
+    }
+
+    public void NewQuiz2()//odcitanie zlomkov
+    {
+        quizcanvas.gameObject.SetActive(false);
+        nickcanvas.gameObject.SetActive(true);
+        kam_idem = "quiz2";
+    }
+
+    public void NewQuiz3()//nasobenie zlomkov
+    {
+        quizcanvas.gameObject.SetActive(false);
+        nickcanvas.gameObject.SetActive(true);
+        kam_idem = "quiz3";
+    }
+
+    public void NewQuiz4()//delenie zlomkov
+    {
+        quizcanvas.gameObject.SetActive(false);
+        nickcanvas.gameObject.SetActive(true);
+        kam_idem = "quiz4";
     }
 
     public void ContinueGame()
@@ -63,14 +127,6 @@ public class Menu_param : MonoBehaviour
         menucanvas.gameObject.SetActive(true);
     }
 
-    public void NewGamewithnick()//vyplneny nick a ideme hrat
-    {
-        Debug.Log("Player name is: " + Playername.text);
-        Hra_param.playernamestr = Playername.text;
-        Hra_quiz_param.playernamestr = Playername.text;
-        SceneManager.LoadScene(Scena);
-    }
-
     public void QuitGame()
     {
         Debug.Log("QUIT Game");
@@ -86,6 +142,6 @@ public class Menu_param : MonoBehaviour
 
     void Update()
     {
-        //
+        //nothing
     }
 }
