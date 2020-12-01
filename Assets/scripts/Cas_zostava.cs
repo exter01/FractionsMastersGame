@@ -6,8 +6,8 @@ using TMPro;
 public class Cas_zostava : MonoBehaviour
 {
     private TextMeshProUGUI text;
-    public static float timeLeft = 150f; //cas v sekundach, menime v kazdej hre na custom
-    public static bool timerIsRunning = false, cas_uplynul = false;
+    public static float timeLeft; //cas v sekundach, menime v kazdej hre na custom
+    public static bool timerIsRunning, cas_uplynul ;
 
     void DisplayTime(float timeToDisplay)
     {
@@ -19,6 +19,9 @@ public class Cas_zostava : MonoBehaviour
 
     void Start()
     {
+        timeLeft = 150f; //cas v sekundach, menime v kazdej hre na custom
+        timerIsRunning = false;
+        cas_uplynul = false;
         text = GetComponent<TextMeshProUGUI>();
     }
 

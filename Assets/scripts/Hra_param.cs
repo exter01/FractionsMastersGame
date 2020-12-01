@@ -15,29 +15,26 @@ public class Hra_param : MonoBehaviour
     public TMP_Text Playername;
     //koniec
 
-    public TMP_Text odpoved; // vybrana odpoved
-    public TMP_Text score; // zobrazene skore
-    public static int kolocislo = 0;
-    public static int pocetlistkov = 0;
-    public static bool vysvetlovanie_show = false;
-    public static int listok = 0; //1-show,2-showed,3-hide atd
-    public static int vybrana_odpoved = 4, spravna_odpoved = 4; //v zaklade 4, aby nebola ziadna
-    public static int priklad_cislo = 0;
-    public static int act_score = 0;
-    public static bool touch_save_diskette = false; // ked sa dotkne postavicka cez collider
-    public static bool prebehlo_vysvetlovanie = false;
-    public static bool vysvetlujeme = false;
+    public TMP_Text odpoved, score; // zobrazene skore
     public CanvasGroup hernycanvas, otazkovycanvas, vysvetlovaniecanvas, savingcanvas, loadingcanvas;
     public GameObject listok1, listok2, listok3, listok4, listok5, listok6, listok7, listok8, listok9, listok10, Save_Diskette;
     public VideoPlayer saving_video, loading_video;
-    public GameObject Vysv_button_next, Vysv1_1, Vysv1_2, Vysv2_1, Vysv2_2, Vysv3_1, Vysv3_2;
+    public GameObject Vysv_button_next, Vysv1_1, Vysv1_2, Vysv2_1, Vysv2_2, Vysv3_1, Vysv3_2, Vysv4_1, Vysv4_2, Vysv5_1, Vysv5_2;
     public GameObject Xko, Fajka, Xko_1, Xko_2, Xko_3;
     public TMP_Text Zadanie_1, Zadanie_2, Zadanie_3, Zadanie_4, Zadanie_5;
     public TMP_Text A_1, A_2, B_1, B_2, C_1, C_2;
     public GameObject X_1A, X_2A, X_3A, X_1X, X_2X, X_3X, X_1Y, X_2Y, X_3Y;
+    public static bool vysvetlovanie_show;
+    public static int listok; //1-show,2-showed,3-hide atd
+    public static int vybrana_odpoved, spravna_odpoved; //v zaklade 4, aby nebola ziadna
+    public static int priklad_cislo, act_score, kolocislo, pocetlistkov, pocet_zobraz_list;
+    public static int potvrdit_click; //pri odpovedach je dva krat button odpoved
+    public static bool touch_save_diskette; // ked sa dotkne postavicka cez collider
+    public static bool prebehlo_vysvetlovanie;
+    public static bool vysvetlujeme;
+    private int tmp_pocet, tmp_pocet3;
+    private int vysv_faza;
 
-    public static int potvrdit_click = 0; //pri odpovedach je dva krat button odpoved
-    public static int pocet_zobraz_list = 0;
 
     public void nastav_priklad(string Z1, string Z2, string Z3, string Z4, string Z5, string A1, string A2, string B1, string B2, string C1, string C2)
     {
@@ -112,6 +109,7 @@ public class Hra_param : MonoBehaviour
             nastav_priklad("4", "8", "+", "7", "9", "93", "72", "23", "18", "11", "17");
             spravna_odpoved = 2;
         }*/
+
     }
 
     void vysvetlovanie_enable()
@@ -167,6 +165,36 @@ public class Hra_param : MonoBehaviour
             Vysv3_2.gameObject.SetActive(true);
             Vysv_button_next.gameObject.SetActive(true);
         }
+        if (vysv_faza == 6)
+        {
+            Vysv3_2.gameObject.SetActive(false);
+            Vysv4_1.gameObject.SetActive(true);
+            Vysvetlovanie_casovac.timerIsRunning = true;
+            Vysvetlovanie_casovac.cas_uplynul = false;
+            Vysvetlovanie_casovac.timeLeft = 2f;
+        }
+        if (vysv_faza == 7)
+        {
+            Vysvetlovanie_casovac.cas_uplynul = false;
+            Vysv4_1.gameObject.SetActive(false);
+            Vysv4_2.gameObject.SetActive(true);
+            Vysv_button_next.gameObject.SetActive(true);
+        }
+        if (vysv_faza == 8)
+        {
+            Vysv4_2.gameObject.SetActive(false);
+            Vysv5_1.gameObject.SetActive(true);
+            Vysvetlovanie_casovac.timerIsRunning = true;
+            Vysvetlovanie_casovac.cas_uplynul = false;
+            Vysvetlovanie_casovac.timeLeft = 2f;
+        }
+        if (vysv_faza == 9)
+        {
+            Vysvetlovanie_casovac.cas_uplynul = false;
+            Vysv5_1.gameObject.SetActive(false);
+            Vysv5_2.gameObject.SetActive(true);
+            Vysv_button_next.gameObject.SetActive(true);
+        }
     }
 
     public void vysvetlovanie_next_but()
@@ -174,7 +202,7 @@ public class Hra_param : MonoBehaviour
         vysv_faza++;
         vysvetlovanie_zobraz(vysv_faza);
         Vysv_button_next.gameObject.SetActive(false);
-        if(vysv_faza == 6)
+        if(vysv_faza == 10)
         {
             vysvetlujeme = false;
             next_vysvetlovanie();
@@ -289,7 +317,6 @@ public class Hra_param : MonoBehaviour
             Save_Diskette.transform.position = new Vector3(Save_Diskette.transform.position.x - 1, Save_Diskette.transform.position.y - 8, Save_Diskette.transform.position.z);
             tmp_pocet3 = 0;
         }
-
     }
 
     public void Potvrdit_odpoved()
@@ -369,6 +396,22 @@ public class Hra_param : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        vysvetlovanie_show = false;
+        listok = 0; //1-show,2-showed,3-hide atd
+        vybrana_odpoved = 4;
+        spravna_odpoved = 4; //v zaklade 4, aby nebola ziadna
+        priklad_cislo = 0;
+        act_score = 0;
+        kolocislo = 0;
+        pocetlistkov = 0;
+        pocet_zobraz_list = 0;
+        potvrdit_click = 0; //pri odpovedach je dva krat button odpoved
+        touch_save_diskette = false; // ked sa dotkne postavicka cez collider
+        prebehlo_vysvetlovanie = false;
+        vysvetlujeme = false;
+        tmp_pocet = 0;
+        tmp_pocet3 = 0;
+        vysv_faza = 0;
         saving_video.loopPointReached += EndReached;
         loading_video.loopPointReached += EndReached2;
         Playername.text = playernamestr; //meno hraca z menu
@@ -394,19 +437,18 @@ public class Hra_param : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
-    private int tmp_pocet = 0, tmp_pocet3 = 0;
-    private int vysv_faza = 0;
+    
     // Update is called once per frame
     void Update()
     {
         if(prebehlo_vysvetlovanie == false)//podskakovanie krala
         {
             tmp_pocet++;
-            if (tmp_pocet == 20)
+            if (tmp_pocet == 30)
             {
                 Kral.transform.position = new Vector3(Kral.transform.position.x+1, Kral.transform.position.y + 14, Kral.transform.position.z);
             }
-            if (tmp_pocet == 40)
+            if (tmp_pocet == 60)
             {
                 Kral.transform.position = new Vector3(Kral.transform.position.x-1, Kral.transform.position.y - 14, Kral.transform.position.z);
                 tmp_pocet = 0;
