@@ -13,11 +13,8 @@ public class Hra_quiz_param : MonoBehaviour
     public TMP_Text score; // zobrazene skore
     public TMP_Text score_finish; // zobrazene skore na konci v canvasscore
     public CanvasGroup hernycanvas, scorecanvas;
-    public static int vybrana_odpoved;
-    public static int spravna_odpoved;
-    public static int priklad_cislo;
-    public static int act_score;
-    public static float cas_dlzka = 25f; //cas na vyber moznosti
+    public static int vybrana_odpoved, spravna_odpoved, priklad_cislo, act_score, act_bad;
+    public static float cas_dlzka = 10f; //cas na vyber moznosti
 
     public GameObject Xko, Fajka, Xko_1, Xko_2, Xko_3;
     public TMP_Text Zadanie_1, Zadanie_2, Zadanie_3, Zadanie_4, Zadanie_5;
@@ -270,8 +267,8 @@ public class Hra_quiz_param : MonoBehaviour
         odpoved.text = string.Format("{0}", ""); // vynulujeme odpoved //doriesit
         priklad_cislo++;
         spravne_odpovede();
-        Cas_zostava.timeLeft = cas_dlzka;
-        Cas_zostava.timerIsRunning = true;
+        //Cas_zostava.timeLeft = cas_dlzka;
+        //Cas_zostava.timerIsRunning = true;
         if (priklad_cislo == 11) // po prejdeny vsetkych prikladov sa hra vypne, zatial
         {
             score_vyhodnotenie();
@@ -334,27 +331,24 @@ public class Hra_quiz_param : MonoBehaviour
                 }
                 else
                 {
-                    //bomb++;
+                    act_bad++;
                     Xko.gameObject.SetActive(true);
                 }
 
                 if (spravna_odpoved == 1)
                 {
-                    //X_1Y.gameObject.SetActive(true);
                     X_2X.gameObject.SetActive(true);
                     X_3X.gameObject.SetActive(true);
                 }
                 else if (spravna_odpoved == 2)
                 {
                     X_1X.gameObject.SetActive(true);
-                    // X_2Y.gameObject.SetActive(true);
                     X_3X.gameObject.SetActive(true);
                 }
                 else if (spravna_odpoved == 3)
                 {
                     X_1X.gameObject.SetActive(true);
                     X_2X.gameObject.SetActive(true);
-                    // X_3Y.gameObject.SetActive(true);
                 }
             }
         }
@@ -366,20 +360,16 @@ public class Hra_quiz_param : MonoBehaviour
             X_1A.gameObject.SetActive(false);
             X_2A.gameObject.SetActive(false);
             X_3A.gameObject.SetActive(false);
-
             X_1X.gameObject.SetActive(false);
             X_2X.gameObject.SetActive(false);
             X_3X.gameObject.SetActive(false);
-
             X_1Y.gameObject.SetActive(false);
             X_2Y.gameObject.SetActive(false);
             X_3Y.gameObject.SetActive(false);
-
             Fajka.gameObject.SetActive(false);
             Xko.gameObject.SetActive(false);
             update_score();
             listok_enable();
-            //Debug.Log(vybrana_odpoved);
             odpoved.text = string.Format("{0}", ""); // vynulujeme odpoved
         }
     }
@@ -388,7 +378,7 @@ public class Hra_quiz_param : MonoBehaviour
     {
         hernycanvas.gameObject.SetActive(false);
         scorecanvas.gameObject.SetActive(true);
-        score_finish.text = string.Format("{0} {1}", "Tvoje score je: ", act_score);
+        score_finish.text = string.Format("{0} {1} {2} {3}", "Tvoje score je: ", act_score, "Pocet zlych je: ", act_bad);
     }
 
     public void QuitGame() //doriesit vyresetovanie hry NEJDE !
@@ -418,7 +408,8 @@ public class Hra_quiz_param : MonoBehaviour
     {
         if (Cas_zostava.cas_uplynul == true)
         {
-            listok_enable();
+            //score_vyhodnotenie();
+            priklad_cislo = 10;
         }
     }
 }
