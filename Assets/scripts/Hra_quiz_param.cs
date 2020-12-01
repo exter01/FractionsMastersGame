@@ -158,53 +158,53 @@ public class Hra_quiz_param : MonoBehaviour
         {
             if (priklad_cislo == 1)
             {
-                nastav_priklad("1", "2", "*", "1", "3", "5", "6", "3", "4", "2", "5");
-                spravna_odpoved = 1; //1 je A, 2 je B, 3 je C
+                nastav_priklad("7", "8", "*", "3", "9", "21", "24", "7", "24", "21", "72");
+                spravna_odpoved = 2; //1 je A, 2 je B, 3 je C
             }
             if (priklad_cislo == 2)
             {
-                nastav_priklad("1", "5", "+", "4", "3", "5", "8", "23", "15", "6", "7");
-                spravna_odpoved = 2;
+                nastav_priklad("9", "4", "*", "12", "6", "108", "6", "43", "24", "9", "2");
+                spravna_odpoved = 3;
             }
             if (priklad_cislo == 3)
             {
-                nastav_priklad("2", "3", "+", "1", "6", "7", "5", "3", "9", "5", "6");
+                nastav_priklad("3", "3", "*", "4", "2", "12", "6", "8", "6", "2", "1");
                 spravna_odpoved = 3;
             }
             if (priklad_cislo == 4)
             {
-                nastav_priklad("4", "5", "+", "1", "10", "5", "15", "9", "10", "9", "11");
-                spravna_odpoved = 2;
+                nastav_priklad("7", "5", "*", "9", "3", "21", "5", "63", "5", "70", "15");
+                spravna_odpoved = 1;
             }
             if (priklad_cislo == 5)
             {
-                nastav_priklad("4", "3", "+", "7", "5", "41", "15", "38", "15", "11", "8");
-                spravna_odpoved = 1;
+                nastav_priklad("3", "4", "*", "1", "2", "16", "8", "24", "8", "3", "8");
+                spravna_odpoved = 3;
             }
             if (priklad_cislo == 6)
             {
-                nastav_priklad("8", "7", "+", "6", "5", "14", "12", "80", "35", "82", "35");
-                spravna_odpoved = 3;
+                nastav_priklad("11", "12", "*", "6", "5", "66", "10", "11", "10", "25", "10");
+                spravna_odpoved = 2;
             }
             if (priklad_cislo == 7)
             {
-                nastav_priklad("12", "2", "+", "12", "2", "12", "4", "24", "4", "12", "1");
-                spravna_odpoved = 3;
+                nastav_priklad("5", "3", "*", "6", "5", "30", "10", "2", "1", "30", "6");
+                spravna_odpoved = 2;
             }
             if (priklad_cislo == 8)
             {
-                nastav_priklad("9", "4", "+", "6", "7", "86", "28", "85", "28", "87", "28");
-                spravna_odpoved = 3;
+                nastav_priklad("3", "4", "*", "8", "6", "1", "1", "24", "8", "16", "8");
+                spravna_odpoved = 1;
             }
             if (priklad_cislo == 9)
             {
-                nastav_priklad("4", "8", "+", "7", "9", "93", "72", "23", "18", "11", "17");
-                spravna_odpoved = 2;
+                nastav_priklad("9", "10", "*", "5", "3", "9", "2", "6", "2", "3", "2");
+                spravna_odpoved = 3;
             }
             if (priklad_cislo == 10)
             {
-                nastav_priklad("12", "8", "+", "14", "4", "26", "12", "45", "8", "5", "1");
-                spravna_odpoved = 3;
+                nastav_priklad("15", "16", "*", "24", "25", "9", "10", "45", "10", "248", "10");
+                spravna_odpoved = 1;
             }
         }
 
@@ -212,53 +212,53 @@ public class Hra_quiz_param : MonoBehaviour
         {
             if (priklad_cislo == 1)
             {
-                nastav_priklad("1", "2", "/", "1", "3", "5", "6", "3", "4", "2", "5");
-                spravna_odpoved = 1; //1 je A, 2 je B, 3 je C
+                nastav_priklad("5", "4", ":", "15", "8", "6", "3", "2", "3", "10", "4");
+                spravna_odpoved = 2; //1 je A, 2 je B, 3 je C
             }
             if (priklad_cislo == 2)
             {
-                nastav_priklad("1", "5", "+", "4", "3", "5", "8", "23", "15", "6", "7");
-                spravna_odpoved = 2;
+                nastav_priklad("1", "8", ":", "3", "6", "1", "4", "5", "4", "10", "3");
+                spravna_odpoved = 1;
             }
             if (priklad_cislo == 3)
             {
-                nastav_priklad("2", "3", "+", "1", "6", "7", "5", "3", "9", "5", "6");
-                spravna_odpoved = 3;
+                nastav_priklad("7", "5", ":", "14", "3", "11", "10", "3", "10", "7", "10");
+                spravna_odpoved = 2;
             }
             if (priklad_cislo == 4)
             {
-                nastav_priklad("4", "5", "+", "1", "10", "5", "15", "9", "10", "9", "11");
-                spravna_odpoved = 2;
+                nastav_priklad("8", "12", ":", "8", "6", "4", "6", "9", "3", "1", "2");
+                spravna_odpoved = 3;
             }
             if (priklad_cislo == 5)
             {
-                nastav_priklad("4", "3", "+", "7", "5", "41", "15", "38", "15", "11", "8");
-                spravna_odpoved = 1;
+                nastav_priklad("1", "6", ":", "7", "2", "12", "21", "7", "12", "1", "21");
+                spravna_odpoved = 3;
             }
             if (priklad_cislo == 6)
             {
-                nastav_priklad("8", "7", "+", "6", "5", "14", "12", "80", "35", "82", "35");
-                spravna_odpoved = 3;
+                nastav_priklad("1", "10", ":", "1", "4", "2", "5", "10", "5", "8", "5");
+                spravna_odpoved = 1;
             }
             if (priklad_cislo == 7)
             {
-                nastav_priklad("12", "2", "+", "12", "2", "12", "4", "24", "4", "12", "1");
-                spravna_odpoved = 3;
+                nastav_priklad("11", "8", ":", "14", "7", "14", "12", "11", "16", "12", "16");
+                spravna_odpoved = 2;
             }
             if (priklad_cislo == 8)
             {
-                nastav_priklad("9", "4", "+", "6", "7", "86", "28", "85", "28", "87", "28");
+                nastav_priklad("3", "2", ":", "2", "4", "12", "2", "10", "3", "3", "1");
                 spravna_odpoved = 3;
             }
             if (priklad_cislo == 9)
             {
-                nastav_priklad("4", "8", "+", "7", "9", "93", "72", "23", "18", "11", "17");
+                nastav_priklad("18", "7", ":", "16", "6", "107", "20", "27", "28", "30", "28");
                 spravna_odpoved = 2;
             }
             if (priklad_cislo == 10)
             {
-                nastav_priklad("12", "8", "+", "14", "4", "26", "12", "45", "8", "5", "1");
-                spravna_odpoved = 3;
+                nastav_priklad("9", "8", ":", "7", "6", "27", "28", "54", "28", "33", "28");
+                spravna_odpoved = 1;
             }
         }
     }
