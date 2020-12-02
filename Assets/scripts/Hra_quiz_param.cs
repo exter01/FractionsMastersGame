@@ -14,7 +14,7 @@ public class Hra_quiz_param : MonoBehaviour
     public TMP_Text score_finish; // zobrazene skore na konci v canvasscore
     public CanvasGroup hernycanvas, scorecanvas;
     public static int vybrana_odpoved, spravna_odpoved, priklad_cislo, act_score, act_bad;
-    public static float cas_dlzka = 10f; //cas na vyber moznosti
+    public static float cas_dlzka = 150f; //cas na vyber moznosti
 
     public GameObject Xko, Fajka, Xko_1, Xko_2, Xko_3;
     public TMP_Text Zadanie_1, Zadanie_2, Zadanie_3, Zadanie_4, Zadanie_5;
