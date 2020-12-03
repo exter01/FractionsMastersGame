@@ -20,10 +20,8 @@ public class Hra_param : MonoBehaviour
     public GameObject listok1, listok2, listok3, listok4, listok5, listok6, listok7, listok8, listok9, listok10, Save_Diskette;
     public VideoPlayer saving_video, loading_video;
     public GameObject Vysv_button_next, Vysv1_1, Vysv1_2, Vysv2_1, Vysv2_2, Vysv3_1, Vysv3_2, Vysv4_1, Vysv4_2, Vysv5_1, Vysv5_2;
-    public GameObject Xko, Fajka, Xko_1, Xko_2, Xko_3;
-    public TMP_Text Zadanie_1, Zadanie_2, Zadanie_3, Zadanie_4, Zadanie_5;
-    public TMP_Text A_1, A_2, B_1, B_2, C_1, C_2;
-    public GameObject X_1A, X_2A, X_3A, X_1X, X_2X, X_3X, X_1Y, X_2Y, X_3Y;
+    public GameObject Xko, Fajka, X_1A, X_2A, X_3A;
+    public TMP_Text Zadanie_1, Zadanie_2, Zadanie_3, Zadanie_4, Zadanie_5, A_1, A_2, B_1, B_2, C_1, C_2;
     public static bool vysvetlovanie_show;
     public static int listok; //1-show,2-showed,3-hide atd
     public static int vybrana_odpoved, spravna_odpoved; //v zaklade 4, aby nebola ziadna
@@ -35,6 +33,7 @@ public class Hra_param : MonoBehaviour
     private int tmp_pocet, tmp_pocet3;
     private int vysv_faza;
 
+    public GameObject X1_Biely, X1_Zlty, X1_Cerveny, X1_Zeleny, X2_Biely, X2_Zlty, X2_Cerveny, X2_Zeleny, X3_Biely, X3_Zlty, X3_Cerveny, X3_Zeleny;
 
     public void nastav_priklad(string Z1, string Z2, string Z3, string Z4, string Z5, string A1, string A2, string B1, string B2, string C1, string C2)
     {
@@ -270,18 +269,38 @@ public class Hra_param : MonoBehaviour
     {
         vybrana_odpoved = 1;
         odpoved.text = string.Format("{0}", "A");
+        /*X_1A.gameObject.SetActive(true);
+        X_2A.gameObject.SetActive(false);
+        X_3A.gameObject.SetActive(false);*/
         X_1A.gameObject.SetActive(true);
         X_2A.gameObject.SetActive(false);
         X_3A.gameObject.SetActive(false);
+        X1_Biely.gameObject.SetActive(false);
+        X1_Zlty.gameObject.SetActive(true);
+        X2_Zlty.gameObject.SetActive(false);
+        X2_Biely.gameObject.SetActive(true);
+        X3_Zlty.gameObject.SetActive(false);
+        X3_Biely.gameObject.SetActive(true);
+        Debug.Log("jedna");
     }
 
     public void vyber_odpoved2()
     {
         vybrana_odpoved = 2;
         odpoved.text = string.Format("{0}", "B");
+        /*X_1A.gameObject.SetActive(false);
+        X_2A.gameObject.SetActive(true);
+        X_3A.gameObject.SetActive(false);*/
         X_1A.gameObject.SetActive(false);
         X_2A.gameObject.SetActive(true);
         X_3A.gameObject.SetActive(false);
+        X1_Biely.gameObject.SetActive(true);
+        X1_Zlty.gameObject.SetActive(false);
+        X2_Zlty.gameObject.SetActive(true);
+        X2_Biely.gameObject.SetActive(false);
+        X3_Zlty.gameObject.SetActive(false);
+        X3_Biely.gameObject.SetActive(true);
+        Debug.Log("dva");
     }
 
     public void vyber_odpoved3()
@@ -291,6 +310,15 @@ public class Hra_param : MonoBehaviour
         X_1A.gameObject.SetActive(false);
         X_2A.gameObject.SetActive(false);
         X_3A.gameObject.SetActive(true);
+        /*X_1A.gameObject.SetActive(false);
+        X_2A.gameObject.SetActive(false);
+        X_3A.gameObject.SetActive(true);*/
+        X1_Biely.gameObject.SetActive(true);
+        X1_Zlty.gameObject.SetActive(false);
+        X2_Zlty.gameObject.SetActive(false);
+        X2_Biely.gameObject.SetActive(true);
+        X3_Zlty.gameObject.SetActive(true);
+        X3_Biely.gameObject.SetActive(false);
     }
 
     public void update_score()
@@ -330,16 +358,19 @@ public class Hra_param : MonoBehaviour
                 {
                     act_score++;
                     Fajka.gameObject.SetActive(true);
+                    X1_Zlty.gameObject.SetActive(false);
                 }
                 else if (vybrana_odpoved == 2 && spravna_odpoved == 2)
                 {
                     act_score++;
                     Fajka.gameObject.SetActive(true);
+                    X2_Zlty.gameObject.SetActive(false);
                 }
                 else if (vybrana_odpoved == 3 && spravna_odpoved == 3)
                 {
                     act_score++;
                     Fajka.gameObject.SetActive(true);
+                    X3_Zlty.gameObject.SetActive(false);
                 }
                 else
                 {
@@ -349,20 +380,33 @@ public class Hra_param : MonoBehaviour
 
                 if(spravna_odpoved == 1)
                 {
-                    //X_1Y.gameObject.SetActive(true);
-                    X_2X.gameObject.SetActive(true);
-                    X_3X.gameObject.SetActive(true);
-                }else if(spravna_odpoved == 2)
+                    X1_Zeleny.gameObject.SetActive(true);
+                    X2_Biely.gameObject.SetActive(false);
+                    X3_Biely.gameObject.SetActive(false);
+                    X2_Cerveny.gameObject.SetActive(true);
+                    X3_Cerveny.gameObject.SetActive(true);
+                }
+                else if(spravna_odpoved == 2)
                 {
-                    X_1X.gameObject.SetActive(true);
-                   // X_2Y.gameObject.SetActive(true);
-                    X_3X.gameObject.SetActive(true);
+                    X2_Zeleny.gameObject.SetActive(true);
+                    X1_Biely.gameObject.SetActive(false);
+                    X3_Biely.gameObject.SetActive(false);
+                    X1_Cerveny.gameObject.SetActive(true);
+                    X3_Cerveny.gameObject.SetActive(true);
+                    // X_1X.gameObject.SetActive(true);
+                    // X_2Y.gameObject.SetActive(true);
+                    // X_3X.gameObject.SetActive(true);
                 }
                 else if(spravna_odpoved == 3)
                 {
-                    X_1X.gameObject.SetActive(true);
-                    X_2X.gameObject.SetActive(true);
-                   // X_3Y.gameObject.SetActive(true);
+                    X3_Zeleny.gameObject.SetActive(true);
+                    X1_Biely.gameObject.SetActive(false);
+                    X1_Biely.gameObject.SetActive(false);
+                    X1_Cerveny.gameObject.SetActive(true);
+                    X2_Cerveny.gameObject.SetActive(true);
+                    // X_1X.gameObject.SetActive(true);
+                    // X_2X.gameObject.SetActive(true);
+                    // X_3Y.gameObject.SetActive(true);
                 }
             }
         }
@@ -371,17 +415,21 @@ public class Hra_param : MonoBehaviour
             potvrdit_click = 0;
             vybrana_odpoved = 4; //aby sa vynulovala odpoved po potvrdeni
 
+            X1_Biely.gameObject.SetActive(true);
+            X2_Biely.gameObject.SetActive(true);
+            X3_Biely.gameObject.SetActive(true);
+
+            X1_Cerveny.gameObject.SetActive(false);
+            X2_Cerveny.gameObject.SetActive(false);
+            X3_Cerveny.gameObject.SetActive(false);
+
+            X1_Zeleny.gameObject.SetActive(false);
+            X2_Zeleny.gameObject.SetActive(false);
+            X3_Zeleny.gameObject.SetActive(false);
+
             X_1A.gameObject.SetActive(false);
             X_2A.gameObject.SetActive(false);
             X_3A.gameObject.SetActive(false);
-
-            X_1X.gameObject.SetActive(false);
-            X_2X.gameObject.SetActive(false);
-            X_3X.gameObject.SetActive(false);
-
-            X_1Y.gameObject.SetActive(false);
-            X_2Y.gameObject.SetActive(false);
-            X_3Y.gameObject.SetActive(false);
 
             Fajka.gameObject.SetActive(false);
             Xko.gameObject.SetActive(false);
