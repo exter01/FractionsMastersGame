@@ -29,6 +29,8 @@ public class Menu_param : MonoBehaviour
         if(kam_idem == "novahra")
         {
             Hra_param.playernamestr = Playername.text;
+            Hra_param.CELKOVESKORE = 0;
+            Hra_param.aktualny_level = 1;
             SceneManager.LoadScene("Hra-loading");
         }
 

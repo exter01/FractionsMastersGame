@@ -159,7 +159,8 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("The Kral is touched");
             Destroy(obj.gameObject);
-            Hra_param.vysvetlovanie_show = true;
+            Hra_param.touch_kral = true;
+            //Hra_param.aktualny_level = 1;
         }
 
         if (obj.gameObject == Hojdacka || obj.gameObject == Fontana || obj.gameObject == Kricok)
