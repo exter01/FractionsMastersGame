@@ -11,10 +11,11 @@ public class Hra_param : MonoBehaviour
     public GameObject Player, Kral, Hojdacka;
     public static string playernamestr;//meno hraca z menu
     public TMP_Text Playername;//meno hraca z menu
-    public static int CELKOVESKORE = 0, aktualny_level;//sucet skore medzi levelmi, aktualny level
+    public static int CELKOVESKORE = 0, CELKOVESKORE_MAX = 0, aktualny_level;//sucet skore medzi levelmi, aktualny level
     public VideoPlayer saving_video;
 
     public TMP_Text odpoved, score; // zobrazene skore
+    public TMP_Text vyhodnotenie_score, vyhodnotenie_max_score, vyhodnotenie_max_score2, vyhodnotenie_score2;
     public CanvasGroup hernycanvas, otazkovycanvas, vysvetlovaniecanvas, savingcanvas, loadingcanvas, vyhodnoteniecanvas;
     public GameObject listok1, listok2, listok3, listok4, listok5, listok6, listok7, listok8, listok9, listok10, Save_Diskette;
     public GameObject listok11, listok12, listok13, listok14, listok15, listok16, listok17, listok18, listok19, listok20;
@@ -52,7 +53,7 @@ public class Hra_param : MonoBehaviour
 
     public void spravne_odpovede()
     {
-        if(aktualny_level == 1)
+        if(aktualny_level == 1)//scitanie
         {
             if (priklad_cislo == 1)
             {
@@ -107,7 +108,7 @@ public class Hra_param : MonoBehaviour
             }
         }
 
-        if(aktualny_level == 2)
+        if(aktualny_level == 2)//odcitanie
         {
             if (priklad_cislo == 1)
             {
@@ -163,7 +164,7 @@ public class Hra_param : MonoBehaviour
             }
         }
 
-        if(aktualny_level == 3)
+        if(aktualny_level == 3)//nasobenie
         {
             if (priklad_cislo == 1)
             {
@@ -684,8 +685,13 @@ public class Hra_param : MonoBehaviour
     {
         CELKOVESKORE = CELKOVESKORE + act_score;
         aktualny_level++;
+        CELKOVESKORE_MAX += 10;
         savingcanvas.gameObject.SetActive(false);
         vyhodnoteniecanvas.gameObject.SetActive(true);
+        vyhodnotenie_score.text = string.Format("{0}", act_score);
+        vyhodnotenie_max_score.text = string.Format("{0}", "10");
+        vyhodnotenie_score2.text = string.Format("{0}", CELKOVESKORE);
+        vyhodnotenie_max_score2.text = string.Format("{0}", CELKOVESKORE_MAX);
     }
 
     public void DalsiLevel()

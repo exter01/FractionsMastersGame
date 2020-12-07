@@ -11459,7 +11459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1558775502
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16364,6 +16364,10 @@ MonoBehaviour:
   saving_video: {fileID: 875618387}
   odpoved: {fileID: 453814028}
   score: {fileID: 1724942585}
+  vyhodnotenie_score: {fileID: 313139586}
+  vyhodnotenie_max_score: {fileID: 458199047}
+  vyhodnotenie_max_score2: {fileID: 62202580}
+  vyhodnotenie_score2: {fileID: 1708372724}
   hernycanvas: {fileID: 984917884}
   otazkovycanvas: {fileID: 891983677}
   vysvetlovaniecanvas: {fileID: 6929749}
