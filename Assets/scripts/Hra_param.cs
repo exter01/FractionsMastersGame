@@ -15,7 +15,7 @@ public class Hra_param : MonoBehaviour
     public VideoPlayer saving_video;
 
     public TMP_Text odpoved, score; // zobrazene skore
-    public CanvasGroup hernycanvas, otazkovycanvas, vysvetlovaniecanvas, savingcanvas, loadingcanvas;
+    public CanvasGroup hernycanvas, otazkovycanvas, vysvetlovaniecanvas, savingcanvas, loadingcanvas, vyhodnoteniecanvas;
     public GameObject listok1, listok2, listok3, listok4, listok5, listok6, listok7, listok8, listok9, listok10, Save_Diskette;
     public GameObject listok11, listok12, listok13, listok14, listok15, listok16, listok17, listok18, listok19, listok20;
     public GameObject Vysv_button_next, Vysv1_1, Vysv1_2, Vysv2_1, Vysv2_2, Vysv3_1, Vysv3_2, Vysv4_1, Vysv4_2, Vysv5_1, Vysv5_2;
@@ -684,6 +684,12 @@ public class Hra_param : MonoBehaviour
     {
         CELKOVESKORE = CELKOVESKORE + act_score;
         aktualny_level++;
+        savingcanvas.gameObject.SetActive(false);
+        vyhodnoteniecanvas.gameObject.SetActive(true);
+    }
+
+    public void DalsiLevel()
+    {
         SceneManager.LoadScene("Hra-loading");
     }
 
