@@ -11,15 +11,21 @@ public class Hra_quiz_param : MonoBehaviour
     public TMP_Text Playername; //meno hraca z menu
     public TMP_Text odpoved; // vybrana odpoved
     public TMP_Text score; // zobrazene skore
-    public TMP_Text score_finish; // zobrazene skore na konci v canvasscore
+    public TMP_Text score_finish, score_finish_max; // zobrazene skore na konci v canvasscore
     public CanvasGroup hernycanvas, scorecanvas;
     public static int vybrana_odpoved, spravna_odpoved, priklad_cislo, act_score, act_bad;
     public static float cas_dlzka = 150f; //cas na vyber moznosti
 
-    public GameObject Xko, Fajka, Xko_1, Xko_2, Xko_3;
+    /*public GameObject Xko, Fajka, Xko_1, Xko_2, Xko_3;
     public TMP_Text Zadanie_1, Zadanie_2, Zadanie_3, Zadanie_4, Zadanie_5;
     public TMP_Text A_1, A_2, B_1, B_2, C_1, C_2;
-    public GameObject X_1A, X_2A, X_3A, X_1X, X_2X, X_3X, X_1Y, X_2Y, X_3Y;
+    public GameObject X_1A, X_2A, X_3A, X_1X, X_2X, X_3X, X_1Y, X_2Y, X_3Y;*/
+
+    //odpoved
+    public GameObject Xko, Fajka, X_1A, X_2A, X_3A;
+    public TMP_Text Zadanie_1, Zadanie_2, Zadanie_3, Zadanie_4, Zadanie_5, A_1, A_2, B_1, B_2, C_1, C_2;
+    public GameObject X1_Biely, X1_Zlty, X1_Cerveny, X1_Zeleny, X2_Biely, X2_Zlty, X2_Cerveny, X2_Zeleny, X3_Biely, X3_Zlty, X3_Cerveny, X3_Zeleny;
+    //end odpoved
 
     public static int potvrdit_click; //pri odpovediach je dva krat button odpoved
     public static int pocet_zobraz_list;
@@ -264,7 +270,7 @@ public class Hra_quiz_param : MonoBehaviour
     {
         Cas_zostava.cas_uplynul = false;
         vybrana_odpoved = 4; //aby sa vynulovala odpoved po potvrdeni //doriesit 
-        odpoved.text = string.Format("{0}", ""); // vynulujeme odpoved //doriesit
+        //odpoved.text = string.Format("{0}", ""); // vynulujeme odpoved //doriesit
         priklad_cislo++;
         spravne_odpovede();
         //Cas_zostava.timeLeft = cas_dlzka;
@@ -278,28 +284,46 @@ public class Hra_quiz_param : MonoBehaviour
     public void vyber_odpoved1()
     {
         vybrana_odpoved = 1;
-        odpoved.text = string.Format("{0}", "A");
+        //odpoved.text = string.Format("{0}", "A");
         X_1A.gameObject.SetActive(true);
         X_2A.gameObject.SetActive(false);
         X_3A.gameObject.SetActive(false);
+        X1_Biely.gameObject.SetActive(false);
+        X1_Zlty.gameObject.SetActive(true);
+        X2_Zlty.gameObject.SetActive(false);
+        X2_Biely.gameObject.SetActive(true);
+        X3_Zlty.gameObject.SetActive(false);
+        X3_Biely.gameObject.SetActive(true);
     }
 
     public void vyber_odpoved2()
     {
         vybrana_odpoved = 2;
-        odpoved.text = string.Format("{0}", "B");
+        //odpoved.text = string.Format("{0}", "B");
         X_1A.gameObject.SetActive(false);
         X_2A.gameObject.SetActive(true);
         X_3A.gameObject.SetActive(false);
+        X1_Biely.gameObject.SetActive(true);
+        X1_Zlty.gameObject.SetActive(false);
+        X2_Zlty.gameObject.SetActive(true);
+        X2_Biely.gameObject.SetActive(false);
+        X3_Zlty.gameObject.SetActive(false);
+        X3_Biely.gameObject.SetActive(true);
     }
 
     public void vyber_odpoved3()
     {
         vybrana_odpoved = 3;
-        odpoved.text = string.Format("{0}", "C");
+        //odpoved.text = string.Format("{0}", "C");
         X_1A.gameObject.SetActive(false);
         X_2A.gameObject.SetActive(false);
         X_3A.gameObject.SetActive(true);
+        X1_Biely.gameObject.SetActive(true);
+        X1_Zlty.gameObject.SetActive(false);
+        X2_Zlty.gameObject.SetActive(false);
+        X2_Biely.gameObject.SetActive(true);
+        X3_Zlty.gameObject.SetActive(true);
+        X3_Biely.gameObject.SetActive(false);
     }
 
     public void update_score()
@@ -318,16 +342,19 @@ public class Hra_quiz_param : MonoBehaviour
                 {
                     act_score++;
                     Fajka.gameObject.SetActive(true);
+                    X1_Zlty.gameObject.SetActive(false);
                 }
                 else if (vybrana_odpoved == 2 && spravna_odpoved == 2)
                 {
                     act_score++;
                     Fajka.gameObject.SetActive(true);
+                    X2_Zlty.gameObject.SetActive(false);
                 }
                 else if (vybrana_odpoved == 3 && spravna_odpoved == 3)
                 {
                     act_score++;
                     Fajka.gameObject.SetActive(true);
+                    X3_Zlty.gameObject.SetActive(false);
                 }
                 else
                 {
@@ -337,18 +364,27 @@ public class Hra_quiz_param : MonoBehaviour
 
                 if (spravna_odpoved == 1)
                 {
-                    X_2X.gameObject.SetActive(true);
-                    X_3X.gameObject.SetActive(true);
+                    X1_Zeleny.gameObject.SetActive(true);
+                    X2_Biely.gameObject.SetActive(false);
+                    X3_Biely.gameObject.SetActive(false);
+                    X2_Cerveny.gameObject.SetActive(true);
+                    X3_Cerveny.gameObject.SetActive(true);
                 }
                 else if (spravna_odpoved == 2)
                 {
-                    X_1X.gameObject.SetActive(true);
-                    X_3X.gameObject.SetActive(true);
+                    X2_Zeleny.gameObject.SetActive(true);
+                    X1_Biely.gameObject.SetActive(false);
+                    X3_Biely.gameObject.SetActive(false);
+                    X1_Cerveny.gameObject.SetActive(true);
+                    X3_Cerveny.gameObject.SetActive(true);
                 }
                 else if (spravna_odpoved == 3)
                 {
-                    X_1X.gameObject.SetActive(true);
-                    X_2X.gameObject.SetActive(true);
+                    X3_Zeleny.gameObject.SetActive(true);
+                    X1_Biely.gameObject.SetActive(false);
+                    X1_Biely.gameObject.SetActive(false);
+                    X1_Cerveny.gameObject.SetActive(true);
+                    X2_Cerveny.gameObject.SetActive(true);
                 }
             }
         }
@@ -357,20 +393,30 @@ public class Hra_quiz_param : MonoBehaviour
             potvrdit_click = 0;
             vybrana_odpoved = 4; //aby sa vynulovala odpoved po potvrdeni
 
+            potvrdit_click = 0;
+            vybrana_odpoved = 4; //aby sa vynulovala odpoved po potvrdeni
+
+            X1_Biely.gameObject.SetActive(true);
+            X2_Biely.gameObject.SetActive(true);
+            X3_Biely.gameObject.SetActive(true);
+
+            X1_Cerveny.gameObject.SetActive(false);
+            X2_Cerveny.gameObject.SetActive(false);
+            X3_Cerveny.gameObject.SetActive(false);
+
+            X1_Zeleny.gameObject.SetActive(false);
+            X2_Zeleny.gameObject.SetActive(false);
+            X3_Zeleny.gameObject.SetActive(false);
+
             X_1A.gameObject.SetActive(false);
             X_2A.gameObject.SetActive(false);
             X_3A.gameObject.SetActive(false);
-            X_1X.gameObject.SetActive(false);
-            X_2X.gameObject.SetActive(false);
-            X_3X.gameObject.SetActive(false);
-            X_1Y.gameObject.SetActive(false);
-            X_2Y.gameObject.SetActive(false);
-            X_3Y.gameObject.SetActive(false);
+
             Fajka.gameObject.SetActive(false);
             Xko.gameObject.SetActive(false);
             update_score();
             listok_enable();
-            odpoved.text = string.Format("{0}", ""); // vynulujeme odpoved
+            //odpoved.text = string.Format("{0}", ""); // vynulujeme odpoved
         }
     }
 
@@ -378,7 +424,8 @@ public class Hra_quiz_param : MonoBehaviour
     {
         hernycanvas.gameObject.SetActive(false);
         scorecanvas.gameObject.SetActive(true);
-        score_finish.text = string.Format("{0} {1} {2} {3}", "Tvoje score je: ", act_score, "Pocet zlych je: ", act_bad);
+        score_finish.text = string.Format("{0}", act_score);
+        score_finish_max.text = string.Format("{0}", "10");
     }
 
     public void QuitGame() //doriesit vyresetovanie hry NEJDE !

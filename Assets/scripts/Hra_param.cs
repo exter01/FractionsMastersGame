@@ -23,8 +23,12 @@ public class Hra_param : MonoBehaviour
     public GameObject Vysv_button_next, Vysv1_1, Vysv1_2, Vysv2_1, Vysv2_2, Vysv3_1, Vysv3_2, Vysv4_1, Vysv4_2, Vysv5_1, Vysv5_2;
     public GameObject Vysv2_1_1, Vysv2_1_2, Vysv2_2_1, Vysv2_2_2; //level 2
     public GameObject Vysv3_1_1, Vysv3_1_2, Vysv3_2_1, Vysv3_2_2; //level 3
+
+    //odpoved
     public GameObject Xko, Fajka, X_1A, X_2A, X_3A;
     public TMP_Text Zadanie_1, Zadanie_2, Zadanie_3, Zadanie_4, Zadanie_5, A_1, A_2, B_1, B_2, C_1, C_2;
+    public GameObject X1_Biely, X1_Zlty, X1_Cerveny, X1_Zeleny, X2_Biely, X2_Zlty, X2_Cerveny, X2_Zeleny, X3_Biely, X3_Zlty, X3_Cerveny, X3_Zeleny;
+    //end odpoved
 
     public static bool touch_kral, touch_save_diskette; //po dotknuti krala, diskety true cez playercontroller
     public static int listok; //1-show,2-showed,3-hide atd
@@ -36,7 +40,7 @@ public class Hra_param : MonoBehaviour
     private int vysv_faza;
     private int counter_move_obj, counter_move_obj2; //podskakovanie krala, diskety
 
-    public GameObject X1_Biely, X1_Zlty, X1_Cerveny, X1_Zeleny, X2_Biely, X2_Zlty, X2_Cerveny, X2_Zeleny, X3_Biely, X3_Zlty, X3_Cerveny, X3_Zeleny;
+    
 
     public void nastav_priklad(string Z1, string Z2, string Z3, string Z4, string Z5, string A1, string A2, string B1, string B2, string C1, string C2)
     {
