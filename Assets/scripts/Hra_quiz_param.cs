@@ -98,7 +98,7 @@ public class Hra_quiz_param : MonoBehaviour
             }
             if (priklad_cislo == 10)
             {
-                nastav_priklad("8", "13", "+", "11", "15", "19", "28", "263", "195", "264", "195");
+                nastav_priklad("9", "8", "+", "7", "3", "19", "28", "83", "24", "72", "24");
                 spravna_odpoved = 2;
             }
         }
@@ -166,7 +166,7 @@ public class Hra_quiz_param : MonoBehaviour
             }
             if (priklad_cislo == 2)
             {
-                nastav_priklad("9", "4", "*", "12", "6", "108", "6", "43", "24", "9", "2");
+                nastav_priklad("9", "4", "*", "12", "6", "98", "6", "43", "24", "9", "2");
                 spravna_odpoved = 3;
             }
             if (priklad_cislo == 3)
@@ -206,7 +206,7 @@ public class Hra_quiz_param : MonoBehaviour
             }
             if (priklad_cislo == 10)
             {
-                nastav_priklad("15", "16", "*", "24", "25", "9", "10", "45", "10", "248", "10");
+                nastav_priklad("15", "16", "*", "24", "25", "9", "10", "45", "10", "38", "10");
                 spravna_odpoved = 1;
             }
         }
@@ -255,7 +255,7 @@ public class Hra_quiz_param : MonoBehaviour
             }
             if (priklad_cislo == 9)
             {
-                nastav_priklad("18", "7", ":", "16", "6", "107", "20", "27", "28", "30", "28");
+                nastav_priklad("18", "7", ":", "16", "6", "43", "20", "27", "28", "30", "28");
                 spravna_odpoved = 2;
             }
             if (priklad_cislo == 10)
