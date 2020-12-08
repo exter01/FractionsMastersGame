@@ -22,7 +22,7 @@ public class Hra_param : MonoBehaviour
     public GameObject listok21, listok22, listok23, listok24, listok25, listok26, listok27, listok28, listok29, listok30; //level 3
     public GameObject Vysv_button_next, Vysv1_1, Vysv1_2, Vysv2_1, Vysv2_2, Vysv3_1, Vysv3_2, Vysv4_1, Vysv4_2, Vysv5_1, Vysv5_2;
     public GameObject Vysv2_1_1, Vysv2_1_2, Vysv2_2_1, Vysv2_2_2; //level 2
-    public GameObject Vysv3_1_1, Vysv3_1_2, Vysv3_2_1, Vysv3_2_2; //level 3
+    public GameObject Vysv3_1_1, Vysv3_1_2, Vysv3_2_1, Vysv3_2_2, Vysv3_3_1, Vysv3_3_2; //level 3
 
     //odpoved
     public GameObject Xko, Fajka, X_1A, X_2A, X_3A;
@@ -428,10 +428,10 @@ public class Hra_param : MonoBehaviour
                 Vysv3_2_2.gameObject.SetActive(true);
                 Vysv_button_next.gameObject.SetActive(true);
             }
-            /*if (vysv_faza == 4)
+            if (vysv_faza == 4)
             {
-                Vysv2_2.gameObject.SetActive(false);
-                Vysv3_1.gameObject.SetActive(true);
+                Vysv3_2_2.gameObject.SetActive(false);
+                Vysv3_3_1.gameObject.SetActive(true);
                 Vysvetlovanie_casovac.timerIsRunning = true;
                 Vysvetlovanie_casovac.cas_uplynul = false;
                 Vysvetlovanie_casovac.timeLeft = 2f;
@@ -439,11 +439,11 @@ public class Hra_param : MonoBehaviour
             if (vysv_faza == 5)
             {
                 Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysv3_1.gameObject.SetActive(false);
-                Vysv3_2.gameObject.SetActive(true);
+                Vysv3_3_1.gameObject.SetActive(false);
+                Vysv3_3_2.gameObject.SetActive(true);
                 Vysv_button_next.gameObject.SetActive(true);
             }
-            if (vysv_faza == 6)
+            /*if (vysv_faza == 6)
             {
                 Vysv3_2.gameObject.SetActive(false);
                 Vysv4_1.gameObject.SetActive(true);
@@ -501,7 +501,7 @@ public class Hra_param : MonoBehaviour
             next_vysvetlovanie();
         }
 
-        if (aktualny_level == 3 && vysv_faza == 4)
+        if (aktualny_level == 3 && vysv_faza == 6)
         {
             vysvetlujeme = false;
             next_vysvetlovanie();
@@ -533,7 +533,7 @@ public class Hra_param : MonoBehaviour
             listok23.SetActive(true);
         }
         Cas_zostava.timerIsRunning = true;
-        Cas_zostava.timeLeft = 10f;//ukazuje time - 1//ma byt 151 //cas levelu
+        Cas_zostava.timeLeft = 151f;//ukazuje time - 1//ma byt 151 //cas levelu
     }
 
     void saving_enable()
@@ -673,11 +673,11 @@ public class Hra_param : MonoBehaviour
             listek.gameObject.SetActive(false);
         }
         counter_move_obj2++;
-        if (counter_move_obj2 == 30)
+        if (counter_move_obj2 == 25)
         {
             Save_Diskette.transform.position = new Vector3(Save_Diskette.transform.position.x + 1, Save_Diskette.transform.position.y + 8, Save_Diskette.transform.position.z);
         }
-        if (counter_move_obj2 == 60)
+        if (counter_move_obj2 == 50)
         {
             Save_Diskette.transform.position = new Vector3(Save_Diskette.transform.position.x - 1, Save_Diskette.transform.position.y - 8, Save_Diskette.transform.position.z);
             counter_move_obj2 = 0;
@@ -796,6 +796,17 @@ public class Hra_param : MonoBehaviour
         update_score();//aby sa nastavilo score na 0
         //loading_video.Play();
         Debug.Log(aktualny_level);
+
+        if(aktualny_level == 2)
+        {
+            Kral.transform.position = new Vector3(-130f,-270f, Kral.transform.position.z);
+        }
+
+        if (aktualny_level == 3)
+        {
+            Kral.transform.position = new Vector3(-100f, 68f, Kral.transform.position.z);
+        }
+
     }
 
     void EndReached(UnityEngine.Video.VideoPlayer vp)
@@ -841,7 +852,7 @@ public class Hra_param : MonoBehaviour
             {
                 Kral.transform.position = new Vector3(Kral.transform.position.x+1, Kral.transform.position.y + 14, Kral.transform.position.z);
             }
-            if (counter_move_obj == 60)
+            if (counter_move_obj == 65)
             {
                 Kral.transform.position = new Vector3(Kral.transform.position.x-1, Kral.transform.position.y - 14, Kral.transform.position.z);
                 counter_move_obj = 0;
