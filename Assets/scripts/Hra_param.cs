@@ -13,7 +13,7 @@ public class Hra_param : MonoBehaviour
     public TMP_Text Playername;//meno hraca z menu
     public static int CELKOVESKORE = 0, CELKOVESKORE_MAX = 0, aktualny_level;//sucet skore medzi levelmi, aktualny level
     public VideoPlayer saving_video;
-
+    public TMP_Text poradie;
     public TMP_Text odpoved, score; // zobrazene skore
     public TMP_Text vyhodnotenie_score, vyhodnotenie_max_score, vyhodnotenie_max_score2, vyhodnotenie_score2;
     public CanvasGroup hernycanvas, otazkovycanvas, vysvetlovaniecanvas, savingcanvas, loadingcanvas, vyhodnoteniecanvas;
@@ -661,6 +661,8 @@ public class Hra_param : MonoBehaviour
     public void update_score()
     {
         score.text = string.Format("{0}", act_score);
+        int temp = priklad_cislo + 1;
+        poradie.text = string.Format("{0}", temp);
     }
 
     public void zobraz_save_diskette()//doriesit aby sa to nepustalo dokola
