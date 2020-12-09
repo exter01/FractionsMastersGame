@@ -40,8 +40,6 @@ public class Hra_param : MonoBehaviour
     private int vysv_faza;
     private int counter_move_obj, counter_move_obj2; //podskakovanie krala, diskety
 
-    
-
     public void nastav_priklad(string Z1, string Z2, string Z3, string Z4, string Z5, string A1, string A2, string B1, string B2, string C1, string C2)
     {
         Zadanie_1.text = string.Format("{0}", Z1);
@@ -253,12 +251,13 @@ public class Hra_param : MonoBehaviour
             if (vysv_faza == 1)
             {
                 Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysv1_1.gameObject.SetActive(false);
+                //Vysv1_1.gameObject.SetActive(false);
                 Vysv1_2.gameObject.SetActive(true);
                 Vysv_button_next.gameObject.SetActive(true);
             }
             if(vysv_faza == 2)
             {
+                Vysv1_1.gameObject.SetActive(false);
                 Vysv1_2.gameObject.SetActive(false);
                 Vysv2_1.gameObject.SetActive(true);
                 Vysvetlovanie_casovac.timerIsRunning = true;
@@ -268,12 +267,13 @@ public class Hra_param : MonoBehaviour
             if (vysv_faza == 3)
             {
                 Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysv2_1.gameObject.SetActive(false);
+                //Vysv2_1.gameObject.SetActive(false);
                 Vysv2_2.gameObject.SetActive(true);
                 Vysv_button_next.gameObject.SetActive(true);
             }
             if (vysv_faza == 4)
             {
+                Vysv2_1.gameObject.SetActive(false);
                 Vysv2_2.gameObject.SetActive(false);
                 Vysv3_1.gameObject.SetActive(true);
                 Vysvetlovanie_casovac.timerIsRunning = true;
@@ -283,12 +283,13 @@ public class Hra_param : MonoBehaviour
             if (vysv_faza == 5)
             {
                 Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysv3_1.gameObject.SetActive(false);
+                //Vysv3_1.gameObject.SetActive(false);
                 Vysv3_2.gameObject.SetActive(true);
                 Vysv_button_next.gameObject.SetActive(true);
             }
             if (vysv_faza == 6)
             {
+                Vysv3_1.gameObject.SetActive(false);
                 Vysv3_2.gameObject.SetActive(false);
                 Vysv4_1.gameObject.SetActive(true);
                 Vysvetlovanie_casovac.timerIsRunning = true;
@@ -298,12 +299,13 @@ public class Hra_param : MonoBehaviour
             if (vysv_faza == 7)
             {
                 Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysv4_1.gameObject.SetActive(false);
+                //Vysv4_1.gameObject.SetActive(false);
                 Vysv4_2.gameObject.SetActive(true);
                 Vysv_button_next.gameObject.SetActive(true);
             }
             if (vysv_faza == 8)
             {
+                Vysv4_1.gameObject.SetActive(false);
                 Vysv4_2.gameObject.SetActive(false);
                 Vysv5_1.gameObject.SetActive(true);
                 Vysvetlovanie_casovac.timerIsRunning = true;
@@ -313,7 +315,7 @@ public class Hra_param : MonoBehaviour
             if (vysv_faza == 9)
             {
                 Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysv5_1.gameObject.SetActive(false);
+                //Vysv5_1.gameObject.SetActive(false);
                 Vysv5_2.gameObject.SetActive(true);
                 Vysv_button_next.gameObject.SetActive(true);
             }
@@ -331,12 +333,13 @@ public class Hra_param : MonoBehaviour
             if (vysv_faza == 1)
             {
                 Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysv2_1_1.gameObject.SetActive(false);
+                //Vysv2_1_1.gameObject.SetActive(false);
                 Vysv2_1_2.gameObject.SetActive(true);
                 Vysv_button_next.gameObject.SetActive(true);
             }
             if (vysv_faza == 2)
             {
+                Vysv2_1_1.gameObject.SetActive(false);
                 Vysv2_1_2.gameObject.SetActive(false);
                 Vysv2_2_1.gameObject.SetActive(true);
                 Vysvetlovanie_casovac.timerIsRunning = true;
@@ -346,7 +349,7 @@ public class Hra_param : MonoBehaviour
             if (vysv_faza == 3)
             {
                 Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysv2_2_1.gameObject.SetActive(false);
+                //Vysv2_2_1.gameObject.SetActive(false);
                 Vysv2_2_2.gameObject.SetActive(true);
                 Vysv_button_next.gameObject.SetActive(true);
             }
@@ -409,12 +412,13 @@ public class Hra_param : MonoBehaviour
             if (vysv_faza == 1)
             {
                 Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysv3_1_1.gameObject.SetActive(false);
+                //Vysv3_1_1.gameObject.SetActive(false);
                 Vysv3_1_2.gameObject.SetActive(true);
                 Vysv_button_next.gameObject.SetActive(true);
             }
             if (vysv_faza == 2)
             {
+                Vysv3_1_1.gameObject.SetActive(false);
                 Vysv3_1_2.gameObject.SetActive(false);
                 Vysv3_2_1.gameObject.SetActive(true);
                 Vysvetlovanie_casovac.timerIsRunning = true;
@@ -424,12 +428,13 @@ public class Hra_param : MonoBehaviour
             if (vysv_faza == 3)
             {
                 Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysv3_2_1.gameObject.SetActive(false);
+                //Vysv3_2_1.gameObject.SetActive(false);
                 Vysv3_2_2.gameObject.SetActive(true);
                 Vysv_button_next.gameObject.SetActive(true);
             }
             if (vysv_faza == 4)
             {
+                Vysv3_2_1.gameObject.SetActive(false);
                 Vysv3_2_2.gameObject.SetActive(false);
                 Vysv3_3_1.gameObject.SetActive(true);
                 Vysvetlovanie_casovac.timerIsRunning = true;
@@ -439,7 +444,7 @@ public class Hra_param : MonoBehaviour
             if (vysv_faza == 5)
             {
                 Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysv3_3_1.gameObject.SetActive(false);
+                //Vysv3_3_1.gameObject.SetActive(false);
                 Vysv3_3_2.gameObject.SetActive(true);
                 Vysv_button_next.gameObject.SetActive(true);
             }
@@ -686,6 +691,33 @@ public class Hra_param : MonoBehaviour
         }
     }
 
+    int counter_move_obj3 = 0;
+    public void posun_listky()//doriesit aby sa to nepustalo dokola
+    {
+        GameObject[] listky;
+        counter_move_obj3++;
+        listky = GameObject.FindGameObjectsWithTag("Listok");
+        
+        
+        if (counter_move_obj3 == 25)
+        {
+            foreach (GameObject listek in listky)
+            {
+                //listek.gameObject.SetActive(false);
+                listek.transform.position = new Vector3(listek.transform.position.x + 1, listek.transform.position.y + 2, listek.transform.position.z);
+            }
+        }
+        if (counter_move_obj3 == 50)
+        {
+            foreach (GameObject listek in listky)
+            {
+                //listek.gameObject.SetActive(false);
+                listek.transform.position = new Vector3(listek.transform.position.x - 1, listek.transform.position.y - 2, listek.transform.position.z);
+            }
+            counter_move_obj3 = 0;
+        }
+    }
+
     public void Potvrdit_odpoved()
     {
         if(potvrdit_click == 0)
@@ -860,7 +892,7 @@ public class Hra_param : MonoBehaviour
                 counter_move_obj = 0;
             }
         }
-        
+        posun_listky();
         if (touch_kral == true)//ci sa ma zobrazit vysvetlovanie
         {
             vysvetlovanie_enable();
