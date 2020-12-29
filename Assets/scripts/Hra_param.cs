@@ -236,53 +236,53 @@ public class Hra_param : MonoBehaviour
             if (priklad_cislo == 1)
             {
                 Debug.Log("prvy priklad 4lvl");
-                nastav_priklad("9", "4", "/", "2", "3", "3", "2", "4", "2", "6", "2");
-                spravna_odpoved = 1; //1 je A, 2 je B, 3 je C
+                nastav_priklad("1", "2", ":", "3", "4", "3", "3", "2", "3", "4", "3");
+                spravna_odpoved = 2; //1 je A, 2 je B, 3 je C
             }
             if (priklad_cislo == 2)
             {
-                nastav_priklad("8", "3", "/", "9", "10", "12", "5", "72", "5", "24", "5");
-                spravna_odpoved = 1;
+                nastav_priklad("4", "7", ":", "5", "8", "30", "35", "20", "35", "32", "35");
+                spravna_odpoved = 3;
             }
             if (priklad_cislo == 3)
             {
-                nastav_priklad("12", "5", "/", "6", "8", "9", "5", "12", "5", "8", "5");
-                spravna_odpoved = 1;
+                nastav_priklad("3", "4", ":", "5", "6", "12", "10", "7", "10", "9", "10");
+                spravna_odpoved = 3;
             }
             if (priklad_cislo == 4)
             {
-                nastav_priklad("9", "7", "/", "10", "4", "12", "14", "40", "14", "45", "14");
-                spravna_odpoved = 3;
+                nastav_priklad("10", "9", ":", "5", "4", "8", "9", "6", "9", "12", "9");
+                spravna_odpoved = 1;
             }
             if (priklad_cislo == 5)
             {
-                nastav_priklad("4", "3", "/", "5", "6", "20", "9", "10", "9", "12", "9");
-                spravna_odpoved = 2;
+                nastav_priklad("13", "2", ":", "8", "2", "13", "8", "15", "8", "12", "8");
+                spravna_odpoved = 1;
             }
             if (priklad_cislo == 6)
             {
-                nastav_priklad("8", "11", "/", "14", "12", "22", "33", "25", "33", "28", "33");
-                spravna_odpoved = 3;
+                nastav_priklad("7", "5", ":", "12", "9", "20", "21", "21", "20", "22", "20");
+                spravna_odpoved = 2;
             }
             if (priklad_cislo == 7)
             {
-                nastav_priklad("3", "2", "/", "2", "4", "6", "4", "3", "4", "4", "4");
-                spravna_odpoved = 2;
+                nastav_priklad("8", "4", ":", "8", "3", "2", "4", "5", "4", "3", "4");
+                spravna_odpoved = 3;
             }
             if (priklad_cislo == 8)
             {
-                nastav_priklad("5", "5", "/", "6", "7", "8", "7", "6", "7", "14", "7");
-                spravna_odpoved = 2;
+                nastav_priklad("5", "8", ":", "10", "6", "5", "4", "2", "8", "3", "8");
+                spravna_odpoved = 3;
             }
             if (priklad_cislo == 9)
             {
-                nastav_priklad("19", "9", "/", "24", "12", "33", "9", "38", "9", "40", "9");
+                nastav_priklad("6", "9", ":", "15", "5", "6", "9", "2", "9", "4", "9");
                 spravna_odpoved = 2;
             }
             if (priklad_cislo == 10)
             {
-                nastav_priklad("1", "2", "/", "5", "8", "10", "16", "8", "16", "5", "16");
-                spravna_odpoved = 3;
+                nastav_priklad("3", "1", ":", "11", "3", "9", "11", "18", "11", "13", "11");
+                spravna_odpoved = 1;
                 Cas_zostava.cas_uplynul = true; // po poslednom priklade zobrazime disketu
             }
         }
@@ -299,53 +299,53 @@ public class Hra_param : MonoBehaviour
                 X2_ciarka.gameObject.SetActive(false);
                 X3_ciarka.gameObject.SetActive(false);
                 Debug.Log("prvy priklad 5lvl");
-                nastav_priklad("9", "4", "", "2", "3", "<", "", ">", "", "=", "");
-                spravna_odpoved = 1; //1 je A, 2 je B, 3 je C
+                nastav_priklad("6", "2", "", "4", "5", "<", "", ">", "", "=", "");
+                spravna_odpoved = 2; //1 je A, 2 je B, 3 je C
             }
             if (priklad_cislo == 2)
             {
-                nastav_priklad("8", "3", "", "9", "10", "<", "", ">", "", "=", "");
+                nastav_priklad("12", "9", "", "7", "5", "<", "", ">", "", "=", "");
                 spravna_odpoved = 1;
             }
             if (priklad_cislo == 3)
             {
-                nastav_priklad("12", "5", "", "6", "8", "<", "", ">", "", "=", "");
-                spravna_odpoved = 1;
+                nastav_priklad("4", "5", "", "8", "10", "<", "", ">", "", "=", "");
+                spravna_odpoved = 3;
             }
             if (priklad_cislo == 4)
             {
-                nastav_priklad("9", "7", "", "10", "4", "<", "", ">", "", "=", "");
-                spravna_odpoved = 3;
+                nastav_priklad("98", "43", "", "54", "68", "<", "", ">", "", "=", "");
+                spravna_odpoved = 2;
             }
             if (priklad_cislo == 5)
             {
-                nastav_priklad("4", "3", "", "5", "6", "<", "", ">", "", "=", "");
+                nastav_priklad("15", "4", "", "12", "8", "<", "", ">", "", "=", "");
                 spravna_odpoved = 2;
             }
             if (priklad_cislo == 6)
             {
-                nastav_priklad("8", "11", "", "14", "12", "<", "", ">", "", "=", "");
-                spravna_odpoved = 3;
+                nastav_priklad("24", "11", "", "5", "4", "<", "", ">", "", "=", "");
+                spravna_odpoved = 2;
             }
             if (priklad_cislo == 7)
             {
-                nastav_priklad("3", "2", "", "2", "4", "<", "", ">", "", "=", "");
-                spravna_odpoved = 2;
+                nastav_priklad("3", "9", "", "6", "18", "<", "", ">", "", "=", "");
+                spravna_odpoved = 3;
             }
             if (priklad_cislo == 8)
             {
-                nastav_priklad("5", "5", "", "6", "7", "<", "", ">", "", "=", "");
-                spravna_odpoved = 2;
+                nastav_priklad("7", "5", "", "33", "12", "<", "", ">", "", "=", "");
+                spravna_odpoved = 1;
             }
             if (priklad_cislo == 9)
             {
-                nastav_priklad("19", "9", "", "24", "12", "<", "", ">", "", "=", "");
-                spravna_odpoved = 2;
+                nastav_priklad("13", "6", "", "39", "18", "<", "", ">", "", "=", "");
+                spravna_odpoved = 3;
             }
             if (priklad_cislo == 10)
             {
-                nastav_priklad("1", "2", "", "5", "8", "<", "", ">", "", "=", "");
-                spravna_odpoved = 3;
+                nastav_priklad("9", "8", "", "8", "9", "<", "", ">", "", "=", "");
+                spravna_odpoved = 2;
                 Cas_zostava.cas_uplynul = true; // po poslednom priklade zobrazime disketu
             }
         }
