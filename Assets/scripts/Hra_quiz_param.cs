@@ -26,7 +26,11 @@ public class Hra_quiz_param : MonoBehaviour
     public GameObject Xko, Fajka, X_1A, X_2A, X_3A;
     public TMP_Text Zadanie_1, Zadanie_2, Zadanie_3, Zadanie_4, Zadanie_5, A_1, A_2, B_1, B_2, C_1, C_2;
     public GameObject X1_Biely, X1_Zlty, X1_Cerveny, X1_Zeleny, X2_Biely, X2_Zlty, X2_Cerveny, X2_Zeleny, X3_Biely, X3_Zlty, X3_Cerveny, X3_Zeleny;
+    //odpoved porovnavanie
+    public GameObject Odpoved_bg, Odpoved_bg2, Pomocny1_text, Pomocny2_text, X1_ciarka, X2_ciarka, X3_ciarka;
+    //end porovnavanie
     //end odpoved
+
 
     public static int potvrdit_click; //pri odpovediach je dva krat button odpoved
     public static int pocet_zobraz_list;
@@ -263,6 +267,68 @@ public class Hra_quiz_param : MonoBehaviour
             {
                 nastav_priklad("9", "8", ":", "7", "6", "27", "28", "54", "28", "33", "28");
                 spravna_odpoved = 1;
+            }
+        }
+
+        if (level_cislo == 5)//porovnavanie
+        {
+            if (priklad_cislo == 1)
+            {
+                Odpoved_bg.gameObject.SetActive(false);
+                Odpoved_bg2.gameObject.SetActive(true);
+                Pomocny1_text.gameObject.SetActive(false);
+                Pomocny2_text.gameObject.SetActive(false);
+                X1_ciarka.gameObject.SetActive(false);
+                X2_ciarka.gameObject.SetActive(false);
+                X3_ciarka.gameObject.SetActive(false);
+                Debug.Log("prvy priklad 5lvl");
+                nastav_priklad("9", "4", "", "2", "3", "<", "", ">", "", "=", "");
+                spravna_odpoved = 1; //1 je A, 2 je B, 3 je C
+            }
+            if (priklad_cislo == 2)
+            {
+                nastav_priklad("8", "3", "", "9", "10", "<", "", ">", "", "=", "");
+                spravna_odpoved = 1;
+            }
+            if (priklad_cislo == 3)
+            {
+                nastav_priklad("12", "5", "", "6", "8", "<", "", ">", "", "=", "");
+                spravna_odpoved = 1;
+            }
+            if (priklad_cislo == 4)
+            {
+                nastav_priklad("9", "7", "", "10", "4", "<", "", ">", "", "=", "");
+                spravna_odpoved = 3;
+            }
+            if (priklad_cislo == 5)
+            {
+                nastav_priklad("4", "3", "", "5", "6", "<", "", ">", "", "=", "");
+                spravna_odpoved = 2;
+            }
+            if (priklad_cislo == 6)
+            {
+                nastav_priklad("8", "11", "", "14", "12", "<", "", ">", "", "=", "");
+                spravna_odpoved = 3;
+            }
+            if (priklad_cislo == 7)
+            {
+                nastav_priklad("3", "2", "", "2", "4", "<", "", ">", "", "=", "");
+                spravna_odpoved = 2;
+            }
+            if (priklad_cislo == 8)
+            {
+                nastav_priklad("5", "5", "", "6", "7", "<", "", ">", "", "=", "");
+                spravna_odpoved = 2;
+            }
+            if (priklad_cislo == 9)
+            {
+                nastav_priklad("19", "9", "", "24", "12", "<", "", ">", "", "=", "");
+                spravna_odpoved = 2;
+            }
+            if (priklad_cislo == 10)
+            {
+                nastav_priklad("1", "2", "", "5", "8", "<", "", ">", "", "=", "");
+                spravna_odpoved = 3;
             }
         }
     }

@@ -31,7 +31,7 @@ public class Menu_param : MonoBehaviour
         {
             Hra_param.playernamestr = Playername.text;
             Hra_param.CELKOVESKORE = 0;
-            Hra_param.aktualny_level = 1;
+            Hra_param.aktualny_level = 5; //musi byt 1
             Hra_loading_param.zobraz_uvod = true;
             SceneManager.LoadScene("Hra-loading");
         }
@@ -65,6 +65,14 @@ public class Menu_param : MonoBehaviour
             Hra_quiz_param.playernamestr = Playername.text;
             SceneManager.LoadScene("Hra-Quiz");
             Hra_quiz_param.level_cislo = 4;
+            Debug.Log(Hra_quiz_param.level_cislo);
+        }
+
+        if (kam_idem == "quiz5")
+        {
+            Hra_quiz_param.playernamestr = Playername.text;
+            SceneManager.LoadScene("Hra-Quiz");
+            Hra_quiz_param.level_cislo = 5;
             Debug.Log(Hra_quiz_param.level_cislo);
         }
     }
@@ -107,6 +115,13 @@ public class Menu_param : MonoBehaviour
         quizcanvas.gameObject.SetActive(false);
         nickcanvas.gameObject.SetActive(true);
         kam_idem = "quiz4";
+    }
+
+    public void NewQuiz5()//porovnavanie zlomkov
+    {
+        quizcanvas.gameObject.SetActive(false);
+        nickcanvas.gameObject.SetActive(true);
+        kam_idem = "quiz5";
     }
 
     public void ContinueGame()
