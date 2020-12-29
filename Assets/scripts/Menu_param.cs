@@ -13,6 +13,7 @@ public class Menu_param : MonoBehaviour
 
     void Start()
     {
+        //
     }
 
     public void NewGame()// po kliknuti na novu hru, zobrazim input na nick
@@ -31,6 +32,7 @@ public class Menu_param : MonoBehaviour
             Hra_param.playernamestr = Playername.text;
             Hra_param.CELKOVESKORE = 0;
             Hra_param.aktualny_level = 1;
+            Hra_loading_param.zobraz_uvod = true;
             SceneManager.LoadScene("Hra-loading");
         }
 
