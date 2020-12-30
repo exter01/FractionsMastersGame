@@ -31,7 +31,7 @@ public class Menu_param : MonoBehaviour
         {
             Hra_param.playernamestr = Playername.text;
             Hra_param.CELKOVESKORE = 0;
-            Hra_param.aktualny_level = 5; //musi byt 1
+            Hra_param.aktualny_level = 1; //musi byt 1
             Hra_loading_param.zobraz_uvod = true;
             SceneManager.LoadScene("Hra-loading");
         }
