@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private float moveX, moveY;
     private Rigidbody2D body2D;
     private Vector3 pozicia;
-    bool vprekazke = true;
+    bool vprekazke = false;
 
     // Start is called before the first frame update
     void Start()

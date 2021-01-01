@@ -276,8 +276,8 @@ public class Hra_quiz_param : MonoBehaviour
             {
                 Odpoved_bg.gameObject.SetActive(false);
                 Odpoved_bg2.gameObject.SetActive(true);
-                Pomocny1_text.gameObject.SetActive(false);
-                Pomocny2_text.gameObject.SetActive(false);
+                //Pomocny1_text.gameObject.SetActive(false);
+                //Pomocny2_text.gameObject.SetActive(false);
                 X1_ciarka.gameObject.SetActive(false);
                 X2_ciarka.gameObject.SetActive(false);
                 X3_ciarka.gameObject.SetActive(false);
