@@ -8,6 +8,7 @@ using TMPro;
 
 public class Hra_param : MonoBehaviour
 {
+    public GameObject Background1, Background2, Background3, Background4, Background5;
     public GameObject Player, Kral, Hojdacka;
     public static string playernamestr;//meno hraca z menu
     public TMP_Text Playername;//meno hraca z menu
@@ -46,6 +47,7 @@ public class Hra_param : MonoBehaviour
     public static bool vysvetlujeme;
     private int vysv_faza;
     private int counter_move_obj, counter_move_obj2; //podskakovanie krala, diskety
+    private int poz_faza;
 
     public void nastav_priklad(string Z1, string Z2, string Z3, string Z4, string Z5, string A1, string A2, string B1, string B2, string C1, string C2)
     {
@@ -64,7 +66,8 @@ public class Hra_param : MonoBehaviour
 
     public void spravne_odpovede()
     {
-        if(aktualny_level == 1)//scitanie
+        //Odpoved_bg.gameObject.SetActive(true);
+        if (aktualny_level == 1)//scitanie
         {
             if (priklad_cislo == 1)
             {
@@ -1076,6 +1079,38 @@ public class Hra_param : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Odpoved_bg.gameObject.SetActive(false);
+        if(hernycanvas.gameObject.active)
+        {
+            poz_faza++;
+            if(poz_faza == 80)
+            {
+                Background1.gameObject.SetActive(false);
+                Background2.gameObject.SetActive(true);
+            }
+            if (poz_faza == 160)
+            {
+                Background2.gameObject.SetActive(false);
+                Background3.gameObject.SetActive(true);
+            }
+            if (poz_faza == 240)
+            {
+                Background3.gameObject.SetActive(false);
+                Background4.gameObject.SetActive(true);
+            }
+            if (poz_faza == 320)
+            {
+                Background4.gameObject.SetActive(false);
+                Background5.gameObject.SetActive(true);
+            }
+            if (poz_faza > 401)
+            {
+                Background5.gameObject.SetActive(false);
+                Background1.gameObject.SetActive(true);
+                poz_faza = 0;
+            }
+        }
+
         //Debug.Log(aktualny_level);
         if (prebehlo_vysvetlovanie == false)//podskakovanie krala
         {

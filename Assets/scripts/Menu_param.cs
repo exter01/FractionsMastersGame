@@ -8,7 +8,7 @@ using TMPro;
 public class Menu_param : MonoBehaviour
 {
     public TMP_Text Playername;
-    public CanvasGroup menucanvas, nickcanvas, quizcanvas, autoricanvas;
+    public CanvasGroup menucanvas, menudvacanvas, nickcanvas, settingscanvas, otaznikcanvas, quizcanvas, autoricanvas;
     public static string kam_idem = "nikam";
 
     void Start()
@@ -16,14 +16,121 @@ public class Menu_param : MonoBehaviour
         //
     }
 
-    public void NewGame()// po kliknuti na novu hru, zobrazim input na nick
+    public void NewGame()
     {
         menucanvas.gameObject.SetActive(false);
-        nickcanvas.gameObject.SetActive(true);
-        kam_idem = "novahra";
+        menudvacanvas.gameObject.SetActive(true);
     }
 
-    public void NewGamewithnick()//vyplneny nick a ideme hrat
+    public void SettingsOpen()
+    {
+        menucanvas.gameObject.SetActive(false);
+        settingscanvas.gameObject.SetActive(true);
+    }
+
+    public void OtaznikOpen()
+    {
+        menucanvas.gameObject.SetActive(false);
+        otaznikcanvas.gameObject.SetActive(true);
+    }
+
+    public void SettingsClose()
+    {
+        settingscanvas.gameObject.SetActive(false);
+        menucanvas.gameObject.SetActive(true);
+    }
+
+    public void OtaznikClose()
+    {
+        otaznikcanvas.gameObject.SetActive(false);
+        menucanvas.gameObject.SetActive(true);
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("QUIT Game");
+        Application.Quit();
+    }
+
+    public void LearningOpen()
+    {
+        menudvacanvas.gameObject.SetActive(false);
+        nickcanvas.gameObject.SetActive(true);
+    }
+
+    public void QuizOpen()
+    {
+        menudvacanvas.gameObject.SetActive(false);
+        quizcanvas.gameObject.SetActive(true);
+    }
+
+    public void MenudvaClose()// po kliknuti na novu hru, zobrazim input na nick
+    {
+        menudvacanvas.gameObject.SetActive(false);
+        menucanvas.gameObject.SetActive(true);
+    }
+
+    public void AdditionOpen()
+    {
+        Hra_quiz_param.playernamestr = Playername.text;
+        SceneManager.LoadScene("Hra-Quiz");
+        Hra_quiz_param.level_cislo = 1;
+    }
+
+    public void SubtractionOpen()
+    {
+        Hra_quiz_param.playernamestr = Playername.text;
+        SceneManager.LoadScene("Hra-Quiz");
+        Hra_quiz_param.level_cislo = 2;
+    }
+
+    public void MultiplicationOpen()
+    {
+        Hra_quiz_param.playernamestr = Playername.text;
+        SceneManager.LoadScene("Hra-Quiz");
+        Hra_quiz_param.level_cislo = 3;
+    }
+
+    public void DivisionOpen()
+    {
+        Hra_quiz_param.playernamestr = Playername.text;
+        SceneManager.LoadScene("Hra-Quiz");
+        Hra_quiz_param.level_cislo = 4;
+    }
+
+    public void CompareOpen()
+    {
+        Hra_quiz_param.playernamestr = Playername.text;
+        SceneManager.LoadScene("Hra-Quiz");
+        Hra_quiz_param.level_cislo = 5;
+    }
+
+    public void QuizClose()// po kliknuti na novu hru, zobrazim input na nick
+    {
+        quizcanvas.gameObject.SetActive(false);
+        menucanvas.gameObject.SetActive(true);
+    }
+
+    public void NickClose()
+    {
+        nickcanvas.gameObject.SetActive(false);
+        menucanvas.gameObject.SetActive(true);
+    }
+
+    public void NickOK()
+    {
+        Debug.Log("Player name is: " + Playername.text);
+        Hra_param.playernamestr = Playername.text;
+        Hra_param.CELKOVESKORE = 0;
+        Hra_param.aktualny_level = 1; //musi byt 1
+        Hra_loading_param.zobraz_uvod = true;
+        SceneManager.LoadScene("Hra-loading");
+    }
+
+
+
+
+    /*public void NewGamewithnick()//vyplneny nick a ideme hrat
     {
         Debug.Log("Player name is: " + Playername.text);
 
@@ -75,15 +182,11 @@ public class Menu_param : MonoBehaviour
             Hra_quiz_param.level_cislo = 5;
             Debug.Log(Hra_quiz_param.level_cislo);
         }
-    }
+    }*/
 
-    public void CanvasQuiz_load()
-    {
-        menucanvas.gameObject.SetActive(false);
-        quizcanvas.gameObject.SetActive(true);
-    }
 
-    public void CloseQuiz()
+
+    /*public void CloseQuiz()
     {
         quizcanvas.gameObject.SetActive(false);
         menucanvas.gameObject.SetActive(true);
@@ -146,18 +249,14 @@ public class Menu_param : MonoBehaviour
         menucanvas.gameObject.SetActive(true);
     }
 
-    public void QuitGame()
-    {
-        Debug.Log("QUIT Game");
-        Application.Quit();
-    }
+    
 
     public void BackMenufromnick()
     {
         Debug.Log("Back menu");
         nickcanvas.gameObject.SetActive(false);
         menucanvas.gameObject.SetActive(true);
-    }
+    }*/
 
     void Update()
     {
