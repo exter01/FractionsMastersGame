@@ -120,20 +120,19 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(834, transform.position.y, transform.position.z);
         }
-        if (transform.position.y >= 90)//horny okraj
+        if (transform.position.y >= -55)//horny okraj
         {
-            transform.position = new Vector3(transform.position.x, 90, transform.position.z);
+            transform.position = new Vector3(transform.position.x, -55, transform.position.z);
         }
-        if (transform.position.y <= -414)//spodny okraj
+        if (transform.position.y <= -390)//spodny okraj
         {
-            transform.position = new Vector3(transform.position.x, -414, transform.position.z);
+            transform.position = new Vector3(transform.position.x, -390, transform.position.z);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         //Debug.Log(transform.position); //zapnutie pozicii v debugu
     }
 
