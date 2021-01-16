@@ -359,7 +359,7 @@ public class Hra_param : MonoBehaviour
         touch_kral = false;
         vysvetlujeme = true;
         hernycanvas.gameObject.SetActive(false);
-        Hojdacka.SetActive(false);
+        //Hojdacka.SetActive(false);
         Player.SetActive(false);
         vysvetlovaniecanvas.gameObject.SetActive(true);
         vysvetlovanie_zobraz(vysv_faza);
@@ -621,7 +621,7 @@ public class Hra_param : MonoBehaviour
     {
         vysvetlovaniecanvas.gameObject.SetActive(false);
         hernycanvas.gameObject.SetActive(true);
-        Hojdacka.SetActive(true);
+        //Hojdacka.SetActive(true);
         Player.SetActive(true);
         if(aktualny_level == 1 || aktualny_level == 4)
         {
@@ -648,7 +648,7 @@ public class Hra_param : MonoBehaviour
     void saving_enable()
     {
         hernycanvas.gameObject.SetActive(false);
-        Hojdacka.SetActive(false);
+        //Hojdacka.SetActive(false);
         Player.SetActive(false);
 
         /*savingcanvas.gameObject.SetActive(true);
@@ -669,7 +669,7 @@ public class Hra_param : MonoBehaviour
         pocet_zobraz_list++;
         priklad_cislo++;
         hernycanvas.gameObject.SetActive(false);
-        Hojdacka.SetActive(false);
+        //Hojdacka.SetActive(false);
         Player.SetActive(false);
         otazkovycanvas.gameObject.SetActive(true);
         listok++;
@@ -726,7 +726,7 @@ public class Hra_param : MonoBehaviour
         Debug.Log(listok);
         otazkovycanvas.gameObject.SetActive(false);
         hernycanvas.gameObject.SetActive(true);
-        Hojdacka.SetActive(true);
+        //Hojdacka.SetActive(true);
         Player.SetActive(true);
         listok++;
     }
@@ -923,7 +923,7 @@ public class Hra_param : MonoBehaviour
         zobraz_uvod = false;
         uvodcanvas.gameObject.SetActive(false);
         hernycanvas.gameObject.SetActive(true);
-        Hojdacka.SetActive(true);
+        //Hojdacka.SetActive(true);
         Player.SetActive(true);
         Kral.SetActive(true);   
     }
@@ -934,7 +934,7 @@ public class Hra_param : MonoBehaviour
         if(zobraz_uvod == true)
         {   
             hernycanvas.gameObject.SetActive(false);
-            Hojdacka.SetActive(false);
+            //Hojdacka.SetActive(false);
             Player.SetActive(false);
             Kral.SetActive(false);
             uvodcanvas.gameObject.SetActive(true);
@@ -964,17 +964,20 @@ public class Hra_param : MonoBehaviour
 
         if(aktualny_level == 2)
         {
-            Kral.transform.position = new Vector3(-130f,-270f, Kral.transform.position.z);
+            Kral.transform.position = new Vector3(-548f,-270f, Kral.transform.position.z);
+            Player.transform.position = new Vector3(200f, -191f, Player.transform.position.z);
         }
 
         if (aktualny_level == 3)
         {
-            Kral.transform.position = new Vector3(-100f, 68f, Kral.transform.position.z);
+            Kral.transform.position = new Vector3(-44f, -276f, Kral.transform.position.z);
+            Player.transform.position = new Vector3(-542f, -135f, Player.transform.position.z);
         }
 
         if (aktualny_level == 5)
         {
-            Kral.transform.position = new Vector3(-110f, 68f, Kral.transform.position.z);
+            Kral.transform.position = new Vector3(-98f, -280f, Kral.transform.position.z);
+            Player.transform.position = new Vector3(452f, -175f, Player.transform.position.z);
         }
 
     }

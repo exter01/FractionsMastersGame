@@ -73,40 +73,35 @@ public class Menu_param : MonoBehaviour
 
     public void AdditionOpen()
     {
-        Hra_quiz_param.playernamestr = Playername.text;
         SceneManager.LoadScene("Hra-Quiz");
         Hra_quiz_param.level_cislo = 1;
     }
 
     public void SubtractionOpen()
     {
-        Hra_quiz_param.playernamestr = Playername.text;
         SceneManager.LoadScene("Hra-Quiz");
         Hra_quiz_param.level_cislo = 2;
     }
 
     public void MultiplicationOpen()
     {
-        Hra_quiz_param.playernamestr = Playername.text;
         SceneManager.LoadScene("Hra-Quiz");
         Hra_quiz_param.level_cislo = 3;
     }
 
     public void DivisionOpen()
     {
-        Hra_quiz_param.playernamestr = Playername.text;
         SceneManager.LoadScene("Hra-Quiz");
         Hra_quiz_param.level_cislo = 4;
     }
 
     public void CompareOpen()
     {
-        Hra_quiz_param.playernamestr = Playername.text;
         SceneManager.LoadScene("Hra-Quiz");
         Hra_quiz_param.level_cislo = 5;
     }
 
-    public void QuizClose()// po kliknuti na novu hru, zobrazim input na nick
+    public void QuizClose()
     {
         quizcanvas.gameObject.SetActive(false);
         menucanvas.gameObject.SetActive(true);

@@ -7,15 +7,15 @@ using TMPro;
 
 public class Hra_quiz_param : MonoBehaviour
 {
-    public static string playernamestr;//meno hraca z menu
-    public TMP_Text Playername; //meno hraca z menu
+    //public static string playernamestr;//meno hraca z menu
+    //public TMP_Text Playername; //meno hraca z menu
     public TMP_Text odpoved; // vybrana odpoved
     public TMP_Text score; // zobrazene skore
     public TMP_Text score_finish, score_finish_max; // zobrazene skore na konci v canvasscore
     public TMP_Text poradie;
     public CanvasGroup hernycanvas, scorecanvas;
     public static int vybrana_odpoved, spravna_odpoved, priklad_cislo, act_score, act_bad;
-    public static float cas_dlzka = 150f; //cas na vyber moznosti
+    public static float cas_dlzka = 240f; //cas na vyber moznosti
 
     /*public GameObject Xko, Fajka, Xko_1, Xko_2, Xko_3;
     public TMP_Text Zadanie_1, Zadanie_2, Zadanie_3, Zadanie_4, Zadanie_5;
@@ -506,7 +506,6 @@ public class Hra_quiz_param : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Playername.text = playernamestr; //meno hraca z menu
         vybrana_odpoved = 4;
         spravna_odpoved = 4;
         priklad_cislo = 0; 
