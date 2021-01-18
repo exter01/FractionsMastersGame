@@ -49,7 +49,7 @@ public class Menu_param : MonoBehaviour
 
     public void QuitGame()
     {
-        Debug.Log("QUIT Game");
+        //Debug.Log("QUIT Game");
         Application.Quit();
     }
 
@@ -115,7 +115,7 @@ public class Menu_param : MonoBehaviour
 
     public void NickOK()
     {
-        Debug.Log("Player name is: " + Playername.text);
+        //Debug.Log("Player name is: " + Playername.text);
         Hra_param.playernamestr = Playername.text;
         Hra_param.CELKOVESKORE = 0;
         Hra_param.aktualny_level = 1; //musi byt 1

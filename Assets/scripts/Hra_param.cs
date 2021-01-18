@@ -9,11 +9,11 @@ using TMPro;
 public class Hra_param : MonoBehaviour
 {
     public GameObject Background1, Background2, Background3, Background4, Background5;
-    public GameObject Player, Kral, Hojdacka;
+    public GameObject Player, Kral;//, Hojdacka;
     public static string playernamestr;//meno hraca z menu
     public TMP_Text Playername;//meno hraca z menu
     public static int CELKOVESKORE = 0, CELKOVESKORE_MAX = 0, aktualny_level;//sucet skore medzi levelmi, aktualny level
-    public VideoPlayer saving_video;
+    //public VideoPlayer saving_video;
     public TMP_Text poradie;
     public TMP_Text odpoved, score; // zobrazene skore
     public TMP_Text vyhodnotenie_score, vyhodnotenie_max_score, vyhodnotenie_max_score2, vyhodnotenie_score2;
@@ -63,6 +63,12 @@ public class Hra_param : MonoBehaviour
         B_2.text = string.Format("{0}", B2);
         C_1.text = string.Format("{0}", C1);
         C_2.text = string.Format("{0}", C2);
+        X1_Biely.gameObject.SetActive(true);
+        X1_Zlty.gameObject.SetActive(false);
+        X2_Biely.gameObject.SetActive(true);
+        X2_Zlty.gameObject.SetActive(false);
+        X3_Biely.gameObject.SetActive(true);
+        X3_Zlty.gameObject.SetActive(false);
     }
 
     public void spravne_odpovede()
@@ -127,7 +133,7 @@ public class Hra_param : MonoBehaviour
         {
             if (priklad_cislo == 1)
             {
-                Debug.Log("prvy priklad 2lvl");
+                //Debug.Log("prvy priklad 2lvl");
                 nastav_priklad("2", "3", "-", "1", "2", "3", "6", "1", "6", "4", "6");
                 spravna_odpoved = 2; //1 je A, 2 je B, 3 je C
             }
@@ -183,7 +189,7 @@ public class Hra_param : MonoBehaviour
         {
             if (priklad_cislo == 1)
             {
-                Debug.Log("prvy priklad 3lvl");
+                //Debug.Log("prvy priklad 3lvl");
                 nastav_priklad("9", "4", "*", "2", "3", "3", "2", "4", "2", "6", "2");
                 spravna_odpoved = 1; //1 je A, 2 je B, 3 je C
             }
@@ -239,7 +245,7 @@ public class Hra_param : MonoBehaviour
         {
             if (priklad_cislo == 1)
             {
-                Debug.Log("prvy priklad 4lvl");
+                //Debug.Log("prvy priklad 4lvl");
                 nastav_priklad("1", "2", ":", "3", "4", "3", "3", "2", "3", "4", "3");
                 spravna_odpoved = 2; //1 je A, 2 je B, 3 je C
             }
@@ -723,7 +729,7 @@ public class Hra_param : MonoBehaviour
 
     void listok_disable()
     {
-        Debug.Log(listok);
+        //Debug.Log(listok);
         otazkovycanvas.gameObject.SetActive(false);
         hernycanvas.gameObject.SetActive(true);
         //Hojdacka.SetActive(true);
@@ -939,7 +945,7 @@ public class Hra_param : MonoBehaviour
             Kral.SetActive(false);
             uvodcanvas.gameObject.SetActive(true);
         }
-        saving_video.url = System.IO.Path.Combine(Application.streamingAssetsPath, "beh_smer_hrad.mp4");
+        //saving_video.url = System.IO.Path.Combine(Application.streamingAssetsPath, "beh_smer_hrad.mp4");
         touch_kral = false;
         listok = 0; //1-show,2-showed,3-hide atd
         vybrana_odpoved = 4;
@@ -956,11 +962,11 @@ public class Hra_param : MonoBehaviour
         counter_move_obj = 0;
         counter_move_obj2 = 0;
         vysv_faza = 0;
-        saving_video.loopPointReached += EndReached;
+        //saving_video.loopPointReached += EndReached;
         Playername.text = playernamestr; //meno hraca z menu
         update_score();//aby sa nastavilo score na 0
         //loading_video.Play();
-        Debug.Log(aktualny_level);
+        //Debug.Log(aktualny_level);
 
         if(aktualny_level == 2)
         {
@@ -982,7 +988,7 @@ public class Hra_param : MonoBehaviour
 
     }
 
-    void EndReached(UnityEngine.Video.VideoPlayer vp)
+    /*void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
         CELKOVESKORE = CELKOVESKORE + act_score;
         aktualny_level++;
@@ -993,7 +999,7 @@ public class Hra_param : MonoBehaviour
         vyhodnotenie_max_score.text = string.Format("{0}", "10");
         vyhodnotenie_score2.text = string.Format("{0}", CELKOVESKORE);
         vyhodnotenie_max_score2.text = string.Format("{0}", CELKOVESKORE_MAX);
-    }
+    }*/
 
     public void DalsiLevel()
     {

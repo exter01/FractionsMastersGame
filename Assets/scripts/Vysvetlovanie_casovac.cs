@@ -22,7 +22,7 @@ public class Vysvetlovanie_casovac : MonoBehaviour
             }
             else
             {
-                Debug.Log("Odpocet uplynul!");
+                //Debug.Log("Odpocet uplynul!");
                 timeLeft = 0;
                 timerIsRunning = false;
                 cas_uplynul = true;

@@ -10,10 +10,11 @@ public class PlayerController : MonoBehaviour
 
     public GameObject Player;
     public GameObject Kral;
-    public GameObject Hojdacka;
-    public GameObject Fontana;
-    public GameObject Kricok;
+    //public GameObject Hojdacka;
+    //public GameObject Fontana;
+    //public GameObject Kricok;
     public GameObject Save_Diskette;
+    public GameObject Stena;
     //public GameObject Listok;
     public static float runSpeed;
     public static float jumpSpeed;
@@ -94,19 +95,19 @@ public class PlayerController : MonoBehaviour
         //body2D.MovePosition(wantedPosition);
     }
 
-    void Pohyb()//stary pohyb
+    /*void Pohyb()//stary pohyb
     {
         //moveX = Input.GetAxis("Horizontal") * Time.deltaTime * runSpeed;
         //moveY = Input.GetAxis("Vertical") * Time.deltaTime * runSpeed;
         //jumpY = Input.GetAxis("Jump") * Time.deltaTime * jumpSpeed;
         //transform.Translate(moveX, moveY, 0f);
         //Debug.Log("4");
-    }
+    }*/
 
     void FixedUpdate()
     {
         PlayerSpriteChange(); //menime sprite hraca pri pohybe WASD
-        Pohyb(); //pohyb hraca
+        //Pohyb(); //pohyb hraca
         kontrola_hranic(); //kontrola hranic hry
     }
 
@@ -138,7 +139,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D obj)
     {
-        if (obj.gameObject == Hojdacka || obj.gameObject == Fontana || obj.gameObject == Kricok)
+        if (/*obj.gameObject == Hojdacka || obj.gameObject == Fontana || obj.gameObject == Kricok*/ obj.gameObject == Stena)
         {
             body2D.position = pozicia;
         }
@@ -146,7 +147,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D obj)
     {
-        if (obj.gameObject == Hojdacka || obj.gameObject == Fontana || obj.gameObject == Kricok)
+        if (/*obj.gameObject == Hojdacka || obj.gameObject == Fontana || obj.gameObject == Kricok*/ obj.gameObject == Stena)
         {
             vprekazke = false;
         }
@@ -156,29 +157,29 @@ public class PlayerController : MonoBehaviour
     {
         if (obj.gameObject == Kral)
         {
-            Debug.Log("The Kral is touched");
+            //Debug.Log("The Kral is touched");
             Destroy(obj.gameObject);
             Hra_param.touch_kral = true;
             //Hra_param.aktualny_level = 1;
         }
 
-        if (obj.gameObject == Hojdacka || obj.gameObject == Fontana || obj.gameObject == Kricok)
+        if (/*obj.gameObject == Hojdacka || obj.gameObject == Fontana || obj.gameObject == Kricok*/ obj.gameObject == Stena)
         {
-            Debug.Log("The Hojdacka is touched");
+            //Debug.Log("The Hojdacka is touched");
             vprekazke = true;
             body2D.position = pozicia;
         }
 
         if (obj.gameObject == Save_Diskette)
         {
-            Debug.Log("The Save_Diskette is touched");
+            //Debug.Log("The Save_Diskette is touched");
             Hra_param.touch_save_diskette = true;
             //body2D.position = pozicia;
         }
 
         if (obj.gameObject.CompareTag("Listok"))
         {
-            Debug.Log("The Listok is touched");
+            //Debug.Log("The Listok is touched");
             Destroy(obj.gameObject);
             Hra_param.listok += 1;
         }

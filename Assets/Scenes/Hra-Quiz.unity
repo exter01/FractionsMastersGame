@@ -345,7 +345,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 486.73, y: 337.34}
+  m_AnchoredPosition: {x: 522.9, y: 337.34}
   m_SizeDelta: {x: 193.46844, y: 61.51116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &66260180
@@ -407,8 +407,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7187,7 +7187,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 302.76, y: 339.22}
+  m_AnchoredPosition: {x: 352.4, y: 340.6}
   m_SizeDelta: {x: 60.09352, y: 44.793777}
   m_Pivot: {x: 0.5, y: 0.5000002}
 --- !u!1 &1802975887
@@ -8701,8 +8701,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 247, y: 339.84}
-  m_SizeDelta: {x: 654.2927, y: 59}
+  m_AnchoredPosition: {x: 408.95, y: 341.86002}
+  m_SizeDelta: {x: 380.3, y: 59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2126059210
 MonoBehaviour:
@@ -8777,7 +8777,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c62fe845a23103545a6c6e60817c7899, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5d50083b3fca28242ab8f29c35a27eff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8838,7 +8838,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c231c380726b0141ac3ff2d9328b737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Playername: {fileID: 0}
   odpoved: {fileID: 231836759}
   score: {fileID: 1799442488}
   score_finish: {fileID: 1208005524}
