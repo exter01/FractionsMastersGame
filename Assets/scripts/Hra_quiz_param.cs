@@ -13,7 +13,7 @@ public class Hra_quiz_param : MonoBehaviour
     public TMP_Text score; // zobrazene skore
     public TMP_Text score_finish, score_finish_max; // zobrazene skore na konci v canvasscore
     public TMP_Text poradie;
-    public CanvasGroup hernycanvas, scorecanvas;
+    public CanvasGroup hernycanvas, scorecanvas, scoretopcanvas;
     public static int vybrana_odpoved, spravna_odpoved, priklad_cislo, act_score, act_bad;
     public static float cas_dlzka = 240f; //cas na vyber moznosti
 
@@ -501,6 +501,17 @@ public class Hra_quiz_param : MonoBehaviour
         scorecanvas.gameObject.SetActive(true);
         score_finish.text = string.Format("{0}", act_score);
         score_finish_max.text = string.Format("{0}", "10");
+        if (act_score == 10)
+        {
+            scorecanvas.gameObject.SetActive(false);
+            scoretopcanvas.gameObject.SetActive(true);
+        }
+    }
+
+    public void ok_canvastop()
+    {
+        scoretopcanvas.gameObject.SetActive(false);
+        scorecanvas.gameObject.SetActive(true);
     }
 
     public void QuitGame() //doriesit vyresetovanie hry NEJDE !

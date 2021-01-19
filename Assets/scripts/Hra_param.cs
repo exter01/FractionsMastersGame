@@ -16,8 +16,8 @@ public class Hra_param : MonoBehaviour
     //public VideoPlayer saving_video;
     public TMP_Text poradie;
     public TMP_Text odpoved, score; // zobrazene skore
-    public TMP_Text vyhodnotenie_score, vyhodnotenie_max_score, vyhodnotenie_max_score2, vyhodnotenie_score2;
-    public CanvasGroup hernycanvas, otazkovycanvas, vysvetlovaniecanvas, savingcanvas, loadingcanvas, vyhodnoteniecanvas, uvodcanvas;
+    public TMP_Text vyhodnotenie_score, vyhodnotenie_max_score, vyhodnotenie_end_score, vyhodnotenie_end_maxscore;
+    public CanvasGroup hernycanvas, otazkovycanvas, vysvetlovaniecanvas, /*savingcanvas, loadingcanvas,*/ vyhodnoteniecanvas, uvodcanvas, vyhodnotenietopcanvas,vyhodnotenieendcanvas;
     public static bool zobraz_uvod = false;
     public GameObject listok1, listok2, listok3, listok4, listok5, listok6, listok7, listok8, listok9, listok10, Save_Diskette;
     public GameObject listok11, listok12, listok13, listok14, listok15, listok16, listok17, listok18, listok19, listok20; //level 2
@@ -666,8 +666,15 @@ public class Hra_param : MonoBehaviour
         vyhodnoteniecanvas.gameObject.SetActive(true);
         vyhodnotenie_score.text = string.Format("{0}", act_score);
         vyhodnotenie_max_score.text = string.Format("{0}", "10");
-        vyhodnotenie_score2.text = string.Format("{0}", CELKOVESKORE);
-        vyhodnotenie_max_score2.text = string.Format("{0}", CELKOVESKORE_MAX);
+        
+        //vyhodnotenie_score2.text = string.Format("{0}", CELKOVESKORE);
+        //vyhodnotenie_max_score2.text = string.Format("{0}", CELKOVESKORE_MAX);
+
+        if(act_score == 10)//zobrazenie top vyhodnotenia
+        {
+            vyhodnoteniecanvas.gameObject.SetActive(false);
+            vyhodnotenietopcanvas.gameObject.SetActive(true);
+        }
     }
 
     void listok_enable()
@@ -1001,9 +1008,26 @@ public class Hra_param : MonoBehaviour
         vyhodnotenie_max_score2.text = string.Format("{0}", CELKOVESKORE_MAX);
     }*/
 
-    public void DalsiLevel()
+    public void DalsiLevel()//tlacitko po vyhodnoteni
     {
-        SceneManager.LoadScene("Hra");
+        if(aktualny_level == 6)
+        {
+            //QuitGame();
+            vyhodnoteniecanvas.gameObject.SetActive(false);
+            vyhodnotenietopcanvas.gameObject.SetActive(false);
+            vyhodnotenieendcanvas.gameObject.SetActive(true);
+            vyhodnotenie_end_score.text = string.Format("{0}", CELKOVESKORE);
+            vyhodnotenie_end_maxscore.text = string.Format("{0}", CELKOVESKORE_MAX);
+        }
+        else
+        {
+            SceneManager.LoadScene("Hra");
+        }
+    }
+
+    public void UkoncenieHry()
+    {
+        QuitGame();
     }
 
     /*void EndReached2(UnityEngine.Video.VideoPlayer vp)
