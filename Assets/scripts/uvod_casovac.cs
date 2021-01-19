@@ -10,7 +10,7 @@ public class uvod_casovac : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeLeft = 3f; //cas v sekundach
+        timeLeft = 2f; //cas v sekundach
         timerIsRunning = true;
         cas_uplynul = false;
     }
