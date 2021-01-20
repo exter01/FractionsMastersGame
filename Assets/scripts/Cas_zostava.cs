@@ -37,7 +37,7 @@ public class Cas_zostava : MonoBehaviour
             }
             else
             {
-                Debug.Log("Cas hry uplynul!");
+                //Debug.Log("Cas hry uplynul!");
                 timeLeft = 0;
                 //DisplayTime(timeLeft);
                 text.text = "00:00";
