@@ -7,15 +7,15 @@ using TMPro;
 
 public class Hra_quiz_param : MonoBehaviour
 {
-    public static string playernamestr;//meno hraca z menu
-    public TMP_Text Playername; //meno hraca z menu
+    //public static string playernamestr;//meno hraca z menu
+    //public TMP_Text Playername; //meno hraca z menu
     public TMP_Text odpoved; // vybrana odpoved
     public TMP_Text score; // zobrazene skore
     public TMP_Text score_finish, score_finish_max; // zobrazene skore na konci v canvasscore
     public TMP_Text poradie;
-    public CanvasGroup hernycanvas, scorecanvas;
+    public CanvasGroup hernycanvas, scorecanvas, scoretopcanvas;
     public static int vybrana_odpoved, spravna_odpoved, priklad_cislo, act_score, act_bad;
-    public static float cas_dlzka = 150f; //cas na vyber moznosti
+    public static float cas_dlzka = 240f; //cas na vyber moznosti
 
     /*public GameObject Xko, Fajka, Xko_1, Xko_2, Xko_3;
     public TMP_Text Zadanie_1, Zadanie_2, Zadanie_3, Zadanie_4, Zadanie_5;
@@ -50,6 +50,12 @@ public class Hra_quiz_param : MonoBehaviour
         B_2.text = string.Format("{0}", B2);
         C_1.text = string.Format("{0}", C1);
         C_2.text = string.Format("{0}", C2);
+        X1_Biely.gameObject.SetActive(true);
+        X1_Zlty.gameObject.SetActive(false);
+        X2_Biely.gameObject.SetActive(true);
+        X2_Zlty.gameObject.SetActive(false);
+        X3_Biely.gameObject.SetActive(true);
+        X3_Zlty.gameObject.SetActive(false);
     }
 
     public void spravne_odpovede()
@@ -281,53 +287,53 @@ public class Hra_quiz_param : MonoBehaviour
                 X1_ciarka.gameObject.SetActive(false);
                 X2_ciarka.gameObject.SetActive(false);
                 X3_ciarka.gameObject.SetActive(false);
-                Debug.Log("prvy priklad 5lvl");
-                nastav_priklad("4", "5", "", "6", "7", "<", "", ">", "", "=", "");
+                //Debug.Log("prvy priklad 5lvl");
+                nastav_priklad("4", "5", "?", "6", "7", "<", "", ">", "", "=", "");
                 spravna_odpoved = 1; //1 je A, 2 je B, 3 je C
             }
             if (priklad_cislo == 2)
             {
-                nastav_priklad("8", "7", "", "5", "4", "<", "", ">", "", "=", "");
+                nastav_priklad("8", "7", "?", "5", "4", "<", "", ">", "", "=", "");
                 spravna_odpoved = 1;
             }
             if (priklad_cislo == 3)
             {
-                nastav_priklad("7", "6", "", "1", "2", "<", "", ">", "", "=", "");
+                nastav_priklad("7", "6", "?", "1", "2", "<", "", ">", "", "=", "");
                 spravna_odpoved = 2;
             }
             if (priklad_cislo == 4)
             {
-                nastav_priklad("33", "22", "", "45", "67", "<", "", ">", "", "=", "");
+                nastav_priklad("33", "22", "?", "45", "67", "<", "", ">", "", "=", "");
                 spravna_odpoved = 2;
             }
             if (priklad_cislo == 5)
             {
-                nastav_priklad("19", "6", "", "57", "18", "<", "", ">", "", "=", "");
+                nastav_priklad("19", "6", "?", "57", "18", "<", "", ">", "", "=", "");
                 spravna_odpoved = 3;
             }
             if (priklad_cislo == 6)
             {
-                nastav_priklad("55", "5", "", "44", "4", "<", "", ">", "", "=", "");
+                nastav_priklad("55", "5", "?", "44", "4", "<", "", ">", "", "=", "");
                 spravna_odpoved = 3;
             }
             if (priklad_cislo == 7)
             {
-                nastav_priklad("28", "8", "", "32", "12", "<", "", ">", "", "=", "");
+                nastav_priklad("28", "8", "?", "32", "12", "<", "", ">", "", "=", "");
                 spravna_odpoved = 2;
             }
             if (priklad_cislo == 8)
             {
-                nastav_priklad("15", "16", "", "14", "11", "<", "", ">", "", "=", "");
+                nastav_priklad("15", "16", "?", "14", "11", "<", "", ">", "", "=", "");
                 spravna_odpoved = 1;
             }
             if (priklad_cislo == 9)
             {
-                nastav_priklad("3", "6", "", "6", "12", "<", "", ">", "", "=", "");
+                nastav_priklad("3", "6", "?", "6", "12", "<", "", ">", "", "=", "");
                 spravna_odpoved = 3;
             }
             if (priklad_cislo == 10)
             {
-                nastav_priklad("12", "15", "", "19", "22", "<", "", ">", "", "=", "");
+                nastav_priklad("12", "15", "?", "19", "22", "<", "", ">", "", "=", "");
                 spravna_odpoved = 1;
             }
         }
@@ -495,18 +501,28 @@ public class Hra_quiz_param : MonoBehaviour
         scorecanvas.gameObject.SetActive(true);
         score_finish.text = string.Format("{0}", act_score);
         score_finish_max.text = string.Format("{0}", "10");
+        if (act_score == 10)
+        {
+            scorecanvas.gameObject.SetActive(false);
+            scoretopcanvas.gameObject.SetActive(true);
+        }
+    }
+
+    public void ok_canvastop()
+    {
+        scoretopcanvas.gameObject.SetActive(false);
+        scorecanvas.gameObject.SetActive(true);
     }
 
     public void QuitGame() //doriesit vyresetovanie hry NEJDE !
     {
         SceneManager.LoadScene("Menu");
-        Debug.Log("quit game");
+        //Debug.Log("quit game");
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Playername.text = playernamestr; //meno hraca z menu
         vybrana_odpoved = 4;
         spravna_odpoved = 4;
         priklad_cislo = 0; 

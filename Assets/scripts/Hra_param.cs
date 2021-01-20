@@ -8,21 +8,23 @@ using TMPro;
 
 public class Hra_param : MonoBehaviour
 {
-    public GameObject Player, Kral, Hojdacka;
+    public GameObject Background1, Background2, Background3, Background4, Background5;
+    public GameObject Player, Kral;//, Hojdacka;
     public static string playernamestr;//meno hraca z menu
     public TMP_Text Playername;//meno hraca z menu
     public static int CELKOVESKORE = 0, CELKOVESKORE_MAX = 0, aktualny_level;//sucet skore medzi levelmi, aktualny level
-    public VideoPlayer saving_video;
+    //public VideoPlayer saving_video;
     public TMP_Text poradie;
     public TMP_Text odpoved, score; // zobrazene skore
-    public TMP_Text vyhodnotenie_score, vyhodnotenie_max_score, vyhodnotenie_max_score2, vyhodnotenie_score2;
-    public CanvasGroup hernycanvas, otazkovycanvas, vysvetlovaniecanvas, savingcanvas, loadingcanvas, vyhodnoteniecanvas;
+    public TMP_Text vyhodnotenie_score, vyhodnotenie_max_score, vyhodnotenie_end_score, vyhodnotenie_end_maxscore;
+    public CanvasGroup hernycanvas, otazkovycanvas, vysvetlovaniecanvas, /*savingcanvas, loadingcanvas,*/ vyhodnoteniecanvas, uvodcanvas, vyhodnotenietopcanvas,vyhodnotenieendcanvas;
+    public static bool zobraz_uvod = false;
     public GameObject listok1, listok2, listok3, listok4, listok5, listok6, listok7, listok8, listok9, listok10, Save_Diskette;
     public GameObject listok11, listok12, listok13, listok14, listok15, listok16, listok17, listok18, listok19, listok20; //level 2
     public GameObject listok21, listok22, listok23, listok24, listok25, listok26, listok27, listok28, listok29, listok30; //level 3
     //public GameObject listok31, listok32, listok33, listok34, listok35, listok36, listok37, listok38, listok39, listok40; //level 4
     //public GameObject listok41, listok42, listok43, listok44, listok45, listok46, listok47, listok48, listok49, listok50; //level 5
-    public GameObject Vysv_button_next, Vysv1_1, Vysv1_2, Vysv2_1, Vysv2_2, Vysv3_1, Vysv3_2, Vysv4_1, Vysv4_2, Vysv5_1, Vysv5_2;
+    public GameObject Vysv_button_next, Vysv1_1_1, Vysv1_1_2, Vysv1_2_1, Vysv1_2_2;
     public GameObject Vysv2_1_1, Vysv2_1_2, Vysv2_2_1, Vysv2_2_2; //level 2
     public GameObject Vysv3_1_1, Vysv3_1_2, Vysv3_2_1, Vysv3_2_2, Vysv3_3_1, Vysv3_3_2; //level 3
     public GameObject Vysv4_1_1, Vysv4_1_2, Vysv4_2_1, Vysv4_2_2; //level 4
@@ -46,6 +48,7 @@ public class Hra_param : MonoBehaviour
     public static bool vysvetlujeme;
     private int vysv_faza;
     private int counter_move_obj, counter_move_obj2; //podskakovanie krala, diskety
+    private int poz_faza;
 
     public void nastav_priklad(string Z1, string Z2, string Z3, string Z4, string Z5, string A1, string A2, string B1, string B2, string C1, string C2)
     {
@@ -60,11 +63,18 @@ public class Hra_param : MonoBehaviour
         B_2.text = string.Format("{0}", B2);
         C_1.text = string.Format("{0}", C1);
         C_2.text = string.Format("{0}", C2);
+        X1_Biely.gameObject.SetActive(true);
+        X1_Zlty.gameObject.SetActive(false);
+        X2_Biely.gameObject.SetActive(true);
+        X2_Zlty.gameObject.SetActive(false);
+        X3_Biely.gameObject.SetActive(true);
+        X3_Zlty.gameObject.SetActive(false);
     }
 
     public void spravne_odpovede()
     {
-        if(aktualny_level == 1)//scitanie
+        //Odpoved_bg.gameObject.SetActive(true);
+        if (aktualny_level == 1)//scitanie
         {
             if (priklad_cislo == 1)
             {
@@ -123,7 +133,7 @@ public class Hra_param : MonoBehaviour
         {
             if (priklad_cislo == 1)
             {
-                Debug.Log("prvy priklad 2lvl");
+                //Debug.Log("prvy priklad 2lvl");
                 nastav_priklad("2", "3", "-", "1", "2", "3", "6", "1", "6", "4", "6");
                 spravna_odpoved = 2; //1 je A, 2 je B, 3 je C
             }
@@ -179,7 +189,7 @@ public class Hra_param : MonoBehaviour
         {
             if (priklad_cislo == 1)
             {
-                Debug.Log("prvy priklad 3lvl");
+                //Debug.Log("prvy priklad 3lvl");
                 nastav_priklad("9", "4", "*", "2", "3", "3", "2", "4", "2", "6", "2");
                 spravna_odpoved = 1; //1 je A, 2 je B, 3 je C
             }
@@ -235,7 +245,7 @@ public class Hra_param : MonoBehaviour
         {
             if (priklad_cislo == 1)
             {
-                Debug.Log("prvy priklad 4lvl");
+                //Debug.Log("prvy priklad 4lvl");
                 nastav_priklad("1", "2", ":", "3", "4", "3", "3", "2", "3", "4", "3");
                 spravna_odpoved = 2; //1 je A, 2 je B, 3 je C
             }
@@ -293,58 +303,56 @@ public class Hra_param : MonoBehaviour
             {
                 Odpoved_bg.gameObject.SetActive(false);
                 Odpoved_bg2.gameObject.SetActive(true);
-                //Pomocny1_text.gameObject.SetActive(false);
-                //Pomocny2_text.gameObject.SetActive(false);
                 X1_ciarka.gameObject.SetActive(false);
                 X2_ciarka.gameObject.SetActive(false);
                 X3_ciarka.gameObject.SetActive(false);
-                Debug.Log("prvy priklad 5lvl");
-                nastav_priklad("6", "2", "", "4", "5", "<", "", ">", "", "=", "");
+                //Debug.Log("prvy priklad 5lvl");
+                nastav_priklad("6", "2", "?", "4", "5", "<", "", ">", "", "=", "");
                 spravna_odpoved = 2; //1 je A, 2 je B, 3 je C
             }
             if (priklad_cislo == 2)
             {
-                nastav_priklad("12", "9", "", "7", "5", "<", "", ">", "", "=", "");
+                nastav_priklad("12", "9", "?", "7", "5", "<", "", ">", "", "=", "");
                 spravna_odpoved = 1;
             }
             if (priklad_cislo == 3)
             {
-                nastav_priklad("4", "5", "", "8", "10", "<", "", ">", "", "=", "");
+                nastav_priklad("4", "5", "?", "8", "10", "<", "", ">", "", "=", "");
                 spravna_odpoved = 3;
             }
             if (priklad_cislo == 4)
             {
-                nastav_priklad("98", "43", "", "54", "68", "<", "", ">", "", "=", "");
+                nastav_priklad("98", "43", "?", "54", "68", "<", "", ">", "", "=", "");
                 spravna_odpoved = 2;
             }
             if (priklad_cislo == 5)
             {
-                nastav_priklad("15", "4", "", "12", "8", "<", "", ">", "", "=", "");
+                nastav_priklad("15", "4", "?", "12", "8", "<", "", ">", "", "=", "");
                 spravna_odpoved = 2;
             }
             if (priklad_cislo == 6)
             {
-                nastav_priklad("24", "11", "", "5", "4", "<", "", ">", "", "=", "");
+                nastav_priklad("24", "11", "?", "5", "4", "<", "", ">", "", "=", "");
                 spravna_odpoved = 2;
             }
             if (priklad_cislo == 7)
             {
-                nastav_priklad("3", "9", "", "6", "18", "<", "", ">", "", "=", "");
+                nastav_priklad("3", "9", "?", "6", "18", "<", "", ">", "", "=", "");
                 spravna_odpoved = 3;
             }
             if (priklad_cislo == 8)
             {
-                nastav_priklad("7", "5", "", "33", "12", "<", "", ">", "", "=", "");
+                nastav_priklad("7", "5", "?", "33", "12", "<", "", ">", "", "=", "");
                 spravna_odpoved = 1;
             }
             if (priklad_cislo == 9)
             {
-                nastav_priklad("13", "6", "", "39", "18", "<", "", ">", "", "=", "");
+                nastav_priklad("13", "6", "?", "39", "18", "<", "", ">", "", "=", "");
                 spravna_odpoved = 3;
             }
             if (priklad_cislo == 10)
             {
-                nastav_priklad("9", "8", "", "8", "9", "<", "", ">", "", "=", "");
+                nastav_priklad("9", "8", "?", "8", "9", "<", "", ">", "", "=", "");
                 spravna_odpoved = 2;
                 Cas_zostava.cas_uplynul = true; // po poslednom priklade zobrazime disketu
             }
@@ -357,7 +365,7 @@ public class Hra_param : MonoBehaviour
         touch_kral = false;
         vysvetlujeme = true;
         hernycanvas.gameObject.SetActive(false);
-        Hojdacka.SetActive(false);
+        //Hojdacka.SetActive(false);
         Player.SetActive(false);
         vysvetlovaniecanvas.gameObject.SetActive(true);
         vysvetlovanie_zobraz(vysv_faza);
@@ -369,7 +377,7 @@ public class Hra_param : MonoBehaviour
         {
             if (vysv_faza == 0)
             {
-                Vysv1_1.gameObject.SetActive(true);
+                Vysv1_1_1.gameObject.SetActive(true);
                 Vysvetlovanie_casovac.timerIsRunning = true;
                 Vysvetlovanie_casovac.cas_uplynul = false;
                 Vysvetlovanie_casovac.timeLeft = 2f;
@@ -377,14 +385,14 @@ public class Hra_param : MonoBehaviour
             if (vysv_faza == 1)
             {
                 Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysv1_2.gameObject.SetActive(true);
+                Vysv1_1_2.gameObject.SetActive(true);
                 Vysv_button_next.gameObject.SetActive(true);
             }
             if(vysv_faza == 2)
             {
-                Vysv1_1.gameObject.SetActive(false);
-                Vysv1_2.gameObject.SetActive(false);
-                Vysv2_1.gameObject.SetActive(true);
+                Vysv1_1_1.gameObject.SetActive(false);
+                Vysv1_1_2.gameObject.SetActive(false);
+                Vysv1_2_1.gameObject.SetActive(true);
                 Vysvetlovanie_casovac.timerIsRunning = true;
                 Vysvetlovanie_casovac.cas_uplynul = false;
                 Vysvetlovanie_casovac.timeLeft = 2f;
@@ -392,52 +400,7 @@ public class Hra_param : MonoBehaviour
             if (vysv_faza == 3)
             {
                 Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysv2_2.gameObject.SetActive(true);
-                Vysv_button_next.gameObject.SetActive(true);
-            }
-            if (vysv_faza == 4)
-            {
-                Vysv2_1.gameObject.SetActive(false);
-                Vysv2_2.gameObject.SetActive(false);
-                Vysv3_1.gameObject.SetActive(true);
-                Vysvetlovanie_casovac.timerIsRunning = true;
-                Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysvetlovanie_casovac.timeLeft = 2f;
-            }
-            if (vysv_faza == 5)
-            {
-                Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysv3_2.gameObject.SetActive(true);
-                Vysv_button_next.gameObject.SetActive(true);
-            }
-            if (vysv_faza == 6)
-            {
-                Vysv3_1.gameObject.SetActive(false);
-                Vysv3_2.gameObject.SetActive(false);
-                Vysv4_1.gameObject.SetActive(true);
-                Vysvetlovanie_casovac.timerIsRunning = true;
-                Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysvetlovanie_casovac.timeLeft = 2f;
-            }
-            if (vysv_faza == 7)
-            {
-                Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysv4_2.gameObject.SetActive(true);
-                Vysv_button_next.gameObject.SetActive(true);
-            }
-            if (vysv_faza == 8)
-            {
-                Vysv4_1.gameObject.SetActive(false);
-                Vysv4_2.gameObject.SetActive(false);
-                Vysv5_1.gameObject.SetActive(true);
-                Vysvetlovanie_casovac.timerIsRunning = true;
-                Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysvetlovanie_casovac.timeLeft = 2f;
-            }
-            if (vysv_faza == 9)
-            {
-                Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysv5_2.gameObject.SetActive(true);
+                Vysv1_2_2.gameObject.SetActive(true);
                 Vysv_button_next.gameObject.SetActive(true);
             }
         }
@@ -472,51 +435,6 @@ public class Hra_param : MonoBehaviour
                 Vysv2_2_2.gameObject.SetActive(true);
                 Vysv_button_next.gameObject.SetActive(true);
             }
-            /*if (vysv_faza == 4)
-            {
-                Vysv2_2.gameObject.SetActive(false);
-                Vysv3_1.gameObject.SetActive(true);
-                Vysvetlovanie_casovac.timerIsRunning = true;
-                Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysvetlovanie_casovac.timeLeft = 2f;
-            }
-            if (vysv_faza == 5)
-            {
-                Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysv3_1.gameObject.SetActive(false);
-                Vysv3_2.gameObject.SetActive(true);
-                Vysv_button_next.gameObject.SetActive(true);
-            }
-            if (vysv_faza == 6)
-            {
-                Vysv3_2.gameObject.SetActive(false);
-                Vysv4_1.gameObject.SetActive(true);
-                Vysvetlovanie_casovac.timerIsRunning = true;
-                Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysvetlovanie_casovac.timeLeft = 2f;
-            }
-            if (vysv_faza == 7)
-            {
-                Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysv4_1.gameObject.SetActive(false);
-                Vysv4_2.gameObject.SetActive(true);
-                Vysv_button_next.gameObject.SetActive(true);
-            }
-            if (vysv_faza == 8)
-            {
-                Vysv4_2.gameObject.SetActive(false);
-                Vysv5_1.gameObject.SetActive(true);
-                Vysvetlovanie_casovac.timerIsRunning = true;
-                Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysvetlovanie_casovac.timeLeft = 2f;
-            }
-            if (vysv_faza == 9)
-            {
-                Vysvetlovanie_casovac.cas_uplynul = false;
-                Vysv5_1.gameObject.SetActive(false);
-                Vysv5_2.gameObject.SetActive(true);
-                Vysv_button_next.gameObject.SetActive(true);
-            }*/
         }
 
         if (aktualny_level == 3)//nasobenie
@@ -674,7 +592,7 @@ public class Hra_param : MonoBehaviour
         vysv_faza++;
         vysvetlovanie_zobraz(vysv_faza);
         Vysv_button_next.gameObject.SetActive(false);
-        if(aktualny_level == 1 && vysv_faza == 10)
+        if(aktualny_level == 1 && vysv_faza == 4)
         {
             vysvetlujeme = false;
             next_vysvetlovanie();
@@ -709,7 +627,7 @@ public class Hra_param : MonoBehaviour
     {
         vysvetlovaniecanvas.gameObject.SetActive(false);
         hernycanvas.gameObject.SetActive(true);
-        Hojdacka.SetActive(true);
+        //Hojdacka.SetActive(true);
         Player.SetActive(true);
         if(aktualny_level == 1 || aktualny_level == 4)
         {
@@ -730,17 +648,33 @@ public class Hra_param : MonoBehaviour
             listok23.SetActive(true);
         }
         Cas_zostava.timerIsRunning = true;
-        Cas_zostava.timeLeft = 151f;//ukazuje time - 1//ma byt 151 //cas levelu
+        Cas_zostava.timeLeft = 241f;//ukazuje time - 1//ma byt 151 //cas levelu
     }
 
     void saving_enable()
     {
         hernycanvas.gameObject.SetActive(false);
-        Hojdacka.SetActive(false);
+        //Hojdacka.SetActive(false);
         Player.SetActive(false);
+
+        /*savingcanvas.gameObject.SetActive(true);
+        saving_video.Play();*/
+        CELKOVESKORE = CELKOVESKORE + act_score;
+        aktualny_level++;
+        CELKOVESKORE_MAX += 10;
+        //savingcanvas.gameObject.SetActive(false);
+        vyhodnoteniecanvas.gameObject.SetActive(true);
+        vyhodnotenie_score.text = string.Format("{0}", act_score);
+        vyhodnotenie_max_score.text = string.Format("{0}", "10");
         
-        savingcanvas.gameObject.SetActive(true);
-        saving_video.Play();
+        //vyhodnotenie_score2.text = string.Format("{0}", CELKOVESKORE);
+        //vyhodnotenie_max_score2.text = string.Format("{0}", CELKOVESKORE_MAX);
+
+        if(act_score == 10)//zobrazenie top vyhodnotenia
+        {
+            vyhodnoteniecanvas.gameObject.SetActive(false);
+            vyhodnotenietopcanvas.gameObject.SetActive(true);
+        }
     }
 
     void listok_enable()
@@ -748,7 +682,7 @@ public class Hra_param : MonoBehaviour
         pocet_zobraz_list++;
         priklad_cislo++;
         hernycanvas.gameObject.SetActive(false);
-        Hojdacka.SetActive(false);
+        //Hojdacka.SetActive(false);
         Player.SetActive(false);
         otazkovycanvas.gameObject.SetActive(true);
         listok++;
@@ -802,10 +736,10 @@ public class Hra_param : MonoBehaviour
 
     void listok_disable()
     {
-        Debug.Log(listok);
+        //Debug.Log(listok);
         otazkovycanvas.gameObject.SetActive(false);
         hernycanvas.gameObject.SetActive(true);
-        Hojdacka.SetActive(true);
+        //Hojdacka.SetActive(true);
         Player.SetActive(true);
         listok++;
     }
@@ -891,20 +825,20 @@ public class Hra_param : MonoBehaviour
         listky = GameObject.FindGameObjectsWithTag("Listok");
         
         
-        if (counter_move_obj3 == 25)
+        if (counter_move_obj3 == 20)
         {
             foreach (GameObject listek in listky)
             {
                 //listek.gameObject.SetActive(false);
-                listek.transform.position = new Vector3(listek.transform.position.x + 1, listek.transform.position.y + 2, listek.transform.position.z);
+                listek.transform.position = new Vector3(listek.transform.position.x + 2, listek.transform.position.y + 3, listek.transform.position.z);
             }
         }
-        if (counter_move_obj3 == 50)
+        if (counter_move_obj3 == 45)
         {
             foreach (GameObject listek in listky)
             {
                 //listek.gameObject.SetActive(false);
-                listek.transform.position = new Vector3(listek.transform.position.x - 1, listek.transform.position.y - 2, listek.transform.position.z);
+                listek.transform.position = new Vector3(listek.transform.position.x - 2, listek.transform.position.y - 3, listek.transform.position.z);
             }
             counter_move_obj3 = 0;
         }
@@ -995,13 +929,30 @@ public class Hra_param : MonoBehaviour
             //Debug.Log(vybrana_odpoved);
             odpoved.text = string.Format("{0}", ""); // vynulujeme odpoved
         }
-        
+    }
+
+    public void uvodcanvas_ok()
+    {
+        zobraz_uvod = false;
+        uvodcanvas.gameObject.SetActive(false);
+        hernycanvas.gameObject.SetActive(true);
+        //Hojdacka.SetActive(true);
+        Player.SetActive(true);
+        Kral.SetActive(true);   
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        saving_video.url = System.IO.Path.Combine(Application.streamingAssetsPath, "beh_smer_hrad.mp4");
+        if(zobraz_uvod == true)
+        {   
+            hernycanvas.gameObject.SetActive(false);
+            //Hojdacka.SetActive(false);
+            Player.SetActive(false);
+            Kral.SetActive(false);
+            uvodcanvas.gameObject.SetActive(true);
+        }
+        //saving_video.url = System.IO.Path.Combine(Application.streamingAssetsPath, "beh_smer_hrad.mp4");
         touch_kral = false;
         listok = 0; //1-show,2-showed,3-hide atd
         vybrana_odpoved = 4;
@@ -1018,30 +969,33 @@ public class Hra_param : MonoBehaviour
         counter_move_obj = 0;
         counter_move_obj2 = 0;
         vysv_faza = 0;
-        saving_video.loopPointReached += EndReached;
+        //saving_video.loopPointReached += EndReached;
         Playername.text = playernamestr; //meno hraca z menu
         update_score();//aby sa nastavilo score na 0
         //loading_video.Play();
-        Debug.Log(aktualny_level);
+        //Debug.Log(aktualny_level);
 
         if(aktualny_level == 2)
         {
-            Kral.transform.position = new Vector3(-130f,-270f, Kral.transform.position.z);
+            Kral.transform.position = new Vector3(-548f,-270f, Kral.transform.position.z);
+            Player.transform.position = new Vector3(200f, -191f, Player.transform.position.z);
         }
 
         if (aktualny_level == 3)
         {
-            Kral.transform.position = new Vector3(-100f, 68f, Kral.transform.position.z);
+            Kral.transform.position = new Vector3(-44f, -276f, Kral.transform.position.z);
+            Player.transform.position = new Vector3(-542f, -135f, Player.transform.position.z);
         }
 
         if (aktualny_level == 5)
         {
-            Kral.transform.position = new Vector3(-110f, 68f, Kral.transform.position.z);
+            Kral.transform.position = new Vector3(-98f, -280f, Kral.transform.position.z);
+            Player.transform.position = new Vector3(452f, -175f, Player.transform.position.z);
         }
 
     }
 
-    void EndReached(UnityEngine.Video.VideoPlayer vp)
+    /*void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
         CELKOVESKORE = CELKOVESKORE + act_score;
         aktualny_level++;
@@ -1052,11 +1006,28 @@ public class Hra_param : MonoBehaviour
         vyhodnotenie_max_score.text = string.Format("{0}", "10");
         vyhodnotenie_score2.text = string.Format("{0}", CELKOVESKORE);
         vyhodnotenie_max_score2.text = string.Format("{0}", CELKOVESKORE_MAX);
+    }*/
+
+    public void DalsiLevel()//tlacitko po vyhodnoteni
+    {
+        if(aktualny_level == 6)
+        {
+            //QuitGame();
+            vyhodnoteniecanvas.gameObject.SetActive(false);
+            vyhodnotenietopcanvas.gameObject.SetActive(false);
+            vyhodnotenieendcanvas.gameObject.SetActive(true);
+            vyhodnotenie_end_score.text = string.Format("{0}", CELKOVESKORE);
+            vyhodnotenie_end_maxscore.text = string.Format("{0}", CELKOVESKORE_MAX);
+        }
+        else
+        {
+            SceneManager.LoadScene("Hra");
+        }
     }
 
-    public void DalsiLevel()
+    public void UkoncenieHry()
     {
-        SceneManager.LoadScene("Hra-loading");
+        QuitGame();
     }
 
     /*void EndReached2(UnityEngine.Video.VideoPlayer vp)
@@ -1076,6 +1047,38 @@ public class Hra_param : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Odpoved_bg.gameObject.SetActive(false);
+        if(hernycanvas.gameObject.active)
+        {
+            poz_faza++;
+            if(poz_faza == 40)
+            {
+                Background1.gameObject.SetActive(false);
+                Background2.gameObject.SetActive(true);
+            }
+            if (poz_faza == 80)
+            {
+                Background2.gameObject.SetActive(false);
+                Background3.gameObject.SetActive(true);
+            }
+            if (poz_faza == 120)
+            {
+                Background3.gameObject.SetActive(false);
+                Background4.gameObject.SetActive(true);
+            }
+            if (poz_faza == 160)
+            {
+                Background4.gameObject.SetActive(false);
+                Background5.gameObject.SetActive(true);
+            }
+            if (poz_faza > 190)
+            {
+                Background5.gameObject.SetActive(false);
+                Background1.gameObject.SetActive(true);
+                poz_faza = 0;
+            }
+        }
+
         //Debug.Log(aktualny_level);
         if (prebehlo_vysvetlovanie == false)//podskakovanie krala
         {

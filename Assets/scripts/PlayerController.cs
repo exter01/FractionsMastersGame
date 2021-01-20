@@ -10,10 +10,11 @@ public class PlayerController : MonoBehaviour
 
     public GameObject Player;
     public GameObject Kral;
-    public GameObject Hojdacka;
-    public GameObject Fontana;
-    public GameObject Kricok;
+    //public GameObject Hojdacka;
+    //public GameObject Fontana;
+    //public GameObject Kricok;
     public GameObject Save_Diskette;
+    public GameObject Stena;
     //public GameObject Listok;
     public static float runSpeed;
     public static float jumpSpeed;
@@ -94,19 +95,19 @@ public class PlayerController : MonoBehaviour
         //body2D.MovePosition(wantedPosition);
     }
 
-    void Pohyb()//stary pohyb
+    /*void Pohyb()//stary pohyb
     {
         //moveX = Input.GetAxis("Horizontal") * Time.deltaTime * runSpeed;
         //moveY = Input.GetAxis("Vertical") * Time.deltaTime * runSpeed;
         //jumpY = Input.GetAxis("Jump") * Time.deltaTime * jumpSpeed;
         //transform.Translate(moveX, moveY, 0f);
         //Debug.Log("4");
-    }
+    }*/
 
     void FixedUpdate()
     {
         PlayerSpriteChange(); //menime sprite hraca pri pohybe WASD
-        Pohyb(); //pohyb hraca
+        //Pohyb(); //pohyb hraca
         kontrola_hranic(); //kontrola hranic hry
     }
 
@@ -120,26 +121,25 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(834, transform.position.y, transform.position.z);
         }
-        if (transform.position.y >= 90)//horny okraj
+        if (transform.position.y >= -55)//horny okraj
         {
-            transform.position = new Vector3(transform.position.x, 90, transform.position.z);
+            transform.position = new Vector3(transform.position.x, -55, transform.position.z);
         }
-        if (transform.position.y <= -414)//spodny okraj
+        if (transform.position.y <= -390)//spodny okraj
         {
-            transform.position = new Vector3(transform.position.x, -414, transform.position.z);
+            transform.position = new Vector3(transform.position.x, -390, transform.position.z);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         //Debug.Log(transform.position); //zapnutie pozicii v debugu
     }
 
     void OnTriggerStay2D(Collider2D obj)
     {
-        if (obj.gameObject == Hojdacka || obj.gameObject == Fontana || obj.gameObject == Kricok)
+        if (/*obj.gameObject == Hojdacka || obj.gameObject == Fontana || obj.gameObject == Kricok*/ obj.gameObject == Stena)
         {
             body2D.position = pozicia;
         }
@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D obj)
     {
-        if (obj.gameObject == Hojdacka || obj.gameObject == Fontana || obj.gameObject == Kricok)
+        if (/*obj.gameObject == Hojdacka || obj.gameObject == Fontana || obj.gameObject == Kricok*/ obj.gameObject == Stena)
         {
             vprekazke = false;
         }
@@ -157,29 +157,29 @@ public class PlayerController : MonoBehaviour
     {
         if (obj.gameObject == Kral)
         {
-            Debug.Log("The Kral is touched");
+            //Debug.Log("The Kral is touched");
             Destroy(obj.gameObject);
             Hra_param.touch_kral = true;
             //Hra_param.aktualny_level = 1;
         }
 
-        if (obj.gameObject == Hojdacka || obj.gameObject == Fontana || obj.gameObject == Kricok)
+        if (/*obj.gameObject == Hojdacka || obj.gameObject == Fontana || obj.gameObject == Kricok*/ obj.gameObject == Stena)
         {
-            Debug.Log("The Hojdacka is touched");
+            //Debug.Log("The Hojdacka is touched");
             vprekazke = true;
             body2D.position = pozicia;
         }
 
         if (obj.gameObject == Save_Diskette)
         {
-            Debug.Log("The Save_Diskette is touched");
+            //Debug.Log("The Save_Diskette is touched");
             Hra_param.touch_save_diskette = true;
             //body2D.position = pozicia;
         }
 
         if (obj.gameObject.CompareTag("Listok"))
         {
-            Debug.Log("The Listok is touched");
+            //Debug.Log("The Listok is touched");
             Destroy(obj.gameObject);
             Hra_param.listok += 1;
         }
