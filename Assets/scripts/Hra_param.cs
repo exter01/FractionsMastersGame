@@ -8,6 +8,7 @@ using TMPro;
 
 public class Hra_param : MonoBehaviour
 {
+    public AudioSource negative, positive, HudbaHra;
     public GameObject Background1, Background2, Background3, Background4, Background5;
     public GameObject Player, Kral;//, Hojdacka;
     public static string playernamestr;//meno hraca z menu
@@ -365,6 +366,8 @@ public class Hra_param : MonoBehaviour
         touch_kral = false;
         vysvetlujeme = true;
         hernycanvas.gameObject.SetActive(false);
+        //HudbaHra.Pause();
+        HudbaHra.volume = 0.05f;
         //Hojdacka.SetActive(false);
         Player.SetActive(false);
         vysvetlovaniecanvas.gameObject.SetActive(true);
@@ -627,6 +630,8 @@ public class Hra_param : MonoBehaviour
     {
         vysvetlovaniecanvas.gameObject.SetActive(false);
         hernycanvas.gameObject.SetActive(true);
+        //HudbaHra.UnPause();
+        HudbaHra.volume = 1f;
         //Hojdacka.SetActive(true);
         Player.SetActive(true);
         if(aktualny_level == 1 || aktualny_level == 4)
@@ -654,6 +659,7 @@ public class Hra_param : MonoBehaviour
     void saving_enable()
     {
         hernycanvas.gameObject.SetActive(false);
+        //HudbaHra.Pause(); //nevypiname hudbu pri vyhodnoteni
         //Hojdacka.SetActive(false);
         Player.SetActive(false);
 
@@ -682,6 +688,8 @@ public class Hra_param : MonoBehaviour
         pocet_zobraz_list++;
         priklad_cislo++;
         hernycanvas.gameObject.SetActive(false);
+        //HudbaHra.Pause();
+        HudbaHra.volume = 0.1f;
         //Hojdacka.SetActive(false);
         Player.SetActive(false);
         otazkovycanvas.gameObject.SetActive(true);
@@ -739,6 +747,8 @@ public class Hra_param : MonoBehaviour
         //Debug.Log(listok);
         otazkovycanvas.gameObject.SetActive(false);
         hernycanvas.gameObject.SetActive(true);
+        //HudbaHra.UnPause();
+        HudbaHra.volume = 1f;
         //Hojdacka.SetActive(true);
         Player.SetActive(true);
         listok++;
@@ -856,23 +866,27 @@ public class Hra_param : MonoBehaviour
                     act_score++;
                     Fajka.gameObject.SetActive(true);
                     X1_Zlty.gameObject.SetActive(false);
+                    positive.Play();
                 }
                 else if (vybrana_odpoved == 2 && spravna_odpoved == 2)
                 {
                     act_score++;
                     Fajka.gameObject.SetActive(true);
                     X2_Zlty.gameObject.SetActive(false);
+                    positive.Play();
                 }
                 else if (vybrana_odpoved == 3 && spravna_odpoved == 3)
                 {
                     act_score++;
                     Fajka.gameObject.SetActive(true);
                     X3_Zlty.gameObject.SetActive(false);
+                    positive.Play();
                 }
                 else
                 {
                     //bomb++;
                     Xko.gameObject.SetActive(true);
+                    negative.Play();
                 }
 
                 if(spravna_odpoved == 1)
@@ -938,14 +952,19 @@ public class Hra_param : MonoBehaviour
         hernycanvas.gameObject.SetActive(true);
         //Hojdacka.SetActive(true);
         Player.SetActive(true);
-        Kral.SetActive(true);   
+        Kral.SetActive(true);
+        //HudbaHra.UnPause();
+        HudbaHra.volume = 1f;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        if(zobraz_uvod == true)
-        {   
+        HudbaHra.Play();
+        if (zobraz_uvod == true)
+        {
+            //HudbaHra.Pause();
+            HudbaHra.volume = 0.05f;
             hernycanvas.gameObject.SetActive(false);
             //Hojdacka.SetActive(false);
             Player.SetActive(false);

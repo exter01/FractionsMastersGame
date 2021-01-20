@@ -7,6 +7,7 @@ using TMPro;
 
 public class Hra_quiz_param : MonoBehaviour
 {
+    public AudioSource negative, positive, HudbaQuiz;
     //public static string playernamestr;//meno hraca z menu
     //public TMP_Text Playername; //meno hraca z menu
     public TMP_Text odpoved; // vybrana odpoved
@@ -418,23 +419,27 @@ public class Hra_quiz_param : MonoBehaviour
                     act_score++;
                     Fajka.gameObject.SetActive(true);
                     X1_Zlty.gameObject.SetActive(false);
+                    positive.Play();
                 }
                 else if (vybrana_odpoved == 2 && spravna_odpoved == 2)
                 {
                     act_score++;
                     Fajka.gameObject.SetActive(true);
                     X2_Zlty.gameObject.SetActive(false);
+                    positive.Play();
                 }
                 else if (vybrana_odpoved == 3 && spravna_odpoved == 3)
                 {
                     act_score++;
                     Fajka.gameObject.SetActive(true);
                     X3_Zlty.gameObject.SetActive(false);
+                    positive.Play();
                 }
                 else
                 {
                     act_bad++;
                     Xko.gameObject.SetActive(true);
+                    negative.Play();
                 }
 
                 if (spravna_odpoved == 1)
@@ -497,6 +502,7 @@ public class Hra_quiz_param : MonoBehaviour
 
     public void score_vyhodnotenie()
     {
+        HudbaQuiz.volume = 1f;
         hernycanvas.gameObject.SetActive(false);
         scorecanvas.gameObject.SetActive(true);
         score_finish.text = string.Format("{0}", act_score);
@@ -523,6 +529,8 @@ public class Hra_quiz_param : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        HudbaQuiz.Play();
+        HudbaQuiz.volume = 0.1f;
         vybrana_odpoved = 4;
         spravna_odpoved = 4;
         priklad_cislo = 0; 

@@ -8,12 +8,13 @@ using TMPro;
 public class Menu_param : MonoBehaviour
 {
     public TMP_Text Playername;
-    public CanvasGroup menucanvas, menudvacanvas, nickcanvas, settingscanvas, otaznikcanvas, quizcanvas, autoricanvas;
+    public CanvasGroup menucanvas, menudvacanvas, nickcanvas, settingscanvas, otaznikcanvas, quizcanvas;//, autoricanvas;
     public static string kam_idem = "nikam";
+    public AudioSource HudbaMenu;
 
     void Start()
     {
-        //
+        HudbaMenu.Play();
     }
 
     public void NewGame()
