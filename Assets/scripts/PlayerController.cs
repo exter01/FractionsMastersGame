@@ -108,10 +108,10 @@ public class PlayerController : MonoBehaviour
     {
         PlayerSpriteChange(); //menime sprite hraca pri pohybe WASD
         //Pohyb(); //pohyb hraca
-        kontrola_hranic(); //kontrola hranic hry
+        //kontrola_hranic(); //kontrola hranic hry
     }
 
-    void kontrola_hranic()//kontrola hranic hry
+    /*void kontrola_hranic()//kontrola hranic hry
     {
         if (transform.position.x <= -840)//lavy okraj
         {
@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, -390, transform.position.z);
         }
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
